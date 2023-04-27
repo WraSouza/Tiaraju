@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Tiaraju.Views.ServicosView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mvvm="clr-namespace:Tiaraju.ViewModels"
+    Title="Serviços">
+    <ContentPage.BindingContext>
+        <mvvm:ServicosViewModel/>
+    </ContentPage.BindingContext>
+    <Grid>
+        <Image
+            HeightRequest="100"
+            HorizontalOptions="Center"
+            Opacity="0.1"
+            Source="logotiaraju.png"
+            VerticalOptions="Center" />
+        <VerticalStackLayout>
+
+            <Grid
+                Margin="0,30,0,0"
+                ColumnDefinitions="*,*"
+                RowDefinitions="80,80,80,80"
+                RowSpacing="10">
+
+                <Image
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Source="glpi.jpg">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding AbrirGLPICommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    FontFamily="OpenSansSemibold"
+                    FontSize="Medium"
+                    HorizontalTextAlignment="Center"
+                    Text="GLPI" />
+
+                <Image
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Source="calendariocq.jpg" />
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    FontFamily="OpenSansSemibold"
+                    FontSize="Medium"
+                    HorizontalTextAlignment="Center"
+                    Text="Calendário CQ" />
+
+                <Image
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Source="calendariocq.jpg" />
+
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    FontFamily="OpenSansSemibold"
+                    FontSize="Medium"
+                    HorizontalTextAlignment="Center"
+                    Text="Calendário GQ" />
+
+            </Grid>
+        </VerticalStackLayout>
+    </Grid>
+
+</ContentPage>

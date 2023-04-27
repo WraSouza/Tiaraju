@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tiaraju.Views.CadastrarUsuarioView"
+             xmlns:mvvm="clr-namespace:Tiaraju.ViewModels"
+             Title="CadastrarUsuarioView">
+
+    <ContentPage.BindingContext>
+        <mvvm:CadastrarUsuarioViewModel/>
+    </ContentPage.BindingContext>
+    
+    <Grid RowDefinitions="*,*,*">
+        <Image Source="logotiaraju.png" 
+               Grid.Row="0"      
+               VerticalOptions="Start"
+               Margin="0,20,0,0"
+               HeightRequest="100"/>
+
+        <VerticalStackLayout Spacing="25" Margin="20,0,20,0" Grid.Row="1">
+            <Label Text="Nome"
+                   TextColor="Green"
+                   FontFamily="OpenSansSemibold"
+                   FontSize="Large"/>
+
+            <Entry Text="{Binding Name}"
+                   FontSize="20"
+                   FontFamily="OpenSansRegular"/>
+
+            <Label Text="Nome de Usuário"
+                   TextColor="Green"
+                   FontFamily="OpenSansSemibold"
+                   FontSize="Large"/>
+
+            <Entry Text="{Binding Username}"
+                   FontSize="20"
+                   FontFamily="OpenSansRegular"
+                   TextTransform="Lowercase"/>
+
+            <Label Text="Setor (Ex.: RH)"
+                   TextColor="Green"
+                   FontFamily="OpenSansSemibold"
+                   FontSize="Large"/>
+
+            <Entry Text="{Binding Department}"
+                   FontSize="20"
+                   FontFamily="OpenSansRegular"
+                   TextTransform="Uppercase"/>
+
+        </VerticalStackLayout>
+
+
+        <Button Text="Salvar"
+                Command="{Binding CadastrarUsuarioCommand}"
+                FontFamily="OpenSansSemibold"
+                BackgroundColor="Green"
+                HeightRequest="50"
+                VerticalOptions="End"
+                Margin="20,0,20,20"
+                Grid.Row="2"/>
+    </Grid>
+</ContentPage>

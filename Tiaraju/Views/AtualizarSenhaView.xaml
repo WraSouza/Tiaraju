@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tiaraju.Views.AtualizarSenhaView"
+             xmlns:mvvm="clr-namespace:Tiaraju.ViewModels"
+             Title="AtualizarSenhaView">
+    <ContentPage.BindingContext>
+        <mvvm:TrocarSenhaViewModel/>
+    </ContentPage.BindingContext>
+    
+    
+    <Grid RowDefinitions="*,*">
+        <Image Source="logotiaraju.png"
+               Grid.Row="0"
+               HeightRequest="100"/>
+        
+        <VerticalStackLayout Grid.Row="1" Padding="20" Spacing="20">
+            <Label Text="Nova Senha"
+                   FontFamily="OpenSansSemibold"
+                   TextColor="Green"
+                   FontSize="Medium"/>
+
+            <Entry IsPassword="True"
+                   Text="{Binding NovaSenha}"
+                   FontFamily="OpenSansRegular"
+                   TextColor="Black"
+                   FontSize="Medium"/>
+
+            <Label Text="Confirme Nova Senha"
+                   FontFamily="OpenSansSemibold"
+                   TextColor="Green"
+                   FontSize="Medium"/>
+
+            <Entry IsPassword="True"
+                   Text="{Binding ConfirmaNovaSenha}"
+                   FontFamily="OpenSansRegular"
+                   TextColor="Black"
+                   FontSize="Medium"/>
+
+            <Grid>
+                <Button Text="Login"
+                        Command="{Binding AtualizarSenhaCommand}"
+                        FontFamily="OpenSansSemibold"
+                        FontSize="Medium"
+                        BackgroundColor="Green"
+                        Margin="0,35,0,0">
+                    <Button.Triggers>
+                        <DataTrigger TargetType="Button" Binding="{Binding AtualizarSenhaCommand.IsRunning}" Value="True">
+                            <Setter Property="Text" Value=""/>
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
+
+                <ActivityIndicator IsRunning="{Binding AtualizarSenhaCommand.IsRunning}"
+                                   IsVisible="{Binding AtualizarSenhaCommand.IsRunning}"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   Margin="0,35,0,0"
+                                   Color="White"/>
+            </Grid>
+
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
