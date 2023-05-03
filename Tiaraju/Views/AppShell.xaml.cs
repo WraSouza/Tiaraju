@@ -10,5 +10,10 @@ public partial class AppShell : Shell
 
         Routing.RegisterRoute(nameof(GerenciamentoProjetosView), typeof(GerenciamentoProjetosView));
 
+        Routing.RegisterRoute(nameof(PMOSetorView), typeof(PMOSetorView));
+
+        Routing.RegisterRoute(nameof(AdicionarProjetoView), typeof(AdicionarProjetoView));
+
+
     }
 }

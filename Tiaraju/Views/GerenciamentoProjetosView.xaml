@@ -1,12 +1,128 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Tiaraju.Views.GerenciamentoProjetosView"
-             Title="Gerenciamento de Projetos">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+<ContentPage
+    x:Class="Tiaraju.Views.GerenciamentoProjetosView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mvvm="clr-namespace:Tiaraju.ViewModels"
+    Title="Gerenciamento de Projetos">
+
+    <ContentPage.BindingContext>
+        <mvvm:GerenciamentoProjetosViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <RefreshView>
+            <CollectionView
+                x:Name="collectionView"
+                Margin="10,40,10,0"
+                EmptyView="Não Há Projetos Cadastrados no Momento"
+                IsGrouped="False"
+                ItemsSource="{Binding Projects}">
+
+                <!--<CollectionView.ItemsLayout>
+                    <GridItemsLayout
+                        HorizontalItemSpacing="2"
+                        Orientation="Vertical"
+                        Span="2"
+                        VerticalItemSpacing="5" />
+                </CollectionView.ItemsLayout>-->
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout Margin="5,5,5,0">
+                            <Border StrokeShape="RoundRectangle 5,5,5,5">
+                                <VerticalStackLayout Margin="5,5,5,5" Spacing="5">
+
+                                    <Grid ColumnDefinitions="*,*,*"                                          
+                                          RowDefinitions="20,30">
+                                        <Label  Grid.Column="0"
+                                                Grid.Row="0"
+                                                FontFamily="OpenSansSemibold"
+                                                FontSize="15"
+                                                Text="Setor:" />
+                                        <Label Grid.Row="1"
+                                               Grid.Column="0"
+                                               Grid.ColumnSpan="2"
+                                               FontFamily="OpenSansRegular"
+                                                FontSize="18"
+                                                Text="{Binding Departments}" />
+
+                                        <Label Grid.Column="2"
+                                               Grid.Row="0"
+                                               HorizontalOptions="End"
+                                                FontFamily="OpenSansSemibold"
+                                                FontSize="15"
+                                                Text="Prioridade" />
+                                        <Label
+                                               Grid.Column="2"
+                                               Grid.Row="1"
+                                                HorizontalOptions="End"
+                                                FontFamily="OpenSansRegular"
+                                                FontSize="18"
+                                                Text="{Binding Priority}" />
+                                    </Grid>
+                                    <!--<HorizontalStackLayout>
+
+                                        <VerticalStackLayout>
+                                            <Label
+                                                FontFamily="OpenSansSemibold"
+                                                FontSize="15"
+                                                Text="Setor:" />
+                                            <Label
+                                                FontFamily="OpenSansRegular"
+                                                FontSize="18"
+                                                Text="{Binding Departments}" />
+                                        </VerticalStackLayout>
+                                        <VerticalStackLayout Margin="50,0,0,0">
+                                            <Label
+                                                FontFamily="OpenSansSemibold"
+                                                FontSize="15"
+                                                Text="Prioridade" />
+                                            <Label
+                                                FontFamily="OpenSansRegular"
+                                                FontSize="20"
+                                                Text="{Binding Priority}" />
+                                        </VerticalStackLayout>
+
+                                    </HorizontalStackLayout>-->
+
+
+                                    <Label
+                                        FontFamily="OpenSansSemibold"
+                                        FontSize="15"
+                                        Text="Descrição:" />
+                                    <Label
+                                        FontFamily="OpenSansRegular"
+                                        FontSize="20"
+                                        Text="{Binding ProjectName}" />
+
+                                    <Label
+                                        FontFamily="OpenSansSemibold"
+                                        FontSize="15"
+                                        Text="Data Final:" />
+                                    <Label
+                                        FontFamily="OpenSansRegular"
+                                        FontSize="20"
+                                        Text="{Binding FinalDate}" />
+                                </VerticalStackLayout>
+                            </Border>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+        </RefreshView>
+
+        <Image
+            Margin="0,0,10,10"
+            HeightRequest="40"
+            HorizontalOptions="EndAndExpand"
+            Source="plus.png"
+            VerticalOptions="EndAndExpand">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding AdicionarProjetosCommand}" />
+            </Image.GestureRecognizers>
+        </Image>
+    </Grid>
 </ContentPage>

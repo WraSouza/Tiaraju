@@ -64,24 +64,7 @@
                     FontFamily="OpenSansSemibold"
                     FontSize="Medium"
                     HorizontalTextAlignment="Center"
-                    Text="Calendário GQ" />
-
-                <Image
-                    Grid.Row="2"
-                    Grid.Column="1"
-                    Source="gerenciamentoprojeto.png" >
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding AbrirGerenciamentoProjetosViewCommand}"/>
-                    </Image.GestureRecognizers>
-                </Image>
-
-                <Label
-                    Grid.Row="3"
-                    Grid.Column="1"
-                    FontFamily="OpenSansSemibold"
-                    FontSize="Medium"
-                    HorizontalTextAlignment="Center"
-                    Text="PMO" />
+                    Text="Calendário GQ" />                
 
             </Grid>
         </VerticalStackLayout>

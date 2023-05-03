@@ -57,6 +57,8 @@
 	  <None Remove="Resources\Images\logobrancotiaraju.png" />
 	  <None Remove="Resources\Images\logotiaraju.png" />
 	  <None Remove="Resources\Images\pautafixa.jpg" />
+	  <None Remove="Resources\Images\plus.png" />
+	  <None Remove="Resources\Images\project.png" />
 	  <None Remove="Resources\Images\services.png" />
 	  <None Remove="Resources\Images\setores.png" />
 	  <None Remove="Resources\Images\tempoempresaimagem.png" />
@@ -70,6 +72,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\AdicionarProjetoView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\AppShell.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -91,6 +96,9 @@
 	  <MauiXaml Update="Views\MainView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\PMOSetorView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\ServicosView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -103,6 +111,7 @@
 		<wizardVersion>v1.2.3</wizardVersion>
 		<projectType>MVVMToolkit</projectType>
 		<framework>None</framework>
+		<DefaultLanguage>pt-BR</DefaultLanguage>
 	</PropertyGroup>
 
 </Project>

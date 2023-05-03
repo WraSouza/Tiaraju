@@ -17,6 +17,14 @@
             Title="Serviços"
             ContentTemplate="{DataTemplate views:ServicosView}"
             Icon="services.png" />
+
+        <Tab Title="Projetos" Icon="project.png">
+            <ShellContent Title="Todos" ContentTemplate="{DataTemplate views:GerenciamentoProjetosView}" />
+
+            <ShellContent Title="Por Setores" ContentTemplate="{DataTemplate views:PMOSetorView}" />
+        </Tab>
+
+
     </TabBar>
     <!--<Shell.FlyoutHeaderTemplate>
         <DataTemplate>

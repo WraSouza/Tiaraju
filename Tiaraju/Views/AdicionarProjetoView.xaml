@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Tiaraju.Views.AdicionarProjetoView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mvvm="clr-namespace:Tiaraju.ViewModels"
+    Title="Adicionar Projeto">
+
+    <ContentPage.BindingContext>
+        <mvvm:AdicionarProjetosViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView Orientation="Vertical">
+        <Grid>
+            <Image
+                HeightRequest="100"
+                HorizontalOptions="Center"
+                Opacity="0.1"
+                Source="logotiaraju.png"
+                VerticalOptions="Center" />
+
+            <Grid RowDefinitions="*,*,*">
+                <VerticalStackLayout
+                    Grid.Row="0"
+                    Grid.RowSpan="2"
+                    Margin="10,50,10,0"
+                    Spacing="16">
+                    <Label
+                        FontFamily="OpenSansSemibold"
+                        FontSize="Medium"
+                        Text="Descrição do Projeto"
+                        TextColor="Green" />
+
+                    <Entry
+                        FontFamily="OpenSansSemibold"
+                        FontSize="Medium"
+                        Text="{Binding Title}" />
+
+                    <Label
+                        FontFamily="OpenSansSemibold"
+                        FontSize="Medium"
+                        Text="Data Limite"
+                        TextColor="Green" />
+
+                    <Border
+                        HeightRequest="50"
+                        Opacity="0.8"
+                        StrokeShape="RoundRectangle 10,10,10,10">
+                        <DatePicker
+                            x:Name="datePicker"
+                            Date="{Binding FinalDate}"
+                            FontFamily="OpenSansRegular"
+                            FontSize="Medium"
+                            HorizontalOptions="Start">
+                            <DatePicker.Format>dd-MMMM-yyyy</DatePicker.Format>
+                        </DatePicker>
+                    </Border>
+
+                    <Label
+                        FontFamily="OpenSansSemibold"
+                        FontSize="Medium"
+                        Text="Setor Responsável"
+                        TextColor="Green" />
+
+                    <Picker
+                        FontFamily="OpenSansRegular"
+                        FontSize="Medium"
+                        ItemDisplayBinding="{Binding DepartmentName}"
+                        ItemsSource="{Binding Departments}"
+                        SelectedItem="{Binding Department}" />
+
+                    <Label
+                        FontFamily="OpenSansSemibold"
+                        FontSize="Medium"
+                        Text="Prioridade"
+                        TextColor="Green" />
+
+                    <Picker
+                        x:Name="picker"
+                        Title="Selecione Prioridade"
+                        FontFamily="OpenSansRegular"
+                        FontSize="Medium"
+                        SelectedItem="{Binding Priority}">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Alta</x:String>
+                                <x:String>Média</x:String>
+                                <x:String>Baixa</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                </VerticalStackLayout>
+
+                <Button
+                    Grid.Row="2"
+                    Margin="10,30,10,0"
+                    BackgroundColor="Green"
+                    Command="{Binding AddProjectCommand}"
+                    FontFamily="OpenSansRegular"
+                    Text="Adicionar"
+                    TextColor="White"
+                    VerticalOptions="EndAndExpand" />
+            </Grid>
+            
+        </Grid>
+    </ScrollView>
+</ContentPage>

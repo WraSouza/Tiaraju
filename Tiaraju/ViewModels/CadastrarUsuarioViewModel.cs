@@ -111,8 +111,7 @@ namespace Tiaraju.ViewModels
 
 
                 foreach (var department in departments)
-                {
-                    //Roles.Add(new Role() { Id = role.Id, RoleName = role.RoleName });
+                {                    
                     Departments.Add(department);
                 }
             }
