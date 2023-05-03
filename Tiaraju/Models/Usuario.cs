@@ -14,13 +14,13 @@ namespace Tiaraju.Models
         {
             
         }
-        public Usuario(int id, string name, string username, string department)
+        public Usuario(int id, string name, string username, string department, string role)
         {
             Id = id;
             Name = name;
             UserName = username;
             Department = department;
-
+            Role = role;
             Password = "1234";
             IsActive = true;
 
@@ -33,6 +33,7 @@ namespace Tiaraju.Models
         public string Password { get; set; }
         public bool IsActive { get; set; }
         public string Department { get; set; }
+        public string Role { get; set; }
 
         public void UpdatePassword(string username,string password)
         {

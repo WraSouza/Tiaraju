@@ -1,61 +1,180 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Tiaraju.Views.CadastrarUsuarioView"
-             xmlns:mvvm="clr-namespace:Tiaraju.ViewModels"
-             Title="CadastrarUsuarioView">
+<ContentPage
+    x:Class="Tiaraju.Views.CadastrarUsuarioView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+    xmlns:mvvm="clr-namespace:Tiaraju.ViewModels"
+    Title="CadastrarUsuarioView">
 
     <ContentPage.BindingContext>
-        <mvvm:CadastrarUsuarioViewModel/>
+        <mvvm:CadastrarUsuarioViewModel />
     </ContentPage.BindingContext>
-    
-    <Grid RowDefinitions="*,*,*">
-        <Image Source="logotiaraju.png" 
-               Grid.Row="0"      
-               VerticalOptions="Start"
-               Margin="0,20,0,0"
-               HeightRequest="100"/>
 
-        <VerticalStackLayout Spacing="25" Margin="20,0,20,0" Grid.Row="1">
-            <Label Text="Nome"
-                   TextColor="Green"
-                   FontFamily="OpenSansSemibold"
-                   FontSize="Large"/>
 
-            <Entry Text="{Binding Name}"
-                   FontSize="20"
-                   FontFamily="OpenSansRegular"/>
+    <ScrollView>
+        <VerticalStackLayout Margin="20,0,20,0" Spacing="15">
+            <Image
+                Margin="0,20,0,0"
+                HeightRequest="100"
+                Source="logotiaraju.png"
+                VerticalOptions="Start" />
 
-            <Label Text="Nome de Usuário"
-                   TextColor="Green"
-                   FontFamily="OpenSansSemibold"
-                   FontSize="Large"/>
 
-            <Entry Text="{Binding Username}"
-                   FontSize="20"
-                   FontFamily="OpenSansRegular"
-                   TextTransform="Lowercase"/>
+            <Label
+                FontFamily="OpenSansSemibold"
+                FontSize="Large"
+                Text="Nome"
+                TextColor="Green" />
 
-            <Label Text="Setor (Ex.: RH)"
-                   TextColor="Green"
-                   FontFamily="OpenSansSemibold"
-                   FontSize="Large"/>
+            <Entry
+                FontFamily="OpenSansRegular"
+                FontSize="20"
+                Text="{Binding Name}" />
 
-            <Entry Text="{Binding Department}"
-                   FontSize="20"
-                   FontFamily="OpenSansRegular"
-                   TextTransform="Uppercase"/>
+            <Label
+                FontFamily="OpenSansSemibold"
+                FontSize="Large"
+                Text="Nome de Usuário"
+                TextColor="Green" />
+
+            <Entry
+                FontFamily="OpenSansRegular"
+                FontSize="20"
+                Text="{Binding Username}"
+                TextTransform="Lowercase" />
+
+            <Label
+                FontFamily="OpenSansSemibold"
+                FontSize="Large"
+                Text="Setor"
+                TextColor="Green" />
+
+            <Picker
+                Title="Selecione Um Setor"
+                FontFamily="OpenSansRegular"
+                FontSize="Medium"
+                ItemDisplayBinding="{Binding DepartmentName}"
+                ItemsSource="{Binding Departments}"
+                SelectedItem="{Binding Department}" />
+
+
+            <Label
+                FontFamily="OpenSansSemibold"
+                FontSize="Large"
+                Text="Cargo"
+                TextColor="Green" />
+
+
+            <Picker
+                Title="Selecione Um Cargo"
+                FontFamily="OpenSansRegular"
+                FontSize="Medium"
+                ItemDisplayBinding="{Binding RoleName}"
+                ItemsSource="{Binding Roles}"
+                SelectedItem="{Binding Role}" />
+
+            <Button
+                Margin="20,120,20,0"
+                BackgroundColor="Green"
+                Command="{Binding CadastrarUsuarioCommand}"
+                FontFamily="OpenSansSemibold"
+                HeightRequest="50"
+                Text="Salvar" />
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+
+
+    <!--<Grid RowDefinitions="150,*,*">
+        <Image
+            Grid.Row="0"
+            Margin="0,20,0,0"
+            HeightRequest="100"
+            Source="logotiaraju.png"
+            VerticalOptions="Start" />
+
+        <VerticalStackLayout
+            Grid.Row="1"
+            Margin="20,0,20,0"
+            Spacing="5">
+    -->
+    <!--<Picker Title="Títulos"
+                    ItemsSource="{Binding Roles}"
+                    FontFamily="OpenSansRegular"
+                    FontSize="Medium"
+                    ItemDisplayBinding="{Binding RoleName}"/>-->
+    <!--
+
+            <editors:SfComboBox x:Name="comboBox"
+                                DisplayMemberPath = "RoleName"
+                    TextMemberPath = "RoleName"
+                                ItemsSource="{Binding Roles}"/>
+            <Label
+                FontFamily="OpenSansSemibold"
+                FontSize="Large"
+                Text="Nome"
+                TextColor="Green" />
+
+            <Entry
+                FontFamily="OpenSansRegular"
+                FontSize="20"
+                Text="{Binding Name}" />
+
+            <Label
+                FontFamily="OpenSansSemibold"
+                FontSize="Large"
+                Text="Nome de Usuário"
+                TextColor="Green" />
+
+            <Entry
+                FontFamily="OpenSansRegular"
+                FontSize="20"
+                Text="{Binding Username}"
+                TextTransform="Lowercase" />
+
+            <Label
+                FontFamily="OpenSansSemibold"
+                FontSize="Large"
+                Text="Setor (Ex.: RH)"
+                TextColor="Green" />
+
+            <Entry
+                FontFamily="OpenSansRegular"
+                FontSize="20"
+                Text="{Binding Department}"
+                TextTransform="Uppercase" />
+
+            <Label
+                FontFamily="OpenSansSemibold"
+                FontSize="Large"
+                Text="Cargo"
+                TextColor="Green" />
+
+
+
+    -->
+    <!--<Picker Title="Títulos"
+                    ItemsSource="{Binding Roles}"
+                    ItemDisplayBinding="{Binding RoleName}">-->
+    <!--
+
 
         </VerticalStackLayout>
 
 
-        <Button Text="Salvar"
-                Command="{Binding CadastrarUsuarioCommand}"
-                FontFamily="OpenSansSemibold"
-                BackgroundColor="Green"
-                HeightRequest="50"
-                VerticalOptions="End"
-                Margin="20,0,20,20"
-                Grid.Row="2"/>
-    </Grid>
+        <Button
+            Grid.Row="2"
+            Margin="20,0,20,20"
+            BackgroundColor="Green"
+            Command="{Binding CadastrarUsuarioCommand}"
+            FontFamily="OpenSansSemibold"
+            HeightRequest="50"
+            Text="Salvar"
+            VerticalOptions="End" />
+    </Grid>-->
+
+
 </ContentPage>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Firebase.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,14 @@ namespace Tiaraju.ViewModels
 {
     partial class CadastrarUsuarioViewModel : ObservableObject
     {
-        int quantidadeUsuarios;
+        UserServices userServices = new UserServices();
+        RoleServices roleServices = new RoleServices();
+        DepartmentServices departmentServices = new DepartmentServices();
+
+        public ObservableCollection<Role> Roles { get; set; } = new ObservableCollection<Role>();
+        public ObservableCollection<Department> Departments { get; set; } = new ObservableCollection<Department>();
+
+
         [ObservableProperty]
         public string name;
 
@@ -19,13 +27,22 @@ namespace Tiaraju.ViewModels
         public string username;
 
         [ObservableProperty]
-        public string department;
-        
+        public Department department;
+
+        [ObservableProperty]
+        public Role role;
+
+        public CadastrarUsuarioViewModel()
+        {
+           BuscaPosicoes();
+           BuscaDepartamentos();
+        }
+
 
         [RelayCommand]
         async void CadastrarUsuario()
         {
-            if(string.IsNullOrEmpty(username)|| string.IsNullOrEmpty(name) || string.IsNullOrEmpty(Department))
+            if(string.IsNullOrEmpty(username)|| string.IsNullOrEmpty(name) || string.IsNullOrEmpty(Department.DepartmentName))
             {
                 Mensagem.MensagemObrigatoriedadeCredenciais();
             }
@@ -36,13 +53,14 @@ namespace Tiaraju.ViewModels
             {
                 try
                 {
-                    var userServices = new UserServices();
+                    string selectedDepartment = Department.DepartmentName;
+                    string selectedRole = Role.RoleName;
 
                     int quantidadeUsuariosBanco = await userServices.GetUsersQuantity();
 
                     Username = Username.Replace(" ", "");
 
-                    var novoUsuario = new Usuario((quantidadeUsuariosBanco + 1), Name, Username, Department);
+                    var novoUsuario = new Usuario((quantidadeUsuariosBanco + 1), Name, Username, selectedDepartment, selectedRole);
 
                     bool confirmaCadastroUsuario = await userServices.AddUser(novoUsuario);
 
@@ -62,6 +80,47 @@ namespace Tiaraju.ViewModels
 
             Mensagem.MensagemErroConexao();
            
+        }
+        
+
+       
+        async void BuscaPosicoes()
+        {
+            try
+            {
+               var posicoes = await roleServices.GetRoles();
+                
+
+                foreach (var role in posicoes)
+                {                   
+                    //Roles.Add(new Role() { Id = role.Id, RoleName = role.RoleName });
+                    Roles.Add(role);
+                }
+            }catch(Exception e)
+            {
+                Mensagem.MensagemExcecao();
+            }
+           
+        }
+
+        async void BuscaDepartamentos()
+        {
+            try
+            {
+                var departments = await departmentServices.GetDepartments();
+
+
+                foreach (var department in departments)
+                {
+                    //Roles.Add(new Role() { Id = role.Id, RoleName = role.RoleName });
+                    Departments.Add(department);
+                }
+            }
+            catch (Exception e)
+            {
+                Mensagem.MensagemExcecao();
+            }
+
         }
     }
 }

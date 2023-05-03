@@ -20,7 +20,7 @@
             <Grid
                 Margin="0,30,0,0"
                 ColumnDefinitions="*,*"
-                RowDefinitions="80,80,80,80"
+                RowDefinitions="60,80,60,80,60"
                 RowSpacing="10">
 
                 <Image
@@ -65,6 +65,23 @@
                     FontSize="Medium"
                     HorizontalTextAlignment="Center"
                     Text="Calendário GQ" />
+
+                <Image
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Source="gerenciamentoprojeto.png" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding AbrirGerenciamentoProjetosViewCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    FontFamily="OpenSansSemibold"
+                    FontSize="Medium"
+                    HorizontalTextAlignment="Center"
+                    Text="PMO" />
 
             </Grid>
         </VerticalStackLayout>

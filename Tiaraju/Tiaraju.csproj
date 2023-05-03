@@ -29,10 +29,10 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\appiconfg.svg" Color="#0e7b35" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -54,6 +54,7 @@
 	  <None Remove="Resources\Images\gerenciamentoprojeto.png" />
 	  <None Remove="Resources\Images\glpi.jpg" />
 	  <None Remove="Resources\Images\home.png" />
+	  <None Remove="Resources\Images\logobrancotiaraju.png" />
 	  <None Remove="Resources\Images\logotiaraju.png" />
 	  <None Remove="Resources\Images\pautafixa.jpg" />
 	  <None Remove="Resources\Images\services.png" />
@@ -76,6 +77,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\CadastrarUsuarioView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\GerenciamentoProjetosView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\GLPIView.xaml">

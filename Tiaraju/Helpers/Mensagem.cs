@@ -67,5 +67,10 @@ namespace Tiaraju.Helpers
         {
             Application.Current.MainPage.DisplayAlert("Sucesso", "Usuário Cadastrado Com Sucesso.", "OK");
         }
+
+        public static void MensagemExcecao()
+        {
+            Application.Current.MainPage.DisplayAlert("Ops", "Tivemos Um Problema na Requisição.", "OK");
+        }
     }
 }

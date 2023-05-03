@@ -17,7 +17,7 @@ namespace Tiaraju.FirebaseServices.Services
 
         public UserServices()
         {
-            firebase = new FirebaseClient("");
+            firebase = new FirebaseClient("https://laboratoriotiaraju-6c89e-default-rtdb.firebaseio.com/");
         }
 
         public async Task<bool> AddUser(Usuario usuario)
@@ -30,7 +30,8 @@ namespace Tiaraju.FirebaseServices.Services
                     UserName = usuario.UserName,
                     IsActive = usuario.IsActive,
                     Password = usuario.Password,
-                    Department = usuario.Department
+                    Department = usuario.Department,
+                    Role = usuario.Role
                 });
 
             return true;

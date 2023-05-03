@@ -8,5 +8,7 @@ public partial class AppShell : Shell
 
         Routing.RegisterRoute(nameof(GLPIView), typeof(GLPIView));
 
+        Routing.RegisterRoute(nameof(GerenciamentoProjetosView), typeof(GerenciamentoProjetosView));
+
     }
 }

@@ -1,81 +1,93 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Tiaraju.Views.LoginView"
-             xmlns:mvvm="clr-namespace:Tiaraju.ViewModels"
-             Title="LoginView">
+<ContentPage
+    x:Class="Tiaraju.Views.LoginView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mvvm="clr-namespace:Tiaraju.ViewModels"
+    Title="LoginView">
     <ContentPage.BindingContext>
-        <mvvm:LoginViewModel/>
+        <mvvm:LoginViewModel />
     </ContentPage.BindingContext>
-    
-    
-    
-        
-    <Grid RowDefinitions="*,*">
-        
-        <Image Source="logotiaraju.png"
-               HeightRequest="100"
-               Grid.Row="0"/>
 
-        <Border Grid.Row="1"
-                Grid.RowSpan="2"
-                BackgroundColor="Green"
-                StrokeShape="RoundRectangle 100,0,0,0">
-            <VerticalStackLayout Spacing="10" Padding="10">
-                <Label Text="Login"
-                       FontSize="35"
-                       HorizontalTextAlignment="Center"
-                       TextColor="White"/>
 
-                <Label Text="Usuário"
-                       FontSize="20"
-                       TextColor="White"
-                       FontFamily="OpenSansSemibold"/>
+    <Grid BackgroundColor="Green" RowDefinitions="*,*">
 
-                <Entry TextTransform="Lowercase"
-                       Text="{Binding Name}"
-                       ClearButtonVisibility="WhileEditing"                       
-                       FontSize="Medium"                       
-                       TextColor="White"/>
+        <Image
+            Grid.Row="0"
+            HeightRequest="100"
+            Source="logobrancotiaraju.png" />
 
-                <Label Text="Senha"
-                       FontSize="20"
-                       TextColor="White"
-                       FontFamily="OpenSansSemibold"/>
+        <Border
+            Grid.Row="1"
+            Grid.RowSpan="2"
+            BackgroundColor="White"
+            StrokeShape="RoundRectangle 100,0,0,0">
 
-                <Entry IsPassword="True"
-                       Text="{Binding Password}"
-                       ClearButtonVisibility="WhileEditing"
-                       FontSize="Medium"
-                       CursorPosition="50"
-                       TextColor="White"/>
-                    <Grid>
-                        <Button Text="Login"
-                                Command="{Binding LoginCommand}"
-                                FontFamily="OpenSansSemibold"
-                                FontSize="Medium"
-                                BackgroundColor="OrangeRed"
-                                Margin="0,35,0,0">
-                            <Button.Triggers>
-                                <DataTrigger TargetType="Button" Binding="{Binding LoginCommand.IsRunning}" Value="True">
-                                    <Setter Property="Text" Value=""/>
-                                </DataTrigger>
-                            </Button.Triggers>
-                        </Button>
+            <VerticalStackLayout Padding="10" Spacing="10">
+                <Label
+                    FontSize="35"
+                    HorizontalTextAlignment="Center"
+                    Text="Login"
+                    TextColor="Black" />
 
-                        <ActivityIndicator IsRunning="{Binding LoginCommand.IsRunning}"
-                                           IsVisible="{Binding LoginCommand.IsRunning}"
-                                           VerticalOptions="Center"
-                                           HorizontalOptions="Center"
-                                           Margin="0,35,0,0"
-                                           Color="White"/>
-                    </Grid>
+                <Label
+                    FontFamily="OpenSansSemibold"
+                    FontSize="20"
+                    Text="Usuário"
+                    TextColor="Black" />
 
-                
+                <Entry
+                    ClearButtonVisibility="WhileEditing"
+                    FontSize="Medium"
+                    Text="{Binding Name}"
+                    TextColor="Black"
+                    TextTransform="Lowercase" />
+
+                <Label
+                    FontFamily="OpenSansSemibold"
+                    FontSize="20"
+                    Text="Senha"
+                    TextColor="Black" />
+
+                <Entry
+                    ClearButtonVisibility="WhileEditing"
+                    CursorPosition="50"
+                    FontSize="Medium"
+                    IsPassword="True"
+                    Text="{Binding Password}"
+                    TextColor="Black" />
+                <Grid>
+                    <Button
+                        Margin="0,35,0,0"
+                        BackgroundColor="OrangeRed"
+                        Command="{Binding LoginCommand}"
+                        FontFamily="OpenSansSemibold"
+                        FontSize="Medium"
+                        Text="Login">
+                        <Button.Triggers>
+                            <DataTrigger
+                                Binding="{Binding LoginCommand.IsRunning}"
+                                TargetType="Button"
+                                Value="True">
+                                <Setter Property="Text" Value="" />
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+
+                    <ActivityIndicator
+                        Margin="0,35,0,0"
+                        HorizontalOptions="Center"
+                        IsRunning="{Binding LoginCommand.IsRunning}"
+                        IsVisible="{Binding LoginCommand.IsRunning}"
+                        VerticalOptions="Center"
+                        Color="White" />
+                </Grid>
+
+
             </VerticalStackLayout>
         </Border>
-           
+
     </Grid>
-       
-    
+
+
 </ContentPage>

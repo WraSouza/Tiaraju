@@ -1,60 +1,69 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Tiaraju.Views.MainView"
-             Shell.BackgroundColor="Green"
-             xmlns:mvvm="clr-namespace:Tiaraju.ViewModels"
-             Title="Início">
+<ContentPage
+    x:Class="Tiaraju.Views.MainView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mvvm="clr-namespace:Tiaraju.ViewModels"
+    Title="Início"
+    Shell.BackgroundColor="Green">
 
     <ContentPage.BindingContext>
-        <mvvm:MainViewModel/>
+        <mvvm:MainViewModel />
     </ContentPage.BindingContext>
     <Grid>
-        <Image Source="logotiaraju.png"
-               VerticalOptions="Center"
-               HorizontalOptions="Center"
-               Opacity="0.3"
-               HeightRequest="100"/>
-        
+        <Image
+            HeightRequest="100"
+            HorizontalOptions="Center"
+            Opacity="0.1"
+            Source="logotiaraju.png"
+            VerticalOptions="Center" />
+
         <VerticalStackLayout Padding="10">
 
-            <Grid ColumnDefinitions="*,*"
-                  RowSpacing="10"
-                  RowDefinitions="80,80,80,80"
-                  Margin="0,30,0,0">
+            <Grid
+                Margin="0,30,0,0"
+                ColumnDefinitions="*,*"
+                RowDefinitions="80,80,80,80"
+                RowSpacing="10">
 
-                <Image Source="cardapio.jpeg"
-                       Grid.Column="0"
-                       Grid.Row="0"/>
+                <Image
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Source="cardapio.jpeg" />
 
-                <Image Source="bonustiarajuimagem.jpg"
-                       Grid.Column="1"
-                       Grid.Row="0"/>
+                <Image
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Source="bonustiarajuimagem.jpg" />
 
-                <Label Text="Cardápio"
-                       FontFamily="OpenSansSemibold"
-                       FontSize="Medium"
-                       HorizontalTextAlignment="Center"
-                       Grid.Column="0"
-                       Grid.Row="1"/>
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    FontFamily="OpenSansSemibold"
+                    FontSize="Medium"
+                    HorizontalTextAlignment="Center"
+                    Text="Cardápio" />
 
-                <Label Text="Bônus"
-                       FontFamily="OpenSansSemibold"
-                       FontSize="Medium"
-                       HorizontalTextAlignment="Center"
-                       Grid.Column="1"
-                       Grid.Row="1"/>
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    FontFamily="OpenSansSemibold"
+                    FontSize="Medium"
+                    HorizontalTextAlignment="Center"
+                    Text="Bônus" />
 
-                <Image Source="diat.png"
-                       Grid.Column="0"
-                       Grid.Row="2"/>
+                <Image
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Source="diat.png" />
 
-                <Label Text="Dia T"
-                       FontFamily="OpenSansSemibold"
-                       FontSize="Medium"
-                       HorizontalTextAlignment="Center"
-                       Grid.Column="0"
-                       Grid.Row="3"/>
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    FontFamily="OpenSansSemibold"
+                    FontSize="Medium"
+                    HorizontalTextAlignment="Center"
+                    Text="Dia T" />
             </Grid>
         </VerticalStackLayout>
     </Grid>
@@ -69,7 +78,7 @@
               RowSpacing="10"
               RowDefinitions="80,80,80,80"
               Margin="0,30,0,0">
-            
+
         <Image Source="cardapio.jpeg"
                Grid.Column="0"
                Grid.Row="0"/>
