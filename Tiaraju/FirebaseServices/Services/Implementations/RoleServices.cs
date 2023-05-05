@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tiaraju.FirebaseServices.Services.Interfaces;
 using Tiaraju.Models;
 
-namespace Tiaraju.FirebaseServices.Services
+namespace Tiaraju.FirebaseServices.Services.Implementations
 {
     public class RoleServices : IRolesServices
     {
@@ -29,9 +30,9 @@ namespace Tiaraju.FirebaseServices.Services
                      Id = item.Object.Id,
                      RoleName = item.Object.RoleName
 
-                 }).ToList();               
+                 }).ToList();
 
-                
+
             }
             catch (FirebaseException e)
             {

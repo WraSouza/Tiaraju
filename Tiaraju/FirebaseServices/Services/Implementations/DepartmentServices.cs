@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tiaraju.FirebaseServices.Services.Interfaces;
 using Tiaraju.Models;
 
-namespace Tiaraju.FirebaseServices.Services
+namespace Tiaraju.FirebaseServices.Services.Implementations
 {
     public class DepartmentServices : IDepartmentServices
     {

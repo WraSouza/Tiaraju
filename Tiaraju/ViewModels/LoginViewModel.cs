@@ -1,4 +1,4 @@
-﻿using Tiaraju.FirebaseServices.Services;
+﻿using Tiaraju.FirebaseServices.Services.Implementations;
 using Tiaraju.Helpers;
 using Tiaraju.Models;
 

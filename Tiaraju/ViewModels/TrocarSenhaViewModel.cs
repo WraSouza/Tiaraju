@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Tiaraju.FirebaseServices.Services;
+using Tiaraju.FirebaseServices.Services.Implementations;
 using Tiaraju.Helpers;
 using Tiaraju.Models;
 

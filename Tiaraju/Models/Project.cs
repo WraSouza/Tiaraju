@@ -6,29 +6,25 @@ using System.Threading.Tasks;
 
 namespace Tiaraju.Models
 {
-    public class Project
+    public class Project : Modelo
     {
         public Project()
         {
             
         }
-        public Project(int id, string projectName, DateTime finalDate, string departments, string priority)
-        {
-            Id = id;
-            ProjectName = projectName;
-            FinalDate = finalDate;
-            Departments = departments;
-
-            CreatedAt = DateTime.Today.Date;
+        public Project(string projectName, string finalDate, string priority, string status)
+        {            
+            Name = projectName;
+            FinalDate = finalDate;            
+            Status = status;
+            CreatedAt = DateTime.Today.ToShortDateString();
             Priority = priority;
-        }
-
-        public int Id { get; set; }
-        public string ProjectName { get; set; }
-        public DateTime FinalDate { get; set; }
-        public string Departments { get; set; }
-        public string Priority { get; set; }
-        public DateTime CreatedAt { get; set; }        
+            Activities = new List<string>();
+        }                       
+              
+        public string CreatedAt { get; set; }        
+        public List<string> Activities { get; set; }
+        
        
     }
 }

@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tiaraju.FirebaseServices.Services.Interfaces;
 using Tiaraju.Models;
 
-namespace Tiaraju.FirebaseServices.Services
+namespace Tiaraju.FirebaseServices.Services.Implementations
 {
     internal class ProjectServices : IProjectServices
     {
@@ -23,16 +24,14 @@ namespace Tiaraju.FirebaseServices.Services
             await firebase.Child("Project")
                  .PostAsync(new Project()
                  {
-                    Id = project.Id,
-                    ProjectName = project.ProjectName,
-                    FinalDate = project.FinalDate,
-                    Departments = project.Departments,
-                    Priority = project.Priority,
-                    CreatedAt = project.CreatedAt
+                     Name = project.Name,
+                     FinalDate = project.FinalDate,
+                     Priority = project.Priority,
+                     CreatedAt = project.CreatedAt
 
                  });
 
-            
+
         }
 
         public void DeleteProject(Project project)
@@ -53,16 +52,12 @@ namespace Tiaraju.FirebaseServices.Services
                 lista = (await firebase.Child("Project")
                  .OnceAsync<Project>()).Select(item => new Project
                  {
-                     Id = item.Object.Id,
-                     ProjectName = item.Object.ProjectName,
+                     Name = item.Object.Name,
                      FinalDate = item.Object.FinalDate,
-                     Departments = item.Object.Departments,
                      Priority = item.Object.Priority,
                      CreatedAt = item.Object.CreatedAt,
-                    
 
                  }).ToList();
-
 
             }
             catch (FirebaseException e)
@@ -78,13 +73,17 @@ namespace Tiaraju.FirebaseServices.Services
             return (await firebase.Child("Project")
                 .OnceAsync<Project>()).Select(item => new Project
                 {
-                    Id = item.Object.Id,
-                    ProjectName = item.Object.ProjectName,
+                    Name = item.Object.Name,
                     FinalDate = item.Object.FinalDate,
                     Priority = item.Object.Priority,
                     CreatedAt = item.Object.CreatedAt,
-                    Departments = item.Object.Departments,
+
                 }).ToList().Count;
+        }
+
+        public Task<bool> ProjectExist(string projectName)
+        {
+            throw new NotImplementedException();
         }
 
         public void UpdateProject(Project project)

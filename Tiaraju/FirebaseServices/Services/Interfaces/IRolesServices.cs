@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tiaraju.Models;
 
-namespace Tiaraju.FirebaseServices.Services
+namespace Tiaraju.FirebaseServices.Services.Interfaces
 {
     public interface IRolesServices
     {

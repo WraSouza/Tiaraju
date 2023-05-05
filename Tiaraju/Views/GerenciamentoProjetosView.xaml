@@ -17,15 +17,7 @@
                 Margin="10,40,10,0"
                 EmptyView="Não Há Projetos Cadastrados no Momento"
                 IsGrouped="False"
-                ItemsSource="{Binding Projects}">
-
-                <!--<CollectionView.ItemsLayout>
-                    <GridItemsLayout
-                        HorizontalItemSpacing="2"
-                        Orientation="Vertical"
-                        Span="2"
-                        VerticalItemSpacing="5" />
-                </CollectionView.ItemsLayout>-->
+                ItemsSource="{Binding Projects}">              
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -33,68 +25,36 @@
                             <Border StrokeShape="RoundRectangle 5,5,5,5">
                                 <VerticalStackLayout Margin="5,5,5,5" Spacing="5">
 
-                                    <Grid ColumnDefinitions="*,*,*"                                          
-                                          RowDefinitions="20,30">
-                                        <Label  Grid.Column="0"
-                                                Grid.Row="0"
-                                                FontFamily="OpenSansSemibold"
-                                                FontSize="15"
-                                                Text="Setor:" />
-                                        <Label Grid.Row="1"
-                                               Grid.Column="0"
-                                               Grid.ColumnSpan="2"
-                                               FontFamily="OpenSansRegular"
-                                                FontSize="18"
-                                                Text="{Binding Departments}" />
-
-                                        <Label Grid.Column="2"
-                                               Grid.Row="0"
-                                               HorizontalOptions="End"
-                                                FontFamily="OpenSansSemibold"
-                                                FontSize="15"
-                                                Text="Prioridade" />
+                                    <Grid ColumnDefinitions="*,*,*" RowDefinitions="20,30">
                                         <Label
-                                               Grid.Column="2"
-                                               Grid.Row="1"
-                                                HorizontalOptions="End"
-                                                FontFamily="OpenSansRegular"
-                                                FontSize="18"
-                                                Text="{Binding Priority}" />
+                                            Grid.Row="0"
+                                            Grid.Column="0"
+                                            FontFamily="OpenSansSemibold"
+                                            FontSize="15"
+                                            Text="Descrição:" />
+                                        <Label
+                                            Grid.Row="1"
+                                            Grid.Column="0"
+                                            Grid.ColumnSpan="2"
+                                            FontFamily="OpenSansRegular"
+                                            FontSize="18"
+                                            Text="{Binding Name}" />
+
+                                        <Label
+                                            Grid.Row="0"
+                                            Grid.Column="2"
+                                            FontFamily="OpenSansSemibold"
+                                            FontSize="15"
+                                            HorizontalOptions="End"
+                                            Text="Prioridade" />
+                                        <Label
+                                            Grid.Row="1"
+                                            Grid.Column="2"
+                                            FontFamily="OpenSansRegular"
+                                            FontSize="18"
+                                            HorizontalOptions="End"
+                                            Text="{Binding Priority}" />
                                     </Grid>
-                                    <!--<HorizontalStackLayout>
-
-                                        <VerticalStackLayout>
-                                            <Label
-                                                FontFamily="OpenSansSemibold"
-                                                FontSize="15"
-                                                Text="Setor:" />
-                                            <Label
-                                                FontFamily="OpenSansRegular"
-                                                FontSize="18"
-                                                Text="{Binding Departments}" />
-                                        </VerticalStackLayout>
-                                        <VerticalStackLayout Margin="50,0,0,0">
-                                            <Label
-                                                FontFamily="OpenSansSemibold"
-                                                FontSize="15"
-                                                Text="Prioridade" />
-                                            <Label
-                                                FontFamily="OpenSansRegular"
-                                                FontSize="20"
-                                                Text="{Binding Priority}" />
-                                        </VerticalStackLayout>
-
-                                    </HorizontalStackLayout>-->
-
-
-                                    <Label
-                                        FontFamily="OpenSansSemibold"
-                                        FontSize="15"
-                                        Text="Descrição:" />
-                                    <Label
-                                        FontFamily="OpenSansRegular"
-                                        FontSize="20"
-                                        Text="{Binding ProjectName}" />
 
                                     <Label
                                         FontFamily="OpenSansSemibold"

@@ -7,7 +7,7 @@
     Title="AppShell"
     Shell.BackgroundColor="Green">
 
-    <TabBar>
+    <TabBar Route="Main">
         <ShellContent
             Title="Início"
             ContentTemplate="{DataTemplate views:MainView}"
@@ -18,42 +18,13 @@
             ContentTemplate="{DataTemplate views:ServicosView}"
             Icon="services.png" />
 
-        <Tab Title="Projetos" Icon="project.png">
+        <!--<Tab Title="Projetos" Icon="project.png">
             <ShellContent Title="Todos" ContentTemplate="{DataTemplate views:GerenciamentoProjetosView}" />
 
             <ShellContent Title="Por Setores" ContentTemplate="{DataTemplate views:PMOSetorView}" />
-        </Tab>
+        </Tab>-->
 
 
     </TabBar>
-    <!--<Shell.FlyoutHeaderTemplate>
-        <DataTemplate>
-            <VerticalStackLayout Padding="20">
-                <Image HeightRequest="150"
-                       Aspect="Fill"
-                       Source="logotiaraju.png"/>
-            </VerticalStackLayout>
-        </DataTemplate>
-    </Shell.FlyoutHeaderTemplate>
 
-
-    <FlyoutItem Title="Início"
-                Icon="home.png">
-        <Tab>
-            <ShellContent ContentTemplate="{DataTemplate views:MainView}" />
-        </Tab>
-    </FlyoutItem>
-    <FlyoutItem Title="Serviços"
-                Icon="services.png">
-        <Tab>
-            <ShellContent ContentTemplate="{DataTemplate views:ServicosView}" />
-        </Tab>
-    </FlyoutItem>
-
-    <FlyoutItem Title="Setores"
-                Icon="setores.png">
-        <Tab>
-            <ShellContent ContentTemplate="{DataTemplate views:LoginView}" />
-        </Tab>
-    </FlyoutItem>-->
 </Shell>

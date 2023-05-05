@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tiaraju.Models;
 
-namespace Tiaraju.FirebaseServices.Services
+namespace Tiaraju.FirebaseServices.Services.Interfaces
 {
     public interface IUserService
     {
@@ -14,7 +14,7 @@ namespace Tiaraju.FirebaseServices.Services
         Task<List<Usuario>> GetUsers();
         Task<Usuario> GetUser(string name);
         Task<int> GetUsersQuantity();
-        Task<bool> LoginUser(string username, string password);            
+        Task<bool> LoginUser(string username, string password);
         Task UpdatePasswordUser(string username, string password);
 
 

@@ -7,9 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Tiaraju.FirebaseServices.Services.Interfaces;
 using Tiaraju.Models;
 
-namespace Tiaraju.FirebaseServices.Services
+namespace Tiaraju.FirebaseServices.Services.Implementations
 {
     public class UserServices : IUserService
     {
@@ -50,7 +51,7 @@ namespace Tiaraju.FirebaseServices.Services
                .Child("Usuario")
                .OnceAsync<Usuario>();
 
-            var selectedUser = users.Where(x => x.UserName == name).FirstOrDefault();           
+            var selectedUser = users.Where(x => x.UserName == name).FirstOrDefault();
 
             return selectedUser;
         }
@@ -91,12 +92,12 @@ namespace Tiaraju.FirebaseServices.Services
                .Where(u => u.Object.UserName == username)
                .Where(u => u.Object.Password == password)
                .FirstOrDefault();
-           
 
-            return (user != null);
+
+            return user != null;
         }
 
-        public async Task UpdatePasswordUser(string username,string password)
+        public async Task UpdatePasswordUser(string username, string password)
         {
             var usuarios = await GetUsers();
 
@@ -109,7 +110,7 @@ namespace Tiaraju.FirebaseServices.Services
             await firebase
            .Child("Usuario")
            .Child(toUpdatePerson.Key)
-           .PutAsync(toUpdatePerson.Object);            
+           .PutAsync(toUpdatePerson.Object);
 
         }
     }

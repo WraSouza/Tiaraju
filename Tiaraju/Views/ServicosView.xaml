@@ -6,7 +6,7 @@
     xmlns:mvvm="clr-namespace:Tiaraju.ViewModels"
     Title="Serviços">
     <ContentPage.BindingContext>
-        <mvvm:ServicosViewModel/>
+        <mvvm:ServicosViewModel />
     </ContentPage.BindingContext>
     <Grid>
         <Image
@@ -28,7 +28,7 @@
                     Grid.Column="0"
                     Source="glpi.jpg">
                     <Image.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding AbrirGLPICommand}"/>
+                        <TapGestureRecognizer Command="{Binding AbrirGLPICommand}" />
                     </Image.GestureRecognizers>
                 </Image>
 
@@ -64,7 +64,24 @@
                     FontFamily="OpenSansSemibold"
                     FontSize="Medium"
                     HorizontalTextAlignment="Center"
-                    Text="Calendário GQ" />                
+                    Text="Calendário GQ" />
+
+                <Image
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Source="gerenciamentoprojeto.png" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding AbrirProjetosViewCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    FontFamily="OpenSansSemibold"
+                    FontSize="Medium"
+                    HorizontalTextAlignment="Center"
+                    Text="PMO" />
 
             </Grid>
         </VerticalStackLayout>

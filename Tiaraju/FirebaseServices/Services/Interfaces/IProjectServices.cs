@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tiaraju.Models;
 
-namespace Tiaraju.FirebaseServices.Services
+namespace Tiaraju.FirebaseServices.Services.Interfaces
 {
     internal interface IProjectServices
     {
@@ -15,5 +15,6 @@ namespace Tiaraju.FirebaseServices.Services
         void UpdateProject(Project project);
         Task AddProject(Project project);
         Task<int> GetProjectsQuantity();
+        Task<bool> ProjectExist(string projectName);
     }
 }

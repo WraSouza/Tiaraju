@@ -14,6 +14,7 @@ public partial class AppShell : Shell
 
         Routing.RegisterRoute(nameof(AdicionarProjetoView), typeof(AdicionarProjetoView));
 
+        Routing.RegisterRoute(nameof(AdicionarAtividadeView), typeof(AdicionarAtividadeView));
 
     }
 }
