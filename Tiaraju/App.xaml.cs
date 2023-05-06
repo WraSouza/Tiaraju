@@ -8,12 +8,11 @@ public partial class App : Application
 
         //MainPage = new MainPage(new MainViewModel());
         MainPage = new LoginView();
-        //MainPage = new AdicionarProjetoView();
-        //MainPage = new AdicionarAtividadeView();
-        		
-       
-		
-	}
+        
+
+
+
+    }
 
     protected override Window CreateWindow(IActivationState activationState)
     {

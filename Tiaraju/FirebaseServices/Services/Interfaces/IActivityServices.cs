@@ -11,7 +11,7 @@ namespace Tiaraju.FirebaseServices.Services.Interfaces
     {
         Task AddActivity(Atividade atividade);
         Task<List<Atividade>> GetActivities();
-        Task<List<Atividade>> GetAtividade(string atividadeName);
+        Task<List<Atividade>> GetAtividade(string projectName);
         void FinishActivity(string name);
         Task<bool> ActivityExist(string activityName, string projectName);
         void UpdateActivity(Atividade atividade);

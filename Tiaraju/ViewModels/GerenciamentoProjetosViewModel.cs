@@ -20,6 +20,14 @@ namespace Tiaraju.ViewModels
             GetProjects();
         }
 
+        [RelayCommand]
+        async void AbrirProjetoDetail(Project project)
+        {
+            Preferences.Set("NomeProjeto", project.Name);
+            var route = $"{nameof(Views.ProjectDetailView)}";
+            await Shell.Current.GoToAsync(route);
+        }
+
 
         [RelayCommand]
         public async Task AdicionarProjetos()

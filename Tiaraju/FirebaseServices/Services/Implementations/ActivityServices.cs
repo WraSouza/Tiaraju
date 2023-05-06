@@ -42,7 +42,7 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
             throw new NotImplementedException();
         }
 
-        public async Task<List<Atividade>> GetAtividade(string atividadeName)
+        public async Task<List<Atividade>> GetAtividade(string projectName)
         {
             var listaBanco = await GetActivities();
 
@@ -50,7 +50,7 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
                 .Child("Atividades")
                 .OnceAsync<Atividade>();
 
-            return listaBanco.Where(a => a.Name == atividadeName).ToList();
+            return listaBanco.Where(a => a.ProjectName == projectName).ToList();
         }
 
         public async Task<List<Atividade>> GetActivities()

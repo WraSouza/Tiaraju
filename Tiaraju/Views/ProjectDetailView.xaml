@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Tiaraju.Views.ProjectDetailView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mvvm="clr-namespace:Tiaraju.ViewModels"
+    Title="Detalhes do Projeto">
+    <ContentPage.BindingContext>
+        <mvvm:ProjectDetailViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Image
+            HeightRequest="100"
+            HorizontalOptions="Center"
+            Opacity="0.1"
+            Source="logotiaraju.png"
+            VerticalOptions="Center" />
+       
+            
+            <CollectionView
+                x:Name="collectionView"
+                Margin="10,40,10,0"
+                EmptyView="Não Há Projetos Cadastrados no Momento"
+                IsGrouped="False"
+                ItemsSource="{Binding Atividades}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout>
+                        <Border StrokeShape="RoundRectangle 10,10,10,10">
+                                <VerticalStackLayout>
+                                    <Label
+                                        FontFamily="OpenSansSemibold"
+                                        FontSize="Medium"
+                                        Text="Projeto"
+                                        TextColor="Green" />
+
+                                    <Label
+                                        FontFamily="OpenSansRegular"
+                                        FontSize="18"
+                                        Text="{Binding ProjectName}"
+                                        TextColor="Black" />
+
+                                    <Label
+                                        Margin="0,20,0,0"
+                                        FontFamily="OpenSansSemibold"
+                                        FontSize="Medium"
+                                        Text="Atividade"
+                                        TextColor="Green" />
+
+                                    <Label
+                                        FontFamily="OpenSansRegular"
+                                        FontSize="18"
+                                        Text="{Binding Name}"
+                                        TextColor="Black" />
+
+                                    <Label
+                                        Margin="0,20,0,0"
+                                        FontFamily="OpenSansSemibold"
+                                        FontSize="Medium"
+                                        Text="Prazo da Atividade"
+                                        TextColor="Green" />
+
+                                    <Label
+                                        FontFamily="OpenSansRegular"
+                                        FontSize="18"
+                                        Text="{Binding FinalDate}"
+                                        TextColor="Black" />
+
+                                    <Label
+                                        Margin="0,20,0,0"
+                                        FontFamily="OpenSansSemibold"
+                                        FontSize="Medium"
+                                        Text="Setores Envolvidos"
+                                        TextColor="Green" />
+
+                                    <VerticalStackLayout BindableLayout.ItemsSource="{Binding EnvolvedDepartments}">
+                                        <BindableLayout.ItemTemplate>
+                                            <DataTemplate>
+                                                <Label
+                                                    FontFamily="OpenSansRegular"
+                                                    FontSize="Medium"
+                                                    Text="{Binding}" />
+                                            </DataTemplate>
+                                        </BindableLayout.ItemTemplate>
+                                    </VerticalStackLayout>
+                                </VerticalStackLayout>
+                            </Border>
+
+
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        
+    </Grid>
+</ContentPage>

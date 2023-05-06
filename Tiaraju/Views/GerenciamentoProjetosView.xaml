@@ -11,69 +11,77 @@
     </ContentPage.BindingContext>
 
     <Grid>
-        <RefreshView>
-            <CollectionView
-                x:Name="collectionView"
-                Margin="10,40,10,0"
-                EmptyView="Não Há Projetos Cadastrados no Momento"
-                IsGrouped="False"
-                ItemsSource="{Binding Projects}">              
+        <Image
+            HeightRequest="100"
+            HorizontalOptions="Center"
+            Opacity="0.1"
+            Source="logotiaraju.png"
+            VerticalOptions="Center" />       
+            
+            <RefreshView>
+                <CollectionView
+                    x:Name="collectionView"
+                    Margin="10,40,10,0"
+                    EmptyView="Não Há Projetos Cadastrados no Momento"
+                    IsGrouped="False"
+                    ItemsSource="{Binding Projects}">
 
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <VerticalStackLayout Margin="5,5,5,0">
-                            <Border StrokeShape="RoundRectangle 5,5,5,5">
-                                <VerticalStackLayout Margin="5,5,5,5" Spacing="5">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <VerticalStackLayout Margin="5,5,5,0">
+                                <Border StrokeShape="RoundRectangle 5,5,5,5">
+                                    <VerticalStackLayout Margin="5,5,5,5" Spacing="5">
 
-                                    <Grid ColumnDefinitions="*,*,*" RowDefinitions="20,30">
+                                        <Grid ColumnDefinitions="*,*,*" RowDefinitions="20,30">
+                                            <Label
+                                                Grid.Row="0"
+                                                Grid.Column="0"
+                                                FontFamily="OpenSansSemibold"
+                                                FontSize="15"
+                                                Text="Descrição:" />
+                                            <Label
+                                                Grid.Row="1"
+                                                Grid.Column="0"
+                                                Grid.ColumnSpan="2"
+                                                FontFamily="OpenSansRegular"
+                                                FontSize="18"
+                                                Text="{Binding Name}" />
+
+                                            <Label
+                                                Grid.Row="0"
+                                                Grid.Column="2"
+                                                FontFamily="OpenSansSemibold"
+                                                FontSize="15"
+                                                HorizontalOptions="End"
+                                                Text="Prioridade" />
+                                            <Label
+                                                Grid.Row="1"
+                                                Grid.Column="2"
+                                                FontFamily="OpenSansRegular"
+                                                FontSize="18"
+                                                HorizontalOptions="End"
+                                                Text="{Binding Priority}" />
+                                        </Grid>
+
                                         <Label
-                                            Grid.Row="0"
-                                            Grid.Column="0"
                                             FontFamily="OpenSansSemibold"
                                             FontSize="15"
-                                            Text="Descrição:" />
+                                            Text="Data Final:" />
                                         <Label
-                                            Grid.Row="1"
-                                            Grid.Column="0"
-                                            Grid.ColumnSpan="2"
                                             FontFamily="OpenSansRegular"
-                                            FontSize="18"
-                                            Text="{Binding Name}" />
-
-                                        <Label
-                                            Grid.Row="0"
-                                            Grid.Column="2"
-                                            FontFamily="OpenSansSemibold"
-                                            FontSize="15"
-                                            HorizontalOptions="End"
-                                            Text="Prioridade" />
-                                        <Label
-                                            Grid.Row="1"
-                                            Grid.Column="2"
-                                            FontFamily="OpenSansRegular"
-                                            FontSize="18"
-                                            HorizontalOptions="End"
-                                            Text="{Binding Priority}" />
-                                    </Grid>
-
-                                    <Label
-                                        FontFamily="OpenSansSemibold"
-                                        FontSize="15"
-                                        Text="Data Final:" />
-                                    <Label
-                                        FontFamily="OpenSansRegular"
-                                        FontSize="20"
-                                        Text="{Binding FinalDate}" />
-                                </VerticalStackLayout>
-                            </Border>
-                        </VerticalStackLayout>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-
-
-        </RefreshView>
-
+                                            FontSize="20"
+                                            Text="{Binding FinalDate}" />
+                                    </VerticalStackLayout>
+                                    <Border.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.AbrirProjetoDetailCommand, Source={x:Reference collectionView}}" CommandParameter="{Binding .}" />
+                                    </Border.GestureRecognizers>
+                                </Border>
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+       
         <Image
             Margin="0,0,10,10"
             HeightRequest="40"
