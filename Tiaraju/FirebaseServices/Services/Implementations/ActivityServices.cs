@@ -18,7 +18,7 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
 
         public ActivityServices()
         {
-            firebase = new FirebaseClient("https://laboratoriotiaraju-6c89e-default-rtdb.firebaseio.com/");
+            
         }
 
         public async Task AddActivity(Atividade atividade)
@@ -37,9 +37,10 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
                  });
         }
 
-        public void FinishActivity(string name)
+        public void FinishActivity(string activityname, string projectname)
         {
-            throw new NotImplementedException();
+            bool finished = true;
+
         }
 
         public async Task<List<Atividade>> GetAtividade(string projectName)
@@ -91,6 +92,7 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
             atualizarAtividade.Object.Name = atividade.Name;
             atualizarAtividade.Object.Status = atividade.Status;
             atualizarAtividade.Object.Priority = atividade.Priority;
+            atualizarAtividade.Object.FinalDate = atividade.FinalDate;
             atualizarAtividade.Object.OwnerDepartment = atividade.OwnerDepartment;
             atualizarAtividade.Object.EnvolvedDepartments = atividade.EnvolvedDepartments;
 
@@ -100,6 +102,17 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
            .PutAsync(atualizarAtividade.Object);
 
             //return true;
+        }
+
+        public async Task<Atividade> GetActivityByName(string activityName, string projectName)
+        {
+            var listaBanco = await GetActivities();
+
+            await firebase
+                .Child("Atividades")
+                .OnceAsync<Atividade>();
+
+            return listaBanco.Where(a => a.Name == activityName && a.ProjectName == projectName).FirstOrDefault();
         }
     }
 }

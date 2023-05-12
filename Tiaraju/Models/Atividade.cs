@@ -12,7 +12,7 @@ namespace Tiaraju.Models
         {
             
         }
-        public Atividade(string projectName,string activityname, string finaldate, string priority, string status, List<string> ownerdepartment, List<string> envolved)
+        public Atividade(string projectName,string activityname, string finaldate, string priority, string status, string ownerdepartment, List<string> envolved)
         {
             ProjectName = projectName;
             Name = activityname;
@@ -23,9 +23,10 @@ namespace Tiaraju.Models
             EnvolvedDepartments = envolved;            
             IsFinished = false;
         }
-        public string ProjectName { get; set; }
-        public List<string> OwnerDepartment { get; set; }
 
+        public string Priority { get; set; }
+        public string ProjectName { get; set; }
+       public string OwnerDepartment { get; set; }
         public List<string> EnvolvedDepartments { get; set; }
     }
 }

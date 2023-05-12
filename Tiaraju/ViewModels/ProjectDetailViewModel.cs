@@ -32,5 +32,22 @@ namespace Tiaraju.ViewModels
                 OwnerDepartments.Add(project.EnvolvedDepartments.ToString());
             }
         }
+
+        [RelayCommand]
+        public async Task AbrirAdicionarAtividadeView()
+        {
+            var route = $"{nameof(Views.AdicionarAtividadeView)}";
+            await Shell.Current.GoToAsync(route);
+        }
+
+        [RelayCommand]
+        public async Task AbrirEditarAtividadeView(Atividade atividade)
+        {            
+            Preferences.Set("NomeAtividade", atividade.Name);
+            Preferences.Set("NomeProjeto", atividade.ProjectName);
+
+            var route = $"{nameof(Views.EditarAtividadeView)}";
+            await Shell.Current.GoToAsync(route);
+        }
     }
 }

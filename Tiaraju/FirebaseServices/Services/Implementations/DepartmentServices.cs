@@ -15,7 +15,7 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
 
         public DepartmentServices()
         {
-            firebase = new FirebaseClient("https://laboratoriotiaraju-6c89e-default-rtdb.firebaseio.com/");
+            
         }
 
         public async Task<List<Department>> GetDepartments()

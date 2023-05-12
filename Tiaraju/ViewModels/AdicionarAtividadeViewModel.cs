@@ -18,8 +18,7 @@ namespace Tiaraju.ViewModels
         public ObservableCollection<Project> Projects { get; set; } = new ObservableCollection<Project>();
         public ObservableCollection<Department> Departments { get; set; } = new ObservableCollection<Department>();
 
-        List<string> setoresEnvolvidos = new List<string>();
-        List<string> setorResponsavel = new List<string>();
+        List<string> setoresEnvolvidos = new List<string>();        
 
         [ObservableProperty]
         public string title;
@@ -84,7 +83,7 @@ namespace Tiaraju.ViewModels
                         //setorResponsavel.Add(ownerdepartment.DepartmentAcronym);
                     }                    
 
-                    var atualizarAtividade = new Atividade(Project.Name, Title, finalDate.ToShortDateString(), Priority, Status, setorResponsavel, setoresEnvolvidos);
+                    var atualizarAtividade = new Atividade(Project.Name, Title, finalDate.ToShortDateString(), Priority, Status, Ownerdepartment.DepartmentAcronym, setoresEnvolvidos);
 
                     activityServices.UpdateActivity(atualizarAtividade);
 
@@ -95,11 +94,9 @@ namespace Tiaraju.ViewModels
 
 
                 //Aqui adiciona uma nova atividade.
-                setoresEnvolvidos.Add(Setores.DepartmentAcronym);
+                setoresEnvolvidos.Add(Setores.DepartmentAcronym);                
 
-                setorResponsavel.Add(ownerdepartment.DepartmentAcronym);
-
-                var atividade = new Atividade(Project.Name, Title, finalDate.ToShortDateString(), Priority, Status, setorResponsavel, setoresEnvolvidos);
+                var atividade = new Atividade(Project.Name, Title.TrimEnd(), finalDate.ToShortDateString(), Priority, Status, Ownerdepartment.DepartmentAcronym, setoresEnvolvidos);
                 
                 await activityServices.AddActivity(atividade);
 

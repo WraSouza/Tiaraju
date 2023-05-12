@@ -16,7 +16,7 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
 
         public ProjectServices()
         {
-            firebase = new FirebaseClient("https://laboratoriotiaraju-6c89e-default-rtdb.firebaseio.com/");
+            
         }
 
         public async Task AddProject(Project project)
@@ -25,13 +25,10 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
                  .PostAsync(new Project()
                  {
                      Name = project.Name,
-                     FinalDate = project.FinalDate,
-                     Priority = project.Priority,
+                     FinalDate = project.FinalDate,                     
                      CreatedAt = project.CreatedAt
 
                  });
-
-
         }
 
         public void DeleteProject(Project project)
@@ -46,26 +43,26 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
 
         public async Task<List<Project>> GetProjects()
         {
-            List<Project> lista = null;
-            try
-            {
-                lista = (await firebase.Child("Project")
-                 .OnceAsync<Project>()).Select(item => new Project
-                 {
-                     Name = item.Object.Name,
-                     FinalDate = item.Object.FinalDate,
-                     Priority = item.Object.Priority,
-                     CreatedAt = item.Object.CreatedAt,
 
-                 }).ToList();
+            //List<Project> lista = null;            
 
-            }
-            catch (FirebaseException e)
-            {
-                Console.WriteLine(e.ToString());
-            }
+            var lista = (await firebase.Child("Project")
+             .OnceAsync<Project>()).Select(item => new Project
+             {
+                 Name = item.Object.Name,
+                 FinalDate = item.Object.FinalDate,
+                 CreatedAt = item.Object.CreatedAt,
+                 IsFinished = item.Object.IsFinished
+             }).ToList();
 
-            return lista;
+            await firebase
+                .Child("Project")
+                .OnceAsync<Project>();
+
+
+            return lista.Where(a => a.IsFinished == false).ToList();
+            
+            ;
         }
 
         public async Task<int> GetProjectsQuantity()
@@ -75,7 +72,6 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
                 {
                     Name = item.Object.Name,
                     FinalDate = item.Object.FinalDate,
-                    Priority = item.Object.Priority,
                     CreatedAt = item.Object.CreatedAt,
 
                 }).ToList().Count;

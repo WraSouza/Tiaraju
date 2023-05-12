@@ -18,7 +18,7 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
 
         public UserServices()
         {
-            firebase = new FirebaseClient("https://laboratoriotiaraju-6c89e-default-rtdb.firebaseio.com/");
+            
         }
 
         public async Task<bool> AddUser(Usuario usuario)

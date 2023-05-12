@@ -12,13 +12,12 @@ namespace Tiaraju.Models
         {
             
         }
-        public Project(string projectName, string finalDate, string priority, string status)
+        public Project(string projectName, string finalDate,string status)
         {            
             Name = projectName;
             FinalDate = finalDate;            
             Status = status;
-            CreatedAt = DateTime.Today.ToShortDateString();
-            Priority = priority;
+            CreatedAt = DateTime.Today.ToShortDateString();            
             Activities = new List<string>();
         }                       
               

@@ -51,48 +51,11 @@
                     Date="{Binding FinalDate}"
                     FontFamily="OpenSansRegular"
                     FontSize="Medium"
-                    HorizontalOptions="Start">
+                    WidthRequest="350"
+                    HorizontalOptions="CenterAndExpand">
                     <DatePicker.Format>dd-MMMM-yyyy</DatePicker.Format>
                 </DatePicker>
-            </Border>
-
-            <Label
-                FontFamily="OpenSansSemibold"
-                FontSize="Medium"
-                Text="Prioridade"
-                TextColor="Green" />
-
-            <Picker
-                x:Name="picker"
-                FontFamily="OpenSansRegular"
-                FontSize="Medium"
-                SelectedItem="{Binding Priority}">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Alta</x:String>
-                        <x:String>Média</x:String>
-                        <x:String>Baixa</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
-
-            <Label
-                FontFamily="OpenSansSemibold"
-                FontSize="Medium"
-                Text="Situação Inicial"
-                TextColor="Green" />
-
-            <Picker
-                FontFamily="OpenSansRegular"
-                FontSize="Medium"
-                SelectedItem="{Binding Status}">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Iniciado</x:String>
-                        <x:String>Não Iniciado</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
+            </Border>                       
 
         </VerticalStackLayout>
 
@@ -105,7 +68,6 @@
             Text="Adicionar"
             TextColor="White"
             VerticalOptions="EndAndExpand" />
-
     </Grid>
 
 </ContentPage>

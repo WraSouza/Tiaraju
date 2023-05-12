@@ -62,7 +62,7 @@ namespace Tiaraju.ViewModels
                 }
                 //int quantityProject = await projectServices.GetProjectsQuantity();               
 
-                var project = new Project( Title, finalDate.ToShortDateString(), priority, status);                
+                var project = new Project( Title, finalDate.ToShortDateString(), status);                
 
                 await projectServices.AddProject(project);
 

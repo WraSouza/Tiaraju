@@ -1,61 +1,47 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="Tiaraju.Views.AdicionarAtividadeView"
+    x:Class="Tiaraju.Views.EditarAtividadeView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mvvm="clr-namespace:Tiaraju.ViewModels"
-    Title="Adicionar Atividade">
-
+    Title="Editar Atividade">
     <ContentPage.BindingContext>
-        <mvvm:AdicionarAtividadeViewModel />
+        <mvvm:EditarAtividadeViewModel />
     </ContentPage.BindingContext>
 
-    <Grid Padding="15">
-        <Image
-            HeightRequest="100"
-            HorizontalOptions="Center"
-            Opacity="0.1"
-            Source="logotiaraju.png"
-            VerticalOptions="Center" />
-
-        <ScrollView>
-            <VerticalStackLayout Spacing="20">
+    <ScrollView>
+        <Grid>
+            <Image
+                HeightRequest="100"
+                HorizontalOptions="Center"
+                Opacity="0.1"
+                Source="logotiaraju.png"
+                VerticalOptions="Center" />
+            <VerticalStackLayout Padding="10" Spacing="10">
                 <Label
                     FontFamily="OpenSansSemibold"
                     FontSize="Medium"
                     Text="Projeto"
                     TextColor="Green" />
 
-                <Picker
+                <Label
                     FontFamily="OpenSansRegular"
                     FontSize="Medium"
-                    ItemDisplayBinding="{Binding Name}"
-                    ItemsSource="{Binding Projects}"
-                    SelectedItem="{Binding Project}" />
+                    IsEnabled="False"
+                    Text="{Binding Projectname}"
+                    TextColor="Gray" />
 
                 <Label
                     FontFamily="OpenSansSemibold"
                     FontSize="Medium"
-                    Text="Nome da Atividade"
+                    Text="Atividade"
                     TextColor="Green" />
 
-                <Entry Text="{Binding Title}"
-                       FontFamily="OpenSansRegular"
-                       FontSize="Medium"/>
-
-                <Label
-                    FontFamily="OpenSansSemibold"
-                    FontSize="Medium"
-                    Text="Setor Responsável"
-                    TextColor="Green" />
-
-                <Picker
+                <Entry
                     FontFamily="OpenSansRegular"
                     FontSize="Medium"
-                    ItemDisplayBinding="{Binding DepartmentAcronym}"
-                    ItemsSource="{Binding Departments}"
-                    SelectedItem="{Binding Ownerdepartment}" />
-
+                    Text="{Binding Activityname}"
+                    TextColor="Black" />
 
                 <Label
                     FontFamily="OpenSansSemibold"
@@ -76,6 +62,19 @@
                         <DatePicker.Format>dd-MMMM-yyyy</DatePicker.Format>
                     </DatePicker>
                 </Border>
+
+                <Label
+                    FontFamily="OpenSansSemibold"
+                    FontSize="Medium"
+                    Text="Setor Responsável"
+                    TextColor="Green" />
+
+                <Picker
+                    FontFamily="OpenSansRegular"
+                    FontSize="Medium"
+                    ItemDisplayBinding="{Binding DepartmentAcronym}"
+                    ItemsSource="{Binding Departments}"
+                    SelectedItem="{Binding Ownerdepartment}" />
 
                 <Label
                     FontFamily="OpenSansSemibold"
@@ -102,6 +101,7 @@
                     FontFamily="OpenSansRegular"
                     FontSize="Medium"
                     SelectedItem="{Binding Priority}">
+
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Alta</x:String>
@@ -131,18 +131,29 @@
                     </Picker.ItemsSource>
                 </Picker>
 
+                <Grid ColumnDefinitions="*,*">
+                    <Button
+                        Grid.Column="0"
+                        Margin="10,80,10,0"
+                        BackgroundColor="Green"
+                        Command="{Binding AtualizarAtividadeCommand}"
+                        FontFamily="OpenSansRegular"
+                        Text="Atualizar"
+                        TextColor="White"
+                        VerticalOptions="End" />
 
-                <Button
-                    Margin="10,80,10,0"
-                    BackgroundColor="Green"
-                    Command="{Binding AddActivityCommand}"
-                    FontFamily="OpenSansRegular"
-                    Text="Adicionar"
-                    TextColor="White"
-                    VerticalOptions="End" />
+                    <Button
+                        Grid.Column="1"
+                        Margin="10,80,10,0"
+                        BackgroundColor="Green"
+                        Command="{Binding AtualizarAtividadeCommand}"
+                        FontFamily="OpenSansRegular"
+                        Text="Encerrar"
+                        TextColor="White"
+                        VerticalOptions="End" />
 
-
+                </Grid>
             </VerticalStackLayout>
-        </ScrollView>
-    </Grid>
+        </Grid>
+    </ScrollView>
 </ContentPage>
