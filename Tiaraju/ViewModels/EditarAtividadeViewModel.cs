@@ -36,13 +36,55 @@ namespace Tiaraju.ViewModels
         [ObservableProperty]
         public string priority;
 
-        [ObservableProperty]
-        public string status;
+        //[ObservableProperty]
+        //public string status;
 
         public EditarAtividadeViewModel()
         {
             BuscaAtividade();
             BuscaDepartamentos();
+        }
+
+        [RelayCommand]
+        async void ExcluirAtividade()
+        {
+            bool verificaConexao = Conectividade.VerificaConectividade();
+
+            if (verificaConexao)
+            {
+                bool answer = await Application.Current.MainPage.DisplayAlert("", "Deseja Excluir Essa Atividade?", "Sim", "Não");
+
+                if(answer)
+                {
+                    activityServices.DeleteActivity(Activityname, Projectname);
+
+                    Mensagem.MensagemExclusão();
+                }
+            }
+        }
+
+        [RelayCommand]
+        async void EncerrarAtividade()
+        {
+            bool verificaConexao = Conectividade.VerificaConectividade();
+
+            if (verificaConexao)
+            {
+                bool answer = await Application.Current.MainPage.DisplayAlert("", "Deseja Encerrar Essa Atividade?", "Sim", "Não");
+
+                if (answer)
+                {
+                    activityServices.FinishActivity(Activityname, Projectname);
+
+                    Mensagem.AtividadeFinalizadaComSucesso();
+
+                    return;
+                }
+
+               
+            }
+
+            Mensagem.MensagemErroConexao();
         }
 
         [RelayCommand]
@@ -75,10 +117,11 @@ namespace Tiaraju.ViewModels
 
                 //TO DO. SE CONCLUÍDO, MUDAR STATUS ISFINISHED = TRUE.
 
-                var atualizarAtividade = new Atividade(Projectname, Activityname, finalDate.ToShortDateString(), Priority, Status, Ownerdepartment.DepartmentAcronym, listadoBanco.EnvolvedDepartments);
+                var atualizarAtividade = new Atividade(Projectname, Activityname, finalDate.ToShortDateString(), Priority, listadoBanco.Status, Ownerdepartment.DepartmentAcronym, listadoBanco.EnvolvedDepartments);
 
                 activityServices.UpdateActivity(atualizarAtividade);
 
+                Mensagem.SucessoAtualizacao();
 
                 //TODO atualizar o projeto. Ver a necessidade de atualizar o projeto
                 return;                

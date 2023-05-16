@@ -9,9 +9,6 @@ public partial class App : Application
         //MainPage = new MainPage(new MainViewModel());
         MainPage = new LoginView();
         
-
-
-
     }
 
     protected override Window CreateWindow(IActivationState activationState)

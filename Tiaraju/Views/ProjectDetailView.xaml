@@ -29,17 +29,48 @@
                         <Border BackgroundColor="#F8F8F8" StrokeShape="RoundRectangle 10,10,10,10">
                             <VerticalStackLayout Padding="5">
 
-                                <Label
-                                    FontFamily="OpenSansSemibold"
-                                    FontSize="15"
-                                    Text="Atividade"
-                                    TextColor="Green" />
 
-                                <Label
-                                    FontFamily="OpenSansSemibol"
-                                    FontSize="18"
-                                    Text="{Binding Name}"
-                                    TextColor="Black" />
+                                <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="20,20">
+
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="2"
+                                        FontFamily="OpenSansSemibold"
+                                        FontSize="15"
+                                        Text="Atividade"
+                                        TextColor="Green" />
+
+                                    <Label
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="2"
+                                        FontFamily="OpenSansSemibol"
+                                        FontSize="15"
+                                        Text="{Binding Name}"
+                                        TextColor="Black" />
+
+
+                                    <Label
+                                        Grid.Column="2"
+                                        Grid.ColumnSpan="2"
+                                        FontFamily="OpenSansSemibold"
+                                        FontSize="15"
+                                        HorizontalTextAlignment="End"
+                                        Text="Status"
+                                        TextColor="Green" />
+
+                                    <Label
+                                        Grid.Row="1"
+                                        Grid.Column="2"
+                                        Grid.ColumnSpan="2"
+                                        FontFamily="OpenSansSemibol"
+                                        FontSize="15"
+                                        HorizontalTextAlignment="End"
+                                        Text="{Binding Status}"
+                                        TextColor="Black" />
+
+                                </Grid>
 
                                 <Label
                                     FontFamily="OpenSansSemibold"
@@ -52,7 +83,7 @@
                                         <DataTemplate>
                                             <Label
                                                 FontFamily="OpenSansRegular"
-                                                FontSize="18"
+                                                FontSize="15"
                                                 Text="{Binding}" />
                                         </DataTemplate>
                                     </BindableLayout.ItemTemplate>
@@ -64,18 +95,16 @@
                                     Text="Setores Envolvidos"
                                     TextColor="Green" />
 
-                                <HorizontalStackLayout BindableLayout.ItemsSource="{Binding EnvolvedDepartments}">
+                                <HorizontalStackLayout BindableLayout.ItemsSource="{Binding EnvolvedDepartments}" Spacing="5">
                                     <BindableLayout.ItemTemplate>
                                         <DataTemplate>
                                             <HorizontalStackLayout>
                                                 <Label
-                                                FontFamily="OpenSansRegular"
-                                                FontSize="18"
-                                                Text="{Binding}" />
-
-                                                <Label Text="  "/>
+                                                    FontFamily="OpenSansRegular"
+                                                    FontSize="15"
+                                                    Text="{Binding}" />
                                             </HorizontalStackLayout>
-                                           
+
                                         </DataTemplate>
                                     </BindableLayout.ItemTemplate>
                                 </HorizontalStackLayout>
@@ -88,7 +117,7 @@
 
                                 <Label
                                     FontFamily="OpenSansRegular"
-                                    FontSize="18"
+                                    FontSize="15"
                                     Text="{Binding FinalDate}"
                                     TextColor="Black" />
 

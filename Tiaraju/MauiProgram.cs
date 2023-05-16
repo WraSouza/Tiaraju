@@ -1,5 +1,4 @@
 ﻿
-using Maui.FreakyControls.Extensions;
 
 namespace Tiaraju;
 
@@ -10,16 +9,12 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
-			.UseMauiCommunityToolkit()           
+			.UseMauiCommunityToolkit()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			})
-            .ConfigureMauiHandlers(handlers =>
-            {
-                handlers.AddFreakyHandlers(); // To Init your freaky handlers for Entry and Editor
-            });
+			});           
 
 
         builder.Services.AddSingleton<MainViewModel>();

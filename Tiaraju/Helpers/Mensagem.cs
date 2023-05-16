@@ -45,7 +45,7 @@ namespace Tiaraju.Helpers
 
         public static void MensagemUsuarioSemAutorizacao()
         {
-            Application.Current.MainPage.DisplayAlert("Ops!", "Usuário Sem Autorização de Acesso", "OK");
+            Application.Current.MainPage.DisplayAlert("Ops!", "Usuário Sem Autorização de Acesso.", "OK");
         }
 
         public static void AtividadeFinalizadaComSucesso()
@@ -71,6 +71,16 @@ namespace Tiaraju.Helpers
         public static void MensagemExcecao()
         {
             Application.Current.MainPage.DisplayAlert("Ops", "Tivemos Um Problema na Requisição.", "OK");
+        }
+
+        public static void MensagemExclusão()
+        {
+            Application.Current.MainPage.DisplayAlert("", "Exclusão Realizada com Sucesso.", "OK");
+        }
+
+        public static void SucessoAtualizacao()
+        {
+            Application.Current.MainPage.DisplayAlert("", "Atualização Realizada com Sucesso.", "OK");
         }
     }
 }

@@ -48,6 +48,10 @@ namespace Tiaraju.ViewModels
                         return;
                     }
 
+                    Usuario usuario = await userServices.GetUser(Name);
+
+                    Preferences.Set("Departamento", usuario.Department);
+
                     string senhaCriptografada = Criptografia.CriptografaSenha(Password);
 
                     bool confirmaLogin = await userServices.LoginUser(Name,senhaCriptografada);

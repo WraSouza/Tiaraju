@@ -16,7 +16,7 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
 
         public ProjectServices()
         {
-            
+            firebase = new FirebaseClient("https://laboratoriotiaraju-6c89e-default-rtdb.firebaseio.com/");
         }
 
         public async Task AddProject(Project project)

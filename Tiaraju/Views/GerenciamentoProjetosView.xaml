@@ -18,7 +18,9 @@
             Source="logotiaraju.png"
             VerticalOptions="Center" />
 
-        <RefreshView>
+        <RefreshView Command="{Binding AtualizarTelaCommand}"
+                     IsRefreshing="{Binding IsRefreshing}"
+                     RefreshColor="Green">
             <CollectionView
                 x:Name="collectionView"
                 Margin="10,40,10,0"

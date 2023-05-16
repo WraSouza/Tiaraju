@@ -24,10 +24,7 @@ namespace Tiaraju.ViewModels
         public DateTime finalDate;
 
         [ObservableProperty]
-        public string priority;
-
-        [ObservableProperty]
-        public string status;
+        public string priority;       
 
         public INavigation _navigation { get; set; }
 
@@ -44,45 +41,51 @@ namespace Tiaraju.ViewModels
         {
             bool verificaConexao = Conectividade.VerificaConectividade();
 
-            if(verificaConexao)
-            {
-                //Primeiro verificar se a data é maior que o dia atual
-                if(finalDate <  DateTime.Now)
+            var nomeUsuario = Preferences.Get("Nome", "default_value");
+
+           
+                if (verificaConexao)
                 {
-                    Mensagem.MensagemDataDeveSerMaior();
+                    //Primeiro verificar se a data é maior que o dia atual
+                    if (finalDate < DateTime.Now)
+                    {
+                        Mensagem.MensagemDataDeveSerMaior();
+
+                        return;
+                    }
+
+                    if (string.IsNullOrEmpty(Title))
+                    {
+                        Mensagem.MensagemObrigatoriedadeCredenciais();
+
+                        return;
+                    }
+                    //int quantityProject = await projectServices.GetProjectsQuantity();               
+
+                    var project = new Project(Title, finalDate.ToShortDateString());
+
+                    await projectServices.AddProject(project);
+
+                    Mensagem.MensagemCadastroSucesso();
+
+                    await Task.Delay(2000);
+
+                    bool answer = await Application.Current.MainPage.DisplayAlert("", "Gostaria de Adicionar uma Atividade a Esse Projeto?", "Sim", "Não");
+
+                    Preferences.Set("NomeProjeto", Title);
+
+                    if (answer)
+                    {
+                        var route = $"{nameof(Views.AdicionarAtividadeView)}";
+                        await Shell.Current.GoToAsync(route);
+                    }
+
 
                     return;
                 }
 
-                if (string.IsNullOrEmpty(Title))
-                {
-                    Mensagem.MensagemObrigatoriedadeCredenciais();
-
-                    return;
-                }
-                //int quantityProject = await projectServices.GetProjectsQuantity();               
-
-                var project = new Project( Title, finalDate.ToShortDateString(), status);                
-
-                await projectServices.AddProject(project);
-
-                Mensagem.MensagemCadastroSucesso();
-
-                await Task.Delay(2000);
-
-                bool answer = await Application.Current.MainPage.DisplayAlert("", "Gostaria de Adicionar uma Atividade a Esse Projeto?", "Sim", "Não");
-
-                if (answer)
-                {
-                    var route = $"{nameof(Views.AdicionarAtividadeView)}";
-                    await Shell.Current.GoToAsync(route);
-                }
-
-
-                return;
-            }
-
-            Mensagem.MensagemErroConexao();
+                Mensagem.MensagemErroConexao();
+            
         }
 
         async void BuscaDepartamentos()

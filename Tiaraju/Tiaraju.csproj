@@ -49,6 +49,7 @@
 	  <None Remove="Resources\Images\bonustiarajuimagem.jpg" />
 	  <None Remove="Resources\Images\calendariocq.jpg" />
 	  <None Remove="Resources\Images\cardapio.jpeg" />
+	  <None Remove="Resources\Images\department.png" />
 	  <None Remove="Resources\Images\diat.jpeg" />
 	  <None Remove="Resources\Images\diat.png" />
 	  <None Remove="Resources\Images\gerenciamentoprojeto.png" />
@@ -85,6 +86,12 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\CadastrarUsuarioView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ChartsPMOView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\DepartmentsView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\EditarAtividadeView.xaml">

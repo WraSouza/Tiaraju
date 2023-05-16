@@ -12,18 +12,39 @@ namespace Tiaraju.Models
         {
             
         }
-        public Project(string projectName, string finalDate,string status)
+        public Project(string projectName, string finalDate)
         {            
             Name = projectName;
             FinalDate = finalDate;            
-            Status = status;
+            Status = "Iniciado";
             CreatedAt = DateTime.Today.ToShortDateString();            
             Activities = new List<string>();
         }                       
               
         public string CreatedAt { get; set; }        
-        public List<string> Activities { get; set; }
+        public List<string> Activities { get; set; }     
+        
+        public void UpdateProject(Project project)
+        {
+            if (project == null)
+            {
+                return;
+            }
+
+            Name = project.Name;
+            FinalDate = project.FinalDate;
+            Status = project.Status;
+        }
+
+        public bool FinishProject(Project project)
+        {
+            IsFinished = true;
+
+            return IsFinished;
+        }
         
        
     }
+
+    
 }

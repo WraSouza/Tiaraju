@@ -15,7 +15,7 @@ namespace Tiaraju.ViewModels
         [RelayCommand]
         public async Task AbrirProjetosView()
         {
-            var route = $"{nameof(Views.GerenciamentoProjetosView)}";
+            var route = $"{nameof(Views.GerenciamentoProjetosView)}";            
             await Shell.Current.GoToAsync(route);
         }
 

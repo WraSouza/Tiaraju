@@ -22,15 +22,35 @@ namespace Tiaraju.ViewModels
 
         async void BuscaAtividades()
         {
-            var nomeProjeto = Preferences.Get("NomeProjeto", "default_value");
+            var nomeProjeto = Preferences.Get("NomeProjeto", "default_value");            
 
-            var detalhesProjeto = await activityServices.GetAtividade(nomeProjeto);
+            var nomeUsuario = Preferences.Get("Nome", "default_value");
 
-            foreach(var project in detalhesProjeto)
+            if(nomeUsuario == "bethania.vargas")
+            {
+                var detalhesProjeto = await activityServices.GetAtividade(nomeProjeto);
+
+                foreach (var project in detalhesProjeto)
+                {
+                    Atividades.Add(project);
+                    OwnerDepartments.Add(project.EnvolvedDepartments.ToString());
+                }
+
+                return;
+            }
+
+            var departamentoUsuario = Preferences.Get("Departamento", "default_value");
+
+            var detalhesDoProjeto = await activityServices.GetActivityByDepartment(departamentoUsuario);
+
+            foreach (var project in detalhesDoProjeto)
             {
                 Atividades.Add(project);
                 OwnerDepartments.Add(project.EnvolvedDepartments.ToString());
             }
+
+            return;
+
         }
 
         [RelayCommand]

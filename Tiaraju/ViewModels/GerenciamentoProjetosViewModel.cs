@@ -15,6 +15,9 @@ namespace Tiaraju.ViewModels
 
         ProjectServices projectServices = new();
 
+        [ObservableProperty]
+        public bool isRefreshing;
+
         public GerenciamentoProjetosViewModel()
         {
             GetProjects();
@@ -28,12 +31,36 @@ namespace Tiaraju.ViewModels
             await Shell.Current.GoToAsync(route);
         }
 
+        [RelayCommand]
+        public void AtualizarTela()
+        {
+            bool verificaConexao = Conectividade.VerificaConectividade();
+
+            if( verificaConexao )
+            {
+                Projects.Clear();
+                GetProjects();
+
+                IsRefreshing = false;
+            }
+        }
+
 
         [RelayCommand]
         public async Task AdicionarProjetos()
         {
-            var route = $"{nameof(Views.AdicionarProjetoView)}";
-            await Shell.Current.GoToAsync(route);
+            var nomeUsuario = Preferences.Get("Nome", "default_value");
+
+            if(nomeUsuario == "bethania.vargas")
+            {
+                var route = $"{nameof(Views.AdicionarProjetoView)}";
+                await Shell.Current.GoToAsync(route);
+            }
+            else
+            {
+                Mensagem.MensagemUsuarioSemAutorizacao();
+            }
+            
         }
 
         async void GetProjects()

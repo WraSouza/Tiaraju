@@ -19,19 +19,16 @@
             VerticalOptions="Center" />
 
         <ScrollView>
-            <VerticalStackLayout Spacing="20">
+            <VerticalStackLayout Spacing="10">
                 <Label
                     FontFamily="OpenSansSemibold"
                     FontSize="Medium"
                     Text="Projeto"
                     TextColor="Green" />
 
-                <Picker
-                    FontFamily="OpenSansRegular"
-                    FontSize="Medium"
-                    ItemDisplayBinding="{Binding Name}"
-                    ItemsSource="{Binding Projects}"
-                    SelectedItem="{Binding Project}" />
+                <Label Text="{Binding Projecttitle}"
+                       FontSize="Medium"
+                       FontFamily="OpenSansRegular"/>                
 
                 <Label
                     FontFamily="OpenSansSemibold"
@@ -124,16 +121,14 @@
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Em Andamento</x:String>
-                            <x:String>Concluído</x:String>
-                            <x:String>Não Iniciado</x:String>
-                            <x:String>Em Atraso</x:String>
+                            <x:String>Não Iniciado</x:String>                            
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
 
 
                 <Button
-                    Margin="10,80,10,0"
+                   FontSize="Medium"
                     BackgroundColor="Green"
                     Command="{Binding AddActivityCommand}"
                     FontFamily="OpenSansRegular"

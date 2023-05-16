@@ -24,6 +24,9 @@ namespace Tiaraju.ViewModels
         public string title;
 
         [ObservableProperty]
+        public string projecttitle;
+
+        [ObservableProperty]
         public Project project;
 
         [ObservableProperty]
@@ -45,6 +48,10 @@ namespace Tiaraju.ViewModels
         {
             BuscaProjetos();
             BuscaDepartamentos();
+
+            var nomeProjeto = Preferences.Get("NomeProjeto", "default_value");
+
+            Projecttitle = nomeProjeto.ToString();
         }
 
         [RelayCommand]
@@ -70,7 +77,7 @@ namespace Tiaraju.ViewModels
                 }
 
                 //Verifica se a atividade existe. Se existir, traz as informações dela para que seja atualizada
-                bool verificaSeAtividadeExiste = await activityServices.ActivityExist(Title, Project.Name);
+                bool verificaSeAtividadeExiste = await activityServices.ActivityExist(Title, Projecttitle);
 
                 if (verificaSeAtividadeExiste)
                 {
@@ -81,9 +88,10 @@ namespace Tiaraju.ViewModels
                         setoresEnvolvidos.Add(Setores.DepartmentAcronym);
 
                         //setorResponsavel.Add(ownerdepartment.DepartmentAcronym);
-                    }                    
+                    }                   
 
-                    var atualizarAtividade = new Atividade(Project.Name, Title, finalDate.ToShortDateString(), Priority, Status, Ownerdepartment.DepartmentAcronym, setoresEnvolvidos);
+
+                    var atualizarAtividade = new Atividade(Projecttitle, Title, finalDate.ToShortDateString(), Priority, Status, Ownerdepartment.DepartmentAcronym, setoresEnvolvidos);
 
                     activityServices.UpdateActivity(atualizarAtividade);
 
@@ -92,11 +100,16 @@ namespace Tiaraju.ViewModels
                     return;
                 }
 
+                if(Status == null)
+                {
+                    Status = "Em Andamento";
+                }
+
 
                 //Aqui adiciona uma nova atividade.
                 setoresEnvolvidos.Add(Setores.DepartmentAcronym);                
 
-                var atividade = new Atividade(Project.Name, Title.TrimEnd(), finalDate.ToShortDateString(), Priority, Status, Ownerdepartment.DepartmentAcronym, setoresEnvolvidos);
+                var atividade = new Atividade(Projecttitle, Title.TrimEnd(), finalDate.ToShortDateString(), Priority, Status, Ownerdepartment.DepartmentAcronym, setoresEnvolvidos);
                 
                 await activityServices.AddActivity(atividade);
 

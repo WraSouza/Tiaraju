@@ -109,29 +109,9 @@
                             <x:String>Baixa</x:String>
                         </x:Array>
                     </Picker.ItemsSource>
-                </Picker>
+                </Picker>               
 
-                <Label
-                    FontFamily="OpenSansSemibold"
-                    FontSize="Medium"
-                    Text="Status da Atividade"
-                    TextColor="Green" />
-
-                <Picker
-                    FontFamily="OpenSansRegular"
-                    FontSize="Medium"
-                    SelectedItem="{Binding Status}">
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>Em Andamento</x:String>
-                            <x:String>Concluído</x:String>
-                            <x:String>Não Iniciado</x:String>
-                            <x:String>Em Atraso</x:String>
-                        </x:Array>
-                    </Picker.ItemsSource>
-                </Picker>
-
-                <Grid ColumnDefinitions="*,*">
+                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,*">
                     <Button
                         Grid.Column="0"
                         Margin="10,80,10,0"
@@ -145,8 +125,20 @@
                     <Button
                         Grid.Column="1"
                         Margin="10,80,10,0"
-                        BackgroundColor="Green"
-                        Command="{Binding AtualizarAtividadeCommand}"
+                        BackgroundColor="Red"
+                        Command="{Binding ExcluirAtividadeCommand}"
+                        FontFamily="OpenSansRegular"
+                        Text="Excluir"
+                        TextColor="White"
+                        VerticalOptions="End" />
+
+                    <Button
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        Grid.ColumnSpan="2"
+                        Margin="10,20,10,0"
+                        BackgroundColor="Blue"
+                        Command="{Binding EncerrarAtividadeCommand}"
                         FontFamily="OpenSansRegular"
                         Text="Encerrar"
                         TextColor="White"

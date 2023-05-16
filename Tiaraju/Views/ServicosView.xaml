@@ -15,11 +15,11 @@
             Opacity="0.1"
             Source="logotiaraju.png"
             VerticalOptions="Center" />
-        <VerticalStackLayout>
+        <VerticalStackLayout VerticalOptions="Center">
 
             <Grid
                 Margin="0,30,0,0"
-                ColumnDefinitions="*,*"
+                ColumnDefinitions="*,*"                
                 RowDefinitions="60,80,60,80,60"
                 RowSpacing="10">
 

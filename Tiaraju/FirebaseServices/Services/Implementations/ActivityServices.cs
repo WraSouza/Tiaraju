@@ -18,7 +18,7 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
 
         public ActivityServices()
         {
-            
+            firebase = new FirebaseClient("https://laboratoriotiaraju-6c89e-default-rtdb.firebaseio.com/");
         }
 
         public async Task AddActivity(Atividade atividade)
@@ -37,9 +37,25 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
                  });
         }
 
-        public void FinishActivity(string activityname, string projectname)
+        public async void FinishActivity(string activityname, string projectname)
         {
             bool finished = true;
+
+            string atividadeConcluida = "Concluído";
+
+            var activities = await GetActivities();
+
+            var encerrarAtividade = (await firebase
+            .Child("Atividades")
+              .OnceAsync<Atividade>()).Where(a => a.Object.ProjectName == projectname && a.Object.Name == activityname).FirstOrDefault();
+
+            encerrarAtividade.Object.IsFinished = finished;
+            encerrarAtividade.Object.Status = atividadeConcluida;            
+
+            await firebase
+           .Child("Atividades")
+           .Child(encerrarAtividade.Key)
+           .PutAsync(encerrarAtividade.Object);
 
         }
 
@@ -113,6 +129,34 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
                 .OnceAsync<Atividade>();
 
             return listaBanco.Where(a => a.Name == activityName && a.ProjectName == projectName).FirstOrDefault();
+        }
+
+        public async void DeleteActivity(string activityName, string projectName)
+        {            
+                var activities = await GetActivities();
+               
+                var toDeleteActivity = (await firebase
+                  .Child("Atividades")
+                  .OnceAsync<Atividade>()).Where(a => (a.Object.Name == activityName || a.Object.ProjectName == projectName)).FirstOrDefault();
+
+                if (toDeleteActivity != null)
+                {
+                    await firebase
+                        .Child("Atividades")
+                        .Child(toDeleteActivity.Key)
+                        .DeleteAsync();
+                }            
+        }
+
+        public async Task<List<Atividade>> GetActivityByDepartment(string department)
+        {
+            var listaBanco = await GetActivities();
+
+            await firebase
+                .Child("Atividades")
+                .OnceAsync<Atividade>();
+
+            return listaBanco.Where(a => a.OwnerDepartment == department).ToList();
         }
     }
 }

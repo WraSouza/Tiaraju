@@ -18,7 +18,7 @@
             Source="logotiaraju.png"
             VerticalOptions="Center" />
 
-        <VerticalStackLayout Padding="10">
+        <VerticalStackLayout Padding="10" VerticalOptions="Center">
 
             <Grid
                 Margin="0,30,0,0"

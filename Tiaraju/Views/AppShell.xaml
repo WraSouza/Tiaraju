@@ -14,6 +14,11 @@
             Icon="home.png" />
 
         <ShellContent
+            Title="Setores"
+            ContentTemplate="{DataTemplate views:DepartmentsView}"
+            Icon="department.png" />
+
+        <ShellContent
             Title="Serviços"
             ContentTemplate="{DataTemplate views:ServicosView}"
             Icon="services.png" />
