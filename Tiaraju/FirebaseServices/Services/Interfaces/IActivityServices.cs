@@ -18,6 +18,8 @@ namespace Tiaraju.FirebaseServices.Services.Interfaces
         Task<Atividade> GetActivityByName(string activityName, string projectName);
         void DeleteActivity(string activityName, string projectName);
         Task<List<Atividade>> GetActivityByDepartment(string department);
+        Task<int> ReturnActivityQuantity(string projectName);
+
         
 
     }

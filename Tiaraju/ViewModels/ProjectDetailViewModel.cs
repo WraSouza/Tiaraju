@@ -11,13 +11,64 @@ namespace Tiaraju.ViewModels
     partial class ProjectDetailViewModel : ObservableObject
     {
         ActivityServices activityServices = new();
+        ProjectServices projectServices = new();
+        public List<ChartsAtividades> Lista { get; set; }        
         public ObservableCollection<Atividade> Atividades { get; set; } = new ObservableCollection<Atividade>();
-
         public ObservableCollection<string> OwnerDepartments { get; set; } = new ObservableCollection<string>();
+
+        public ObservableCollection<ChartsAtividades> Charts { get; set; } = new ObservableCollection<ChartsAtividades>();
 
         public ProjectDetailViewModel()
         {
             BuscaAtividades();
+            PreencherGrafico();
+        }
+
+        async void PreencherGrafico()
+        {
+            //Lista = new List<ChartsAtividades>()
+            //{
+            //    new ChartsAtividades() { ProjectName = "Teste", QuantidadeAtividades = 1},
+            //    new ChartsAtividades() { ProjectName = "Teste1", QuantidadeAtividades = 2},
+            //    new ChartsAtividades() { ProjectName = "Teste2", QuantidadeAtividades = 3},
+            //    new ChartsAtividades() { ProjectName = "Teste3", QuantidadeAtividades = 4},
+            //};
+
+            var listaProjetos = await projectServices.GetProjects();
+
+            Lista = new List<ChartsAtividades>()
+            {
+
+            };
+
+            //foreach (var project in listaProjetos)
+            //{
+            //    int quantidadeAtividades = await activityServices.ReturnActivityQuantity(project.Name);
+            //    string nomeprojeto = project.Name;
+            //    Lista = new List<ChartsAtividades>()
+            //    {
+            //        new ChartsAtividades() { ProjectName = nomeprojeto, QuantidadeAtividades = quantidadeAtividades },
+            //    };
+            //}
+
+
+
+            //foreach (var project in listaProjetos)
+            //{
+            //    int quantidadeAtividades = await activityServices.ReturnActivityQuantity(project.Name);
+
+            //    var chartsProject = new ChartsAtividades(project.Name, quantidadeAtividades);
+
+            //    //Charts.Add(chartsProject);
+
+            //    Lista = new List<ChartsAtividades>()
+            //    {
+            //      new ChartsAtividades(){ ProjectName =  project.Name, QuantidadeAtividades = quantidadeAtividades },
+            //    };   
+
+            //}
+
+            //Charts.Add(Lista);
         }
 
         async void BuscaAtividades()
@@ -70,4 +121,5 @@ namespace Tiaraju.ViewModels
             await Shell.Current.GoToAsync(route);
         }
     }
+   
 }

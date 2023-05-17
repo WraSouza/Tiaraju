@@ -158,5 +158,16 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
 
             return listaBanco.Where(a => a.OwnerDepartment == department).ToList();
         }
+
+        public async Task<int> ReturnActivityQuantity(string projectName)
+        {
+            var listaBanco = await GetActivities();
+
+            await firebase
+                .Child("Atividades")
+                .OnceAsync<Atividade>();
+
+            return listaBanco.Where(a => a.ProjectName == projectName).ToList().Count();
+        }
     }
 }
