@@ -4,8 +4,8 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mvvm="clr-namespace:Tiaraju.ViewModels"
-    xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"    
     Title="Atividades do Projeto">
+
     <ContentPage.BindingContext>
         <mvvm:ProjectDetailViewModel />
     </ContentPage.BindingContext>
@@ -20,108 +20,90 @@
 
         <VerticalStackLayout>
 
-            <chart:SfCircularChart HeightRequest="160">
-                <chart:SfCircularChart.BindingContext>
-                    <mvvm:ProjectDetailViewModel/>
-                </chart:SfCircularChart.BindingContext>
-
-                <chart:PieSeries ItemsSource="{Binding Lista}"
-                                 XBindingPath="ProjectName" 
-                                 YBindingPath="QuantidadeAtividades"/>               
-
-                <chart:PieSeries ShowDataLabels="True"/>
-
-                <chart:SfCircularChart.Title>
-                    <Label Text="ATIVIDADES"/>
-                </chart:SfCircularChart.Title>
-            </chart:SfCircularChart>
-            
             <CollectionView
-            x:Name="collectionView"
-            Margin="10,10,10,0"
-            EmptyView="Não Há Projetos Cadastrados no Momento"
-            IsGrouped="False"
-            ItemsSource="{Binding Atividades}">
+                x:Name="collectionView"
+                Margin="10,10,10,0"
+                EmptyView="Não Há Projetos Cadastrados no Momento"
+                IsGrouped="False"
+                ItemsSource="{Binding Atividades}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <VerticalStackLayout Margin="0,10,0,0">
                             <Border BackgroundColor="#F8F8F8" StrokeShape="RoundRectangle 10,10,10,10">
                                 <VerticalStackLayout Padding="5">
 
-
                                     <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="20,20">
 
                                         <Label
-                                        Grid.Row="0"
-                                        Grid.Column="0"
-                                        Grid.ColumnSpan="2"
-                                        FontFamily="OpenSansSemibold"
-                                        FontSize="15"
-                                        Text="Atividade"
-                                        TextColor="Green" />
+                                            Grid.Row="0"
+                                            Grid.Column="0"
+                                            Grid.ColumnSpan="2"
+                                            FontFamily="OpenSansSemibold"
+                                            FontSize="15"
+                                            Text="Atividade"
+                                            TextColor="Green" />
 
                                         <Label
-                                        Grid.Row="1"
-                                        Grid.Column="0"
-                                        Grid.ColumnSpan="2"
-                                        FontFamily="OpenSansSemibol"
-                                        FontSize="15"
-                                        Text="{Binding Name}"
-                                        TextColor="Black" />
-
-
-                                        <Label
-                                        Grid.Column="2"
-                                        Grid.ColumnSpan="2"
-                                        FontFamily="OpenSansSemibold"
-                                        FontSize="15"
-                                        HorizontalTextAlignment="End"
-                                        Text="Status"
-                                        TextColor="Green" />
+                                            Grid.Row="1"
+                                            Grid.Column="0"
+                                            Grid.ColumnSpan="2"
+                                            FontFamily="OpenSansSemibol"
+                                            FontSize="15"
+                                            Text="{Binding Name}"
+                                            TextColor="Black" />
 
                                         <Label
-                                        Grid.Row="1"
-                                        Grid.Column="2"
-                                        Grid.ColumnSpan="2"
-                                        FontFamily="OpenSansSemibol"
-                                        FontSize="15"
-                                        HorizontalTextAlignment="End"
-                                        Text="{Binding Status}"
-                                        TextColor="Black" />
+                                            Grid.Column="2"
+                                            Grid.ColumnSpan="2"
+                                            FontFamily="OpenSansSemibold"
+                                            FontSize="15"
+                                            HorizontalTextAlignment="End"
+                                            Text="Status"
+                                            TextColor="Green" />
+
+                                        <Label
+                                            Grid.Row="1"
+                                            Grid.Column="2"
+                                            Grid.ColumnSpan="2"
+                                            FontFamily="OpenSansSemibol"
+                                            FontSize="15"
+                                            HorizontalTextAlignment="End"
+                                            Text="{Binding Status}"
+                                            TextColor="Black" />
 
                                     </Grid>
 
                                     <Label
-                                    FontFamily="OpenSansSemibold"
-                                    FontSize="15"
-                                    Text="Setor Responsável"
-                                    TextColor="Green" />
+                                        FontFamily="OpenSansSemibold"
+                                        FontSize="15"
+                                        Text="Setor Responsável"
+                                        TextColor="Green" />
 
                                     <HorizontalStackLayout BindableLayout.ItemsSource="{Binding OwnerDepartment}">
                                         <BindableLayout.ItemTemplate>
                                             <DataTemplate>
                                                 <Label
-                                                FontFamily="OpenSansRegular"
-                                                FontSize="15"
-                                                Text="{Binding}" />
+                                                    FontFamily="OpenSansRegular"
+                                                    FontSize="15"
+                                                    Text="{Binding}" />
                                             </DataTemplate>
                                         </BindableLayout.ItemTemplate>
                                     </HorizontalStackLayout>
 
                                     <Label
-                                    FontFamily="OpenSansSemibold"
-                                    FontSize="15"
-                                    Text="Setores Envolvidos"
-                                    TextColor="Green" />
+                                        FontFamily="OpenSansSemibold"
+                                        FontSize="15"
+                                        Text="Setores Envolvidos"
+                                        TextColor="Green" />
 
                                     <HorizontalStackLayout BindableLayout.ItemsSource="{Binding EnvolvedDepartments}" Spacing="5">
                                         <BindableLayout.ItemTemplate>
                                             <DataTemplate>
                                                 <HorizontalStackLayout>
                                                     <Label
-                                                    FontFamily="OpenSansRegular"
-                                                    FontSize="15"
-                                                    Text="{Binding}" />
+                                                        FontFamily="OpenSansRegular"
+                                                        FontSize="15"
+                                                        Text="{Binding}" />
                                                 </HorizontalStackLayout>
 
                                             </DataTemplate>
@@ -129,16 +111,16 @@
                                     </HorizontalStackLayout>
 
                                     <Label
-                                    FontFamily="OpenSansSemibold"
-                                    FontSize="15"
-                                    Text="Prazo"
-                                    TextColor="Green" />
+                                        FontFamily="OpenSansSemibold"
+                                        FontSize="15"
+                                        Text="Prazo"
+                                        TextColor="Green" />
 
                                     <Label
-                                    FontFamily="OpenSansRegular"
-                                    FontSize="15"
-                                    Text="{Binding FinalDate}"
-                                    TextColor="Black" />
+                                        FontFamily="OpenSansRegular"
+                                        FontSize="15"
+                                        Text="{Binding FinalDate}"
+                                        TextColor="Black" />
 
                                 </VerticalStackLayout>
                                 <Border.GestureRecognizers>
@@ -150,7 +132,7 @@
                 </CollectionView.ItemTemplate>
 
             </CollectionView>
-        </VerticalStackLayout>       
+        </VerticalStackLayout>
 
         <Image
             Margin="0,0,10,10"

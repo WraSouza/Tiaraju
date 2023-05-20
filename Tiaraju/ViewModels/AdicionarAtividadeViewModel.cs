@@ -57,68 +57,69 @@ namespace Tiaraju.ViewModels
         [RelayCommand]
         public async void AddActivity()
         {
-            bool verificaConexao = Conectividade.VerificaConectividade();
+            bool verificaConexao = Conectividade.VerificaConectividade();          
 
-            if (verificaConexao)
-            {
-                if (finalDate < DateTime.Now)
+            
+                if (verificaConexao)
                 {
-                    Mensagem.MensagemDataDeveSerMaior();
-
-                    return;
-                }
-
-
-                if (string.IsNullOrEmpty(Title))
-                {
-                    Mensagem.MensagemObrigatoriedadeCredenciais();
-
-                    return;
-                }
-
-                //Verifica se a atividade existe. Se existir, traz as informações dela para que seja atualizada
-                bool verificaSeAtividadeExiste = await activityServices.ActivityExist(Title, Projecttitle);
-
-                if (verificaSeAtividadeExiste)
-                {
-                    var listadoBanco = await activityServices.GetAtividade(Title);
-
-                    foreach(var item in listadoBanco)
+                    if (finalDate < DateTime.Now)
                     {
-                        setoresEnvolvidos.Add(Setores.DepartmentAcronym);
+                        Mensagem.MensagemDataDeveSerMaior();
 
-                        //setorResponsavel.Add(ownerdepartment.DepartmentAcronym);
-                    }                   
-
-
-                    var atualizarAtividade = new Atividade(Projecttitle, Title, finalDate.ToShortDateString(), Priority, Status, Ownerdepartment.DepartmentAcronym, setoresEnvolvidos);
-
-                    activityServices.UpdateActivity(atualizarAtividade);
+                        return;
+                    }
 
 
-                    //TODO atualizar o projeto. Ver a necessidade de atualizar o projeto
+                    if (string.IsNullOrEmpty(Title))
+                    {
+                        Mensagem.MensagemObrigatoriedadeCredenciais();
+
+                        return;
+                    }
+
+                    //Verifica se a atividade existe. Se existir, traz as informações dela para que seja atualizada
+                    bool verificaSeAtividadeExiste = await activityServices.ActivityExist(Title, Projecttitle);
+
+                    if (verificaSeAtividadeExiste)
+                    {
+                        var listadoBanco = await activityServices.GetAtividade(Title);
+
+                        foreach (var item in listadoBanco)
+                        {
+                            setoresEnvolvidos.Add(Setores.DepartmentAcronym);
+
+                            //setorResponsavel.Add(ownerdepartment.DepartmentAcronym);
+                        }
+
+
+                        var atualizarAtividade = new Atividade(Projecttitle, Title, finalDate.ToShortDateString(), Priority, Status, Ownerdepartment.DepartmentAcronym, setoresEnvolvidos);
+
+                        activityServices.UpdateActivity(atualizarAtividade);
+
+
+                        //TODO atualizar o projeto. Ver a necessidade de atualizar o projeto
+                        return;
+                    }
+
+                    if (Status == null)
+                    {
+                        Status = "Em Andamento";
+                    }
+
+
+                    //Aqui adiciona uma nova atividade.
+                    setoresEnvolvidos.Add(Setores.DepartmentAcronym);
+
+                    var atividade = new Atividade(Projecttitle, Title.TrimEnd(), finalDate.ToShortDateString(), Priority, Status, Ownerdepartment.DepartmentAcronym, setoresEnvolvidos);
+
+                    await activityServices.AddActivity(atividade);
+
+                    Mensagem.MensagemCadastroSucesso();
+
                     return;
                 }
 
-                if(Status == null)
-                {
-                    Status = "Em Andamento";
-                }
-
-
-                //Aqui adiciona uma nova atividade.
-                setoresEnvolvidos.Add(Setores.DepartmentAcronym);                
-
-                var atividade = new Atividade(Projecttitle, Title.TrimEnd(), finalDate.ToShortDateString(), Priority, Status, Ownerdepartment.DepartmentAcronym, setoresEnvolvidos);
-                
-                await activityServices.AddActivity(atividade);
-
-                Mensagem.MensagemCadastroSucesso();
-                
-                return;
-            }
-
-            Mensagem.MensagemErroConexao();
+                Mensagem.MensagemErroConexao();            
         }
 
         async void BuscaDepartamentos()

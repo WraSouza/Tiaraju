@@ -10,6 +10,7 @@
     <ContentPage.BindingContext>
         <mvvm:MainViewModel />
     </ContentPage.BindingContext>
+
     <Grid>
         <Image
             HeightRequest="100"
@@ -67,52 +68,5 @@
             </Grid>
         </VerticalStackLayout>
     </Grid>
-    <!--<VerticalStackLayout Padding="10">
 
-        <Label Text="Informativos"
-               TextColor="Green"
-               FontFamily="OpenSansSemibold"
-               FontSize="Large"/>
-
-        <Grid ColumnDefinitions="*,*"
-              RowSpacing="10"
-              RowDefinitions="80,80,80,80"
-              Margin="0,30,0,0">
-
-        <Image Source="cardapio.jpeg"
-               Grid.Column="0"
-               Grid.Row="0"/>
-
-        <Image Source="bonustiarajuimagem.jpg"
-               Grid.Column="1"
-               Grid.Row="0"/>
-
-        <Label Text="Cardápio"
-               FontFamily="OpenSansSemibold"
-               FontSize="Medium"
-               HorizontalTextAlignment="Center"
-               Grid.Column="0"
-               Grid.Row="1"/>
-
-        <Label Text="Bônus"
-               FontFamily="OpenSansSemibold"
-               FontSize="Medium"
-               HorizontalTextAlignment="Center"
-               Grid.Column="1"
-               Grid.Row="1"/>
-
-            <Image Source="diat.png"
-                   Grid.Column="0"
-                   Grid.Row="2"/>
-
-            <Label Text="Dia T"
-                   FontFamily="OpenSansSemibold"
-                   FontSize="Medium"
-                   HorizontalTextAlignment="Center"
-                   Grid.Column="0"
-                   Grid.Row="3"/>
-
-
-        </Grid>
-    </VerticalStackLayout>-->
 </ContentPage>

@@ -15,7 +15,6 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
     public class ActivityServices : IActivityServices
     {
         FirebaseClient firebase;
-
         public ActivityServices()
         {
             firebase = new FirebaseClient("https://laboratoriotiaraju-6c89e-default-rtdb.firebaseio.com/");
@@ -116,8 +115,7 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
            .Child("Atividades")
            .Child(atualizarAtividade.Key)
            .PutAsync(atualizarAtividade.Object);
-
-            //return true;
+            
         }
 
         public async Task<Atividade> GetActivityByName(string activityName, string projectName)
@@ -168,6 +166,29 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
                 .OnceAsync<Atividade>();
 
             return listaBanco.Where(a => a.ProjectName == projectName).ToList().Count();
+        }
+
+        public async void ChangeStatusToLate()
+        {
+            var activities = await GetActivities();
+
+            var atualizarAtividade = (await firebase
+            .Child("Atividades")
+              .OnceAsync<Atividade>()).Where(a => DateTime.Parse(a.Object.FinalDate) < DateTime.Today && a.Object.IsFinished == false).ToList();
+
+            if(atualizarAtividade.Count > 0)
+            {
+                foreach (var item in atualizarAtividade)
+                {
+                    item.Object.Status = "Em Atraso";
+
+                    await firebase
+                         .Child("Atividades")
+                         .Child(item.Key)
+                         .PutAsync(item.Object);
+                }
+            }           
+                       
         }
     }
 }

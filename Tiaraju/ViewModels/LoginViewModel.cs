@@ -33,11 +33,15 @@ namespace Tiaraju.ViewModels
 
             UserServices userServices = new UserServices();
 
+            ActivityServices activityServices = new ActivityServices();
+
             bool verificaConexao = Conectividade.VerificaConectividade();
 
             if(verificaConexao)
             {
-                Usuario user = await userServices.GetUser(Name);               
+                Usuario user = await userServices.GetUser(Name);
+
+                activityServices.ChangeStatusToLate();
 
                 if(user.IsActive == true)
                 {                    
@@ -45,12 +49,13 @@ namespace Tiaraju.ViewModels
                     if(user.Password.Equals("1234"))
                     {
                         Application.Current.MainPage = new AtualizarSenhaView();
+
                         return;
                     }
 
                     Usuario usuario = await userServices.GetUser(Name);
 
-                    Preferences.Set("Departamento", usuario.Department);
+                    Preferences.Set("Departamento", usuario.Department);                    
 
                     string senhaCriptografada = Criptografia.CriptografaSenha(Password);
 

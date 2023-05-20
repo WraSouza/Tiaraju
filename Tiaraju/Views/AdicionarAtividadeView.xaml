@@ -26,9 +26,10 @@
                     Text="Projeto"
                     TextColor="Green" />
 
-                <Label Text="{Binding Projecttitle}"
-                       FontSize="Medium"
-                       FontFamily="OpenSansRegular"/>                
+                <Label
+                    FontFamily="OpenSansRegular"
+                    FontSize="Medium"
+                    Text="{Binding Projecttitle}" />
 
                 <Label
                     FontFamily="OpenSansSemibold"
@@ -36,9 +37,10 @@
                     Text="Nome da Atividade"
                     TextColor="Green" />
 
-                <Entry Text="{Binding Title}"
-                       FontFamily="OpenSansRegular"
-                       FontSize="Medium"/>
+                <Entry
+                    FontFamily="OpenSansRegular"
+                    FontSize="Medium"
+                    Text="{Binding Title}" />
 
                 <Label
                     FontFamily="OpenSansSemibold"
@@ -121,17 +123,17 @@
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Em Andamento</x:String>
-                            <x:String>Não Iniciado</x:String>                            
+                            <x:String>Não Iniciado</x:String>
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
 
 
                 <Button
-                   FontSize="Medium"
                     BackgroundColor="Green"
                     Command="{Binding AddActivityCommand}"
                     FontFamily="OpenSansRegular"
+                    FontSize="Medium"
                     Text="Adicionar"
                     TextColor="White"
                     VerticalOptions="End" />

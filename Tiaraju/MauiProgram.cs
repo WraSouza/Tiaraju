@@ -1,7 +1,5 @@
 ﻿
 
-using Syncfusion.Maui.Core.Hosting;
-
 namespace Tiaraju;
 
 public static class MauiProgram
@@ -11,7 +9,6 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
-            .ConfigureSyncfusionCore()
             .UseMauiCommunityToolkit()
 			.ConfigureFonts(fonts =>
 			{

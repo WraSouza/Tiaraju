@@ -36,13 +36,38 @@ namespace Tiaraju.ViewModels
         [ObservableProperty]
         public string priority;
 
-        //[ObservableProperty]
-        //public string status;
+        [ObservableProperty]
+        public bool buttonEnabled;
 
         public EditarAtividadeViewModel()
         {
             BuscaAtividade();
             BuscaDepartamentos();
+            DesabilitarBotao();
+           
+        }
+
+        bool VerificarUsuario(string nome)
+        {
+            string nomePrincipal = "bethania.vargas";
+            return nomePrincipal == nome;
+        }
+
+        void DesabilitarBotao()
+        {
+            string userName = Preferences.Get("Nome", "default_value");
+
+            bool verificaUsuario = VerificarUsuario(userName);
+
+            if(verificaUsuario)
+            {
+                ButtonEnabled = true;
+            }
+            else
+            {
+                ButtonEnabled = false;
+            }
+
         }
 
         [RelayCommand]
@@ -108,23 +133,30 @@ namespace Tiaraju.ViewModels
                     return;
                 }
 
-                var listadoBanco = await activityServices.GetActivityByName(Activityname,Projectname);                
+                bool answer = await Application.Current.MainPage.DisplayAlert("", "Deseja Atualizar Essa Atividade?", "Sim", "Não");
 
-                if (!(listadoBanco.EnvolvedDepartments.Contains(Setores.DepartmentAcronym)))
+                if (answer)
                 {
-                    listadoBanco.EnvolvedDepartments.Add(Setores.DepartmentAcronym);
-                }                
+                    var listadoBanco = await activityServices.GetActivityByName(Activityname, Projectname);
 
-                //TO DO. SE CONCLUÍDO, MUDAR STATUS ISFINISHED = TRUE.
+                    if (!(listadoBanco.EnvolvedDepartments.Contains(Setores.DepartmentAcronym)))
+                    {
+                        listadoBanco.EnvolvedDepartments.Add(Setores.DepartmentAcronym);
+                    }
 
-                var atualizarAtividade = new Atividade(Projectname, Activityname, finalDate.ToShortDateString(), Priority, listadoBanco.Status, Ownerdepartment.DepartmentAcronym, listadoBanco.EnvolvedDepartments);
+                    //TO DO. SE CONCLUÍDO, MUDAR STATUS ISFINISHED = TRUE.
 
-                activityServices.UpdateActivity(atualizarAtividade);
+                    var atualizarAtividade = new Atividade(Projectname, Activityname, finalDate.ToShortDateString(), Priority, listadoBanco.Status, Ownerdepartment.DepartmentAcronym, listadoBanco.EnvolvedDepartments);
 
-                Mensagem.SucessoAtualizacao();
+                    activityServices.UpdateActivity(atualizarAtividade);
 
-                //TODO atualizar o projeto. Ver a necessidade de atualizar o projeto
-                return;                
+                    Mensagem.SucessoAtualizacao();
+
+                    //TODO atualizar o projeto. Ver a necessidade de atualizar o projeto
+                    return;
+                }
+
+                return;
             }
 
             Mensagem.MensagemErroConexao();
