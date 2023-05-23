@@ -22,5 +22,7 @@ public partial class AppShell : Shell
 
         Routing.RegisterRoute(nameof(ChartsPMOView), typeof(ChartsPMOView));
 
+        Routing.RegisterRoute(nameof(ProjectStatisticsView), typeof(ProjectStatisticsView));
+
     }
 }

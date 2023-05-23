@@ -35,7 +35,7 @@ namespace Tiaraju.ViewModels
 
             ActivityServices activityServices = new ActivityServices();
 
-            bool verificaConexao = Conectividade.VerificaConectividade();
+            bool verificaConexao = Conectividade.VerificaConectividade();           
 
             if(verificaConexao)
             {

@@ -46,6 +46,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\activities.png" />
+	  <None Remove="Resources\Images\analytics.png" />
 	  <None Remove="Resources\Images\bonustiarajuimagem.jpg" />
 	  <None Remove="Resources\Images\calendariocq.jpg" />
 	  <None Remove="Resources\Images\cardapio.jpeg" />
@@ -113,6 +115,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ProjectDetailView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ProjectStatisticsView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ServicosView.xaml">

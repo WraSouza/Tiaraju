@@ -59,8 +59,25 @@ namespace Tiaraju.ViewModels
             else
             {
                 Mensagem.MensagemUsuarioSemAutorizacao();
+            }            
+        }
+
+        [RelayCommand]
+        public async Task AbrirStatisticsView(Project project)
+        {
+            var nomeUsuario = Preferences.Get("Nome", "default_value");
+
+            Preferences.Set("NomeProjeto", project.Name);
+
+            if (nomeUsuario == "bethania.vargas")
+            {
+                var route = $"{nameof(Views.ProjectStatisticsView)}";
+                await Shell.Current.GoToAsync(route);
             }
-            
+            else
+            {
+                Mensagem.MensagemUsuarioSemAutorizacao();
+            }
         }
 
         async void GetProjects()
