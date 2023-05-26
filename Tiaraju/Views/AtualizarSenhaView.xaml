@@ -9,12 +9,15 @@
     </ContentPage.BindingContext>
     
     
-    <Grid RowDefinitions="*,*">
-        <Image Source="logotiaraju.png"
-               Grid.Row="0"
-               HeightRequest="100"/>
+    <Grid RowDefinitions="*,*,*">
+        <Image
+            HeightRequest="100"
+            HorizontalOptions="Center"
+            Opacity="0.1"
+            Source="logotiaraju.png"
+            VerticalOptions="Center" />
         
-        <VerticalStackLayout Grid.Row="1" Padding="20" Spacing="20">
+        <VerticalStackLayout Grid.Row="1" Padding="20" Spacing="20" VerticalOptions="Center">
             <Label Text="Nova Senha"
                    FontFamily="OpenSansSemibold"
                    TextColor="Green"
@@ -37,8 +40,8 @@
                    TextColor="Black"
                    FontSize="Medium"/>
 
-            <Grid>
-                <Button Text="Login"
+            <Grid VerticalOptions="End">
+                <Button Text="Atualizar"
                         Command="{Binding AtualizarSenhaCommand}"
                         FontFamily="OpenSansSemibold"
                         FontSize="Medium"

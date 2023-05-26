@@ -57,8 +57,7 @@ namespace Tiaraju.ViewModels
         [RelayCommand]
         public async void AddActivity()
         {
-            bool verificaConexao = Conectividade.VerificaConectividade();          
-
+            bool verificaConexao = Conectividade.VerificaConectividade();     
             
                 if (verificaConexao)
                 {
@@ -81,21 +80,19 @@ namespace Tiaraju.ViewModels
                     bool verificaSeAtividadeExiste = await activityServices.ActivityExist(Title, Projecttitle);
 
                     if (verificaSeAtividadeExiste)
-                    {
-                        var listadoBanco = await activityServices.GetAtividade(Title);
+                    {                       
 
-                        foreach (var item in listadoBanco)
-                        {
-                            setoresEnvolvidos.Add(Setores.DepartmentAcronym);
+                        var listadoBanco = await activityServices.GetActivityByName(Title, Projecttitle);
 
-                            //setorResponsavel.Add(ownerdepartment.DepartmentAcronym);
-                        }
+                       listadoBanco.EnvolvedDepartments.Add(Setores.DepartmentAcronym);
+                       
+                        setoresEnvolvidos.Add(Setores.ToString());
 
-
-                        var atualizarAtividade = new Atividade(Projecttitle, Title, finalDate.ToShortDateString(), Priority, Status, Ownerdepartment.DepartmentAcronym, setoresEnvolvidos);
+                        var atualizarAtividade = new Atividade(Projecttitle, Title, finalDate.ToShortDateString(), Priority, Status, Ownerdepartment.DepartmentAcronym, listadoBanco.EnvolvedDepartments);
 
                         activityServices.UpdateActivity(atualizarAtividade);
 
+                        Mensagem.SucessoAtualizacao();
 
                         //TODO atualizar o projeto. Ver a necessidade de atualizar o projeto
                         return;

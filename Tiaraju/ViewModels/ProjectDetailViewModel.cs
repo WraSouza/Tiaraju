@@ -64,7 +64,8 @@ namespace Tiaraju.ViewModels
             {
                 var route = $"{nameof(Views.AdicionarAtividadeView)}";
                 await Shell.Current.GoToAsync(route);
-                
+
+                return;
             }
 
             Mensagem.MensagemUsuarioSemAutorizacao();
@@ -74,11 +75,19 @@ namespace Tiaraju.ViewModels
         [RelayCommand]
         public async Task AbrirEditarAtividadeView(Atividade atividade)
         {            
-            Preferences.Set("NomeAtividade", atividade.Name);
-            Preferences.Set("NomeProjeto", atividade.ProjectName);
+            if(atividade.Status == "Concluído")
+            {
+                await Application.Current.MainPage.DisplayAlert("", "Atividade Já Está Concluída e Não Pode Ser Editada", "OK");
+            }
+            else
+            {
+                Preferences.Set("NomeAtividade", atividade.Name);
+                Preferences.Set("NomeProjeto", atividade.ProjectName);
 
-            var route = $"{nameof(Views.EditarAtividadeView)}";
-            await Shell.Current.GoToAsync(route);
+                var route = $"{nameof(Views.EditarAtividadeView)}";
+                await Shell.Current.GoToAsync(route);
+            }
+            
         }
     }
    

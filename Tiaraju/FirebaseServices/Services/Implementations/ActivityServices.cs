@@ -80,7 +80,8 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
                     Priority = item.Object.Priority,
                     Status = item.Object.Status,
                     OwnerDepartment = item.Object.OwnerDepartment,
-                    EnvolvedDepartments = item.Object.EnvolvedDepartments
+                    EnvolvedDepartments = item.Object.EnvolvedDepartments,
+                    IsFinished = item.Object.IsFinished
                 }).ToList();
         }
 

@@ -19,53 +19,68 @@
             Source="logotiaraju.png"
             VerticalOptions="Center" />
 
-        <VerticalStackLayout Padding="10" VerticalOptions="Center">
-
-            <Grid
-                Margin="0,30,0,0"
-                ColumnDefinitions="*,*"
-                RowDefinitions="80,80,80,80"
-                RowSpacing="10">
-
-                <Image
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Source="cardapio.jpeg" />
-
-                <Image
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Source="bonustiarajuimagem.jpg" />
-
+        <VerticalStackLayout>
+            <HorizontalStackLayout Padding="10" Spacing="5" Margin="0,20,0,0">
                 <Label
-                    Grid.Row="1"
-                    Grid.Column="0"
                     FontFamily="OpenSansSemibold"
                     FontSize="Medium"
-                    HorizontalTextAlignment="Center"
-                    Text="Cardápio" />
+                    Text="Seja Bem-Vindo(a)" />
 
                 <Label
-                    Grid.Row="1"
-                    Grid.Column="1"
                     FontFamily="OpenSansSemibold"
                     FontSize="Medium"
-                    HorizontalTextAlignment="Center"
-                    Text="Bônus" />
+                    Text="{Binding Nomeusuario}" />
+            </HorizontalStackLayout>
 
-                <Image
-                    Grid.Row="2"
-                    Grid.Column="0"
-                    Source="diat.png" />
 
-                <Label
-                    Grid.Row="3"
-                    Grid.Column="0"
-                    FontFamily="OpenSansSemibold"
-                    FontSize="Medium"
-                    HorizontalTextAlignment="Center"
-                    Text="Dia T" />
-            </Grid>
+            <VerticalStackLayout Padding="10" VerticalOptions="Center">
+
+                <Grid
+                    Margin="0,20,0,0"
+                    ColumnDefinitions="*,*"
+                    RowDefinitions="80,80,80,80"
+                    RowSpacing="10">
+
+                    <Image
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Source="cardapio.jpeg" />
+
+                    <Image
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Source="bonustiarajuimagem.jpg" />
+
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        FontFamily="OpenSansSemibold"
+                        FontSize="Medium"
+                        HorizontalTextAlignment="Center"
+                        Text="Cardápio" />
+
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        FontFamily="OpenSansSemibold"
+                        FontSize="Medium"
+                        HorizontalTextAlignment="Center"
+                        Text="Bônus" />
+
+                    <Image
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Source="diat.png" />
+
+                    <Label
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        FontFamily="OpenSansSemibold"
+                        FontSize="Medium"
+                        HorizontalTextAlignment="Center"
+                        Text="Dia T" />
+                </Grid>
+            </VerticalStackLayout>
         </VerticalStackLayout>
     </Grid>
 

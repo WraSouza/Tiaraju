@@ -27,6 +27,9 @@ namespace Tiaraju.ViewModels
         [ObservableProperty]
         public string concluidos;
 
+        [ObservableProperty]
+        public string porcentagem;
+
 
         public ProjectStatisticsViewModel()
         {
@@ -43,17 +46,31 @@ namespace Tiaraju.ViewModels
 
             Quantidadetotal = listaAtividades.Count().ToString();
 
-            int projetosAtrasados = listaAtividades.Where(a => DateTime.Parse(a.FinalDate) < DateTime.Today).Count();
+            int projetosAtrasados = listaAtividades.Where(a => (DateTime.Parse(a.FinalDate) < DateTime.Today) && a.IsFinished == false).Count();
 
             Quantidadeematraso = projetosAtrasados.ToString();
 
-            int projetosEmDia = listaAtividades.Where(a => DateTime.Parse(a.FinalDate) >= DateTime.Today).Count();
+            int projetosEmDia = listaAtividades.Where(a => (DateTime.Parse(a.FinalDate) >= DateTime.Today) && a.IsFinished == false).Count();
 
             Quantidadenoprazo = projetosEmDia.ToString();
 
             int projetosConcluidos = listaAtividades.Where(p => p.IsFinished == true).Count();
 
             Concluidos = projetosConcluidos.ToString();
+
+            if(listaAtividades.Count > 0)
+            {
+                int porcentagem = (projetosConcluidos * 100) / listaAtividades.Count;
+
+                Porcentagem = porcentagem.ToString();
+            }
+            else
+            {
+                Porcentagem = "0";
+            }
+            
+
+            
         }
     }
 }

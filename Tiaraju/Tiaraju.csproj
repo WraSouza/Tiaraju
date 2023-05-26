@@ -57,6 +57,7 @@
 	  <None Remove="Resources\Images\gerenciamentoprojeto.png" />
 	  <None Remove="Resources\Images\glpi.jpg" />
 	  <None Remove="Resources\Images\home.png" />
+	  <None Remove="Resources\Images\housesolid.svg" />
 	  <None Remove="Resources\Images\logobrancotiaraju.png" />
 	  <None Remove="Resources\Images\logotiaraju.png" />
 	  <None Remove="Resources\Images\pautafixa.jpg" />
@@ -65,6 +66,7 @@
 	  <None Remove="Resources\Images\services.png" />
 	  <None Remove="Resources\Images\setores.png" />
 	  <None Remove="Resources\Images\tempoempresaimagem.png" />
+	  <None Remove="Resources\Images\underconstruction.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -121,6 +123,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ServicosView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TIView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\TrocarSenhaView.xaml">

@@ -71,7 +71,11 @@
                                                     Grid.Column="0"
                                                     HeightRequest="30"
                                                     HorizontalOptions="Center"
-                                                    Source="activities.png" />
+                                                    Source="activities.png" >
+                                                    <Image.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.AbrirProjetoDetailCommand, Source={x:Reference collectionView}}" CommandParameter="{Binding .}"/>
+                                                    </Image.GestureRecognizers>
+                                                </Image>
 
                                                 <Label
                                                     Grid.Row="1"
@@ -142,10 +146,7 @@
                                         </HorizontalStackLayout>-->
                                     </Grid>
 
-                                </VerticalStackLayout>
-                                <Border.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.AbrirProjetoDetailCommand, Source={x:Reference collectionView}}" CommandParameter="{Binding .}" />
-                                </Border.GestureRecognizers>
+                                </VerticalStackLayout>                                
                             </Border>
                         </VerticalStackLayout>
                     </DataTemplate>
