@@ -30,6 +30,9 @@ namespace Tiaraju.ViewModels
         [ObservableProperty]
         public string porcentagem;
 
+        [ObservableProperty]
+        public string radial;
+
 
         public ProjectStatisticsViewModel()
         {
@@ -67,10 +70,11 @@ namespace Tiaraju.ViewModels
             else
             {
                 Porcentagem = "0";
-            }
+            }            
+
+            Radial = Concluidos;
             
 
-            
         }
     }
 }

@@ -3,6 +3,7 @@
     x:Class="Tiaraju.Views.ProjectStatisticsView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:aloha="clr-namespace:AlohaKit.Controls;assembly=AlohaKit"
     xmlns:mvvm="clr-namespace:Tiaraju.ViewModels"
     Title="Estatísticas do Projeto">
     <ContentPage.BindingContext>
@@ -42,30 +43,183 @@
                 Text="{Binding Quantidadetotal}"
                 TextColor="Black" />
 
+            <Label
+                FontFamily="OpenSansSemibold"
+                FontSize="20"
+                Text="Indicadores"
+                TextColor="Green" />
+
+
+            <Grid
+                ColumnDefinitions="*,*"
+                RowDefinitions="*,*"
+                RowSpacing="5">
+                <Border
+                    Grid.Column="0"
+                    HeightRequest="150"
+                    BackgroundColor="#efecec"
+                    StrokeShape="RoundRectangle 10,10,10,10">
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <HorizontalStackLayout Padding="0" HorizontalOptions="Center">
+                            <Label
+                                FontFamily="OpenSansSemibold"
+                                FontSize="Large"
+                                HorizontalTextAlignment="Center"
+                                Text="{Binding Porcentagem}"
+                                TextColor="Black" />
+
+                            <Label
+                                Text="%"
+                                TextColor="Black"
+                                VerticalTextAlignment="Center" />
+                        </HorizontalStackLayout>
+
+                        <Label
+                            FontFamily="OpenSansRegular"
+                            FontSize="15"
+                            Text="Concluído"
+                            TextColor="Black" />
+
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border
+                    Grid.Column="1"
+                    BackgroundColor="#4C5B90"
+                    HeightRequest="150"
+                    StrokeShape="RoundRectangle 10,10,10,10">
+                    <VerticalStackLayout>
+                        <Label
+                            Margin="10,0,0,0"
+                            FontFamily="OpenSansRegular"
+                            Text="Concluídas"
+                            TextColor="White" />
+                        <aloha:ProgressRadial
+                            BackgroundColor="#4C5B90"
+                            Direction="RightToLeft"
+                            HorizontalOptions="Center"
+                            Maximum="10"
+                            ProgressColor="Red"
+                            TextColor="White"
+                            VerticalOptions="Center"
+                            Value="{Binding Radial}" />
+                    </VerticalStackLayout>
+
+                </Border>
+
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    BackgroundColor="Green"
+                    HeightRequest="150"
+                    StrokeShape="RoundRectangle 10,10,10,10">
+                    <VerticalStackLayout>
+                        <Label
+                            Margin="10,0,0,0"
+                            FontFamily="OpenSansRegular"
+                            Text="No Prazo"
+                            TextColor="White" />
+                        <aloha:ProgressRadial
+                            BackgroundColor="Green"
+                            Direction="RightToLeft"
+                            HorizontalOptions="Center"
+                            Maximum="10"
+                            ProgressColor="Blue"
+                            TextColor="White"
+                            VerticalOptions="Center"
+                            Value="{Binding Quantidadenoprazo}" />
+                    </VerticalStackLayout>
+
+                </Border>
+
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    BackgroundColor="Red"
+                    HeightRequest="150"
+                    StrokeShape="RoundRectangle 10,10,10,10">
+                    <VerticalStackLayout>
+                        <Label
+                            Margin="10,0,0,0"
+                            FontFamily="OpenSansRegular"
+                            Text="Em Atraso"
+                            TextColor="White" />
+                        <aloha:ProgressRadial
+                            BackgroundColor="Red"
+                            Direction="RightToLeft"
+                            HorizontalOptions="Center"
+                            Maximum="10"
+                            ProgressColor="Green"
+                            TextColor="White"
+                            VerticalOptions="Center"
+                            Value="{Binding Quantidadeematraso}" />
+                    </VerticalStackLayout>
+
+                </Border>
+            </Grid>
+        </VerticalStackLayout>
+        <!--<VerticalStackLayout Padding="15" Spacing="10">
+
+            <Grid>
+                <aloha:ProgressRadial
+                Direction="RightToLeft"
+                HorizontalOptions="Center"
+                Maximum="10"
+                VerticalOptions="Center"/>
+                <VerticalStackLayout>
+                    <Label Text="{Binding Radial}"/>
+                </VerticalStackLayout>
+            </Grid>
+
+
+            <Label
+                FontFamily="OpenSansSemibold"
+                FontSize="20"
+                Text="Projeto"
+                TextColor="Green" />
+
+            <Label
+                FontFamily="OpenSansREgular"
+                FontSize="20"
+                Text="{Binding Projectname}"
+                TextColor="#777777" />
+
+            <Label
+                FontFamily="OpenSansSemibold"
+                FontSize="20"
+                Text="Total de Atividades"
+                TextColor="Green" />
+
+            <Label
+                FontFamily="OpenSansRegular"
+                FontSize="25"
+                Text="{Binding Quantidadetotal}"
+                TextColor="Black" />
+
             <Border
-                BackgroundColor="#4C5B90"
                 Margin="0,30,0,0"
+                BackgroundColor="#4C5B90"
                 HeightRequest="100"
                 StrokeShape="RoundRectangle 10,10,10,10">
                 <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                    <HorizontalStackLayout HorizontalOptions="Center" Padding="0">
+                    <HorizontalStackLayout Padding="0" HorizontalOptions="Center">
                         <Label
-                        FontFamily="OpenSansSemibold"
-                        FontSize="Large"
-                        HorizontalTextAlignment="Center"
-                        Text="{Binding Porcentagem}"
-                        TextColor="White" />
+                            FontFamily="OpenSansSemibold"
+                            FontSize="Large"
+                            HorizontalTextAlignment="Center"
+                            Text="{Binding Porcentagem}"
+                            TextColor="White" />
 
-                        <Label Text="%"
-                               VerticalTextAlignment="Center"
-                               TextColor="White"/>
+                        <Label
+                            Text="%"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
                     </HorizontalStackLayout>
 
-                    <Label Text="Concluído"
-                           TextColor="White"/>
+                    <Label Text="Concluído" TextColor="White" />
 
                 </VerticalStackLayout>
-                
+
             </Border>
 
             <Border
@@ -136,9 +290,9 @@
                     </Grid>
 
                 </Border>
-            </Grid>           
+            </Grid>
 
-        </VerticalStackLayout>
+        </VerticalStackLayout>-->
 
     </Grid>
 </ContentPage>
