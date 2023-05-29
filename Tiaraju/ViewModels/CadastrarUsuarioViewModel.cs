@@ -92,8 +92,7 @@ namespace Tiaraju.ViewModels
                 
 
                 foreach (var role in posicoes)
-                {                   
-                    //Roles.Add(new Role() { Id = role.Id, RoleName = role.RoleName });
+                {                    
                     Roles.Add(role);
                 }
             }catch(Exception e)

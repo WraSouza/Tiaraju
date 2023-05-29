@@ -105,7 +105,6 @@ namespace Tiaraju.ViewModels
 
                     return;
                 }
-
                
             }
 
@@ -190,7 +189,7 @@ namespace Tiaraju.ViewModels
             if (atividade != null)
             {
                 Projectname = atividade.ProjectName;
-                Activityname = atividade.Name;
+                Activityname = atividade.Name;                
             }
         }
     }

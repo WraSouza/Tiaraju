@@ -52,12 +52,14 @@
 
             <Grid
                 ColumnDefinitions="*,*"
+                ColumnSpacing="5"
                 RowDefinitions="*,*"
                 RowSpacing="5">
                 <Border
                     Grid.Column="0"
-                    HeightRequest="150"
                     BackgroundColor="#efecec"
+                    HeightRequest="150"
+                    Stroke="#A9A9A9"
                     StrokeShape="RoundRectangle 10,10,10,10">
                     <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
                         <HorizontalStackLayout Padding="0" HorizontalOptions="Center">
@@ -98,7 +100,7 @@
                             BackgroundColor="#4C5B90"
                             Direction="RightToLeft"
                             HorizontalOptions="Center"
-                            Maximum="10"
+                            Maximum="{Binding Quantidadetotal}"
                             ProgressColor="Red"
                             TextColor="White"
                             VerticalOptions="Center"
@@ -123,7 +125,7 @@
                             BackgroundColor="Green"
                             Direction="RightToLeft"
                             HorizontalOptions="Center"
-                            Maximum="10"
+                            Maximum="{Binding Quantidadetotal}"
                             ProgressColor="Blue"
                             TextColor="White"
                             VerticalOptions="Center"
@@ -148,7 +150,7 @@
                             BackgroundColor="Red"
                             Direction="RightToLeft"
                             HorizontalOptions="Center"
-                            Maximum="10"
+                            Maximum="{Binding Quantidadetotal}"
                             ProgressColor="Green"
                             TextColor="White"
                             VerticalOptions="Center"
@@ -158,141 +160,6 @@
                 </Border>
             </Grid>
         </VerticalStackLayout>
-        <!--<VerticalStackLayout Padding="15" Spacing="10">
-
-            <Grid>
-                <aloha:ProgressRadial
-                Direction="RightToLeft"
-                HorizontalOptions="Center"
-                Maximum="10"
-                VerticalOptions="Center"/>
-                <VerticalStackLayout>
-                    <Label Text="{Binding Radial}"/>
-                </VerticalStackLayout>
-            </Grid>
-
-
-            <Label
-                FontFamily="OpenSansSemibold"
-                FontSize="20"
-                Text="Projeto"
-                TextColor="Green" />
-
-            <Label
-                FontFamily="OpenSansREgular"
-                FontSize="20"
-                Text="{Binding Projectname}"
-                TextColor="#777777" />
-
-            <Label
-                FontFamily="OpenSansSemibold"
-                FontSize="20"
-                Text="Total de Atividades"
-                TextColor="Green" />
-
-            <Label
-                FontFamily="OpenSansRegular"
-                FontSize="25"
-                Text="{Binding Quantidadetotal}"
-                TextColor="Black" />
-
-            <Border
-                Margin="0,30,0,0"
-                BackgroundColor="#4C5B90"
-                HeightRequest="100"
-                StrokeShape="RoundRectangle 10,10,10,10">
-                <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                    <HorizontalStackLayout Padding="0" HorizontalOptions="Center">
-                        <Label
-                            FontFamily="OpenSansSemibold"
-                            FontSize="Large"
-                            HorizontalTextAlignment="Center"
-                            Text="{Binding Porcentagem}"
-                            TextColor="White" />
-
-                        <Label
-                            Text="%"
-                            TextColor="White"
-                            VerticalTextAlignment="Center" />
-                    </HorizontalStackLayout>
-
-                    <Label Text="Concluído" TextColor="White" />
-
-                </VerticalStackLayout>
-
-            </Border>
-
-            <Border
-                BackgroundColor="Green"
-                HeightRequest="100"
-                StrokeShape="RoundRectangle 10,10,10,10">
-                <Grid Margin="15,15,0,0" RowDefinitions="*,*,*">
-                    <Label
-                        Grid.Row="0"
-                        FontFamily="OpenSansSemibold"
-                        Text="Concluídos"
-                        TextColor="White" />
-
-                    <Label
-                        Grid.Row="1"
-                        FontFamily="OpenSansSemibold"
-                        FontSize="Medium"
-                        HorizontalOptions="Center"
-                        Text="{Binding Concluidos}"
-                        TextColor="White" />
-                </Grid>
-            </Border>
-
-            <Grid
-                Margin="0,0,0,0"
-                ColumnDefinitions="*,*"
-                RowDefinitions="100">
-                <Border
-                    Grid.Column="0"
-                    BackgroundColor="#173FCB"
-                    StrokeShape="RoundRectangle 10,10,10,10">
-                    <Grid Margin="15,15,0,0" RowDefinitions="*,*,*">
-                        <Label
-                            Grid.Row="0"
-                            FontFamily="OpenSansSemibold"
-                            Text="No Prazo"
-                            TextColor="White" />
-
-                        <Label
-                            Grid.Row="1"
-                            FontFamily="OpenSansSemibold"
-                            FontSize="Medium"
-                            HorizontalOptions="Center"
-                            Text="{Binding Quantidadenoprazo}"
-                            TextColor="White" />
-                    </Grid>
-
-                </Border>
-
-                <Border
-                    Grid.Column="1"
-                    BackgroundColor="#F51A1A"
-                    StrokeShape="RoundRectangle 10,10,10,10">
-                    <Grid Margin="15,15,0,0" RowDefinitions="*,*,*">
-                        <Label
-                            Grid.Row="0"
-                            FontFamily="OpenSansSemibold"
-                            Text="Em Atraso"
-                            TextColor="White" />
-
-                        <Label
-                            Grid.Row="1"
-                            FontFamily="OpenSansSemibold"
-                            FontSize="Medium"
-                            HorizontalOptions="Center"
-                            Text="{Binding Quantidadeematraso}"
-                            TextColor="White" />
-                    </Grid>
-
-                </Border>
-            </Grid>
-
-        </VerticalStackLayout>-->
 
     </Grid>
 </ContentPage>
