@@ -71,9 +71,9 @@
                                                     Grid.Column="0"
                                                     HeightRequest="30"
                                                     HorizontalOptions="Center"
-                                                    Source="activities.png" >
+                                                    Source="activities.png">
                                                     <Image.GestureRecognizers>
-                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.AbrirProjetoDetailCommand, Source={x:Reference collectionView}}" CommandParameter="{Binding .}"/>
+                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.AbrirProjetoDetailCommand, Source={x:Reference collectionView}}" CommandParameter="{Binding .}" />
                                                     </Image.GestureRecognizers>
                                                 </Image>
 
@@ -89,9 +89,9 @@
                                                     Grid.Column="1"
                                                     HeightRequest="30"
                                                     HorizontalOptions="Center"
-                                                    Source="analytics.png" >
+                                                    Source="analytics.png">
                                                     <Image.GestureRecognizers>
-                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.AbrirStatisticsViewCommand, Source={x:Reference collectionView}}" CommandParameter="{Binding .}"/>
+                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.AbrirStatisticsViewCommand, Source={x:Reference collectionView}}" CommandParameter="{Binding .}" />
                                                     </Image.GestureRecognizers>
                                                 </Image>
 
@@ -105,48 +105,10 @@
                                             </Grid>
                                         </Grid>
 
-                                        <!--<HorizontalStackLayout Grid.Column="1" Spacing="15">
-                                            <VerticalStackLayout>
-                                                <Image
-                                                    HeightRequest="30"
-                                                    HorizontalOptions="End"
-                                                    Source="activities.png" />
 
-                                                <Label Text="Atividades"
-                                                       HorizontalTextAlignment="Center"/>
-
-
-                                            </VerticalStackLayout>
-
-                                            <Grid ColumnDefinitions="*,*">
-                                                <Image
-                                                    Grid.Column="0"
-                                                    HeightRequest="30"
-                                                    HorizontalOptions="End"
-                                                    Source="analytics.png" />
-
-                                                <Label Text="Estatísticas"
-                                                       Grid.Column="0"
-                                                       Grid.Row="1"
-                                                       Margin="30,0,0,0"
-                                                       HorizontalTextAlignment="Center"/>
-
-                                                <Image
-                                                    Grid.Column="1"
-                                                    HeightRequest="30"
-                                                    HorizontalOptions="End"
-                                                    Source="analytics.png" />
-
-                                                <Label Text="Estatísticas"
-                                                       Grid.Column="0"
-                                                       Grid.Row="1"
-                                                       Margin="30,0,0,0"
-                                                       HorizontalTextAlignment="Center"/>
-                                            </Grid>
-                                        </HorizontalStackLayout>-->
                                     </Grid>
 
-                                </VerticalStackLayout>                                
+                                </VerticalStackLayout>
                             </Border>
                         </VerticalStackLayout>
                     </DataTemplate>

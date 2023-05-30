@@ -42,9 +42,7 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
         }
 
         public async Task<List<Project>> GetProjects()
-        {
-
-            //List<Project> lista = null;            
+        {                      
 
             var lista = (await firebase.Child("Project")
              .OnceAsync<Project>()).Select(item => new Project
@@ -77,9 +75,14 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
                 }).ToList().Count;
         }
 
-        public Task<bool> ProjectExist(string projectName)
+        public async Task<bool> ProjectExist(string projectName)
         {
-            throw new NotImplementedException();
+            var user = (await firebase.Child("Project")
+               .OnceAsync<Usuario>())
+               .Where(u => u.Object.Name == projectName)
+               .FirstOrDefault();
+
+            return (user != null);
         }
 
         public void UpdateProject(Project project)

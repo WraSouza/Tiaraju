@@ -59,10 +59,18 @@ namespace Tiaraju.ViewModels
                         Mensagem.MensagemObrigatoriedadeCredenciais();
 
                         return;
-                    }
-                    //int quantityProject = await projectServices.GetProjectsQuantity();               
+                    }                                   
 
-                    var project = new Project(Title, finalDate.ToShortDateString());
+                    var project = new Project(Title.TrimEnd(), finalDate.ToShortDateString());
+
+                    bool verificaSeProjetoExiste = await projectServices.ProjectExist(Title.TrimEnd());
+
+                if(verificaSeProjetoExiste)
+                {
+                    await Application.Current.MainPage.DisplayAlert("", "Projeto Já Existe", "OK");
+
+                    return;
+                }
 
                     await projectServices.AddProject(project);
 

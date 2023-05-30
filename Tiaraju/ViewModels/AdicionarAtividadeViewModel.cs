@@ -123,7 +123,7 @@ namespace Tiaraju.ViewModels
         {
             bool verificaConexao = Conectividade.VerificaConectividade();
 
-            if(verificaConexao )
+            if(verificaConexao)
             {
                 var setores = await departmentServices.GetDepartments();
 

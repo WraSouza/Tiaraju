@@ -82,5 +82,11 @@ namespace Tiaraju.Helpers
         {
             Application.Current.MainPage.DisplayAlert("", "Atualização Realizada com Sucesso.", "OK");
         }
+
+        public static void AtividadesProximasVencimento()
+        {
+            Application.Current.MainPage.DisplayAlert("Info", "Existem Atividades Próximas Ao Vencimento", "OK");
+        }
+        
     }
 }
