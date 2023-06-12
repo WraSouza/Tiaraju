@@ -60,7 +60,7 @@ namespace Tiaraju.ViewModels
         {
             string nomeUsuario = Preferences.Get("Nome", "default_value");
 
-            if(nomeUsuario == "bethania.vargas")
+            if((nomeUsuario == "bethania.vargas")|| (nomeUsuario == "wladimir.souza"))
             {
                 var route = $"{nameof(Views.AdicionarAtividadeView)}";
                 await Shell.Current.GoToAsync(route);

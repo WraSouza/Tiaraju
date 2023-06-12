@@ -51,7 +51,7 @@ namespace Tiaraju.ViewModels
         {
             var nomeUsuario = Preferences.Get("Nome", "default_value");
 
-            if(nomeUsuario == "bethania.vargas")
+            if ((nomeUsuario == "bethania.vargas") || (nomeUsuario == "wladimir.souza"))
             {
                 var route = $"{nameof(Views.AdicionarProjetoView)}";
                 await Shell.Current.GoToAsync(route);
@@ -69,7 +69,7 @@ namespace Tiaraju.ViewModels
 
             Preferences.Set("NomeProjeto", project.Name);
 
-            if (nomeUsuario == "bethania.vargas")
+            if( (nomeUsuario == "bethania.vargas")|| (nomeUsuario == "wladimir.souza"))
             {
                 var route = $"{nameof(Views.ProjectStatisticsView)}";
                 await Shell.Current.GoToAsync(route);

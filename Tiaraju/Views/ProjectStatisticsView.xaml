@@ -121,6 +121,7 @@
                             FontFamily="OpenSansRegular"
                             Text="No Prazo"
                             TextColor="White" />
+                        
                         <aloha:ProgressRadial
                             BackgroundColor="Green"
                             Direction="RightToLeft"
@@ -129,7 +130,7 @@
                             ProgressColor="Blue"
                             TextColor="White"
                             VerticalOptions="Center"
-                            Value="{Binding Quantidadenoprazo}" />
+                            Value="{Binding Atividadenoprazo}" />
                     </VerticalStackLayout>
 
                 </Border>

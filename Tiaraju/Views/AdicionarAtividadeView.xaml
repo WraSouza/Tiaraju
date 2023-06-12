@@ -96,19 +96,82 @@
                     Text="Prioridade"
                     TextColor="Green" />
 
-                <Picker
-                    x:Name="picker"
-                    FontFamily="OpenSansRegular"
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+                    <BoxView
+                        x:Name="boxview1"
+                        HeightRequest="10"
+                        WidthRequest="10"
+                        Color="White" />
+                    <BoxView
+                        x:Name="boxview2"
+                        HeightRequest="10"
+                        WidthRequest="10"
+                        Color="White" />
+                    <BoxView
+                        x:Name="boxview3"
+                        HeightRequest="10"
+                        WidthRequest="10"
+                        Color="White" />
+                    <BoxView
+                        x:Name="boxview4"
+                        HeightRequest="10"
+                        WidthRequest="10"
+                        Color="White" />
+                    <BoxView
+                        x:Name="boxview5"
+                        HeightRequest="10"
+                        WidthRequest="10"
+                        Color="White" />
+                </HorizontalStackLayout>
+
+                <Slider
+                    x:Name="ValueSlider"
+                    Maximum="5"
+                    Minimum="0"
+                    ValueChanged="Slider_ValueChanged"
+                    Value="0" />
+
+                <!--  Importância  -->
+                <Label
+                    FontFamily="OpenSansSemibold"
                     FontSize="Medium"
-                    SelectedItem="{Binding Priority}">
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>Alta</x:String>
-                            <x:String>Média</x:String>
-                            <x:String>Baixa</x:String>
-                        </x:Array>
-                    </Picker.ItemsSource>
-                </Picker>
+                    Text="Importância"
+                    TextColor="Green" />
+
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+                    <BoxView
+                        x:Name="boxview6"
+                        HeightRequest="10"
+                        WidthRequest="10"
+                        Color="White" />
+                    <BoxView
+                        x:Name="boxview7"
+                        HeightRequest="10"
+                        WidthRequest="10"
+                        Color="White" />
+                    <BoxView
+                        x:Name="boxview8"
+                        HeightRequest="10"
+                        WidthRequest="10"
+                        Color="White" />
+                    <BoxView
+                        x:Name="boxview9"
+                        HeightRequest="10"
+                        WidthRequest="10"
+                        Color="White" />
+                    <BoxView
+                        x:Name="boxview10"
+                        HeightRequest="10"
+                        WidthRequest="10"
+                        Color="White" />
+                </HorizontalStackLayout>
+
+                <Slider
+                    x:Name="ValueSliderImportancia"
+                    Maximum="5"
+                    Minimum="0"
+                    ValueChanged="AlterarImportancia"
+                    Value="0" />
 
                 <Label
                     FontFamily="OpenSansSemibold"

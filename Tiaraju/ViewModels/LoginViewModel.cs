@@ -62,40 +62,49 @@ namespace Tiaraju.ViewModels
 
                     bool confirmaLogin = await userServices.LoginUser(Name,senhaCriptografada);
 
-                    List<Atividade> listaAtividades = await activityServices.GetActivities();
-
-                    List<string> departamentos = new List<string>();
-
-                    foreach(var item in listaAtividades)
-                    {
-                        DateTime prazoFinal = DateTime.Parse(item.FinalDate);
-
-                        if(prazoFinal.Month == DateTime.Today.Month)
-                        {
-                            int resultado = prazoFinal.Day - (DateTime.Now.Day);
-
-                            if (resultado == 1)
-                            {
-                                count++;
-                                departamentos.Add(item.OwnerDepartment);
-                            }
-                        }
-                        
-                    }
-
-                    if(((count > 0)&&(Name == "bethania.vargas"))||(departamentos.Contains(user.Department)))
-                    {
-                        Mensagem.AtividadesProximasVencimento();
-                    }
-
                     if(confirmaLogin)
                     {
-                        Application.Current.MainPage = new AppShell();
+                        List<Atividade> listaAtividades = await activityServices.GetActivities();
+
+                        List<string> departamentos = new List<string>();
+
+                        foreach (var item in listaAtividades)
+                        {
+                            DateTime prazoFinal = DateTime.Parse(item.FinalDate);
+
+                            if (prazoFinal.Month == DateTime.Today.Month)
+                            {
+                                int resultado = prazoFinal.Day - (DateTime.Now.Day);
+
+                                if (resultado == 1)
+                                {
+                                    count++;
+                                    departamentos.Add(item.OwnerDepartment);
+                                }
+                            }
+
+                        }
+
+                        if (((count > 0) && (Name == "bethania.vargas")) || (departamentos.Contains(user.Department)))
+                        {
+                            Mensagem.AtividadesProximasVencimento();
+                        }
+
+                        if (confirmaLogin)
+                        {
+                            Application.Current.MainPage = new AppShell();
+                            return;
+                        }
+
                         return;
                     }
+
+                    Mensagem.MensagemSenhaInvalida();
+
+                    return;
                     
                 }
-
+                
                 Mensagem.MensagemUsuarioSemAutorizacao();
 
                 return;

@@ -18,7 +18,10 @@ namespace Tiaraju.ViewModels
         public ObservableCollection<Project> Projects { get; set; } = new ObservableCollection<Project>();
         public ObservableCollection<Department> Departments { get; set; } = new ObservableCollection<Department>();
 
-        List<string> setoresEnvolvidos = new List<string>();        
+        List<string> setoresEnvolvidos = new List<string>();       
+
+        [ObservableProperty]
+        public Color corBoxView;
 
         [ObservableProperty]
         public string title;
@@ -30,10 +33,7 @@ namespace Tiaraju.ViewModels
         public Project project;
 
         [ObservableProperty]
-        public DateTime finalDate;
-
-        [ObservableProperty]
-        public string priority;
+        public DateTime finalDate;        
 
         [ObservableProperty]
         public string status;
@@ -42,7 +42,10 @@ namespace Tiaraju.ViewModels
         public Department setores;
 
         [ObservableProperty]
-        public Department ownerdepartment;
+        public Department ownerdepartment;        
+
+        [ObservableProperty]
+        private int importancia;
 
         public AdicionarAtividadeViewModel()
         {
@@ -52,14 +55,18 @@ namespace Tiaraju.ViewModels
             var nomeProjeto = Preferences.Get("NomeProjeto", "default_value");
 
             Projecttitle = nomeProjeto.ToString();
-        }
+        }        
 
         [RelayCommand]
         public async void AddActivity()
         {
-            bool verificaConexao = Conectividade.VerificaConectividade();     
-            
-                if (verificaConexao)
+            bool verificaConexao = Conectividade.VerificaConectividade();
+
+            int urgenciaAtividade = Preferences.Get("ValorSliderUrgencia", 0);
+
+            int importanciaAtividade = Preferences.Get("ValorSliderImportancia", 0);
+
+            if (verificaConexao)
                 {
                     if (finalDate < DateTime.Now)
                     {
@@ -88,7 +95,7 @@ namespace Tiaraju.ViewModels
                        
                         setoresEnvolvidos.Add(Setores.ToString());
 
-                        var atualizarAtividade = new Atividade(Projecttitle, Title, finalDate.ToShortDateString(), Priority, Status, Ownerdepartment.DepartmentAcronym, listadoBanco.EnvolvedDepartments);
+                        var atualizarAtividade = new Atividade(Projecttitle, Title, finalDate.ToShortDateString(), Status, Ownerdepartment.DepartmentAcronym, listadoBanco.EnvolvedDepartments,urgenciaAtividade, importanciaAtividade);
 
                         activityServices.UpdateActivity(atualizarAtividade);
 
@@ -103,11 +110,12 @@ namespace Tiaraju.ViewModels
                         Status = "Em Andamento";
                     }
 
+                    
 
                     //Aqui adiciona uma nova atividade.
                     setoresEnvolvidos.Add(Setores.DepartmentAcronym);
 
-                    var atividade = new Atividade(Projecttitle, Title.TrimEnd(), finalDate.ToShortDateString(), Priority, Status, Ownerdepartment.DepartmentAcronym, setoresEnvolvidos);
+                    var atividade = new Atividade(Projecttitle, Title.TrimEnd(), finalDate.ToShortDateString(), Status, Ownerdepartment.DepartmentAcronym, setoresEnvolvidos, urgenciaAtividade, importanciaAtividade);
 
                     await activityServices.AddActivity(atividade);
 

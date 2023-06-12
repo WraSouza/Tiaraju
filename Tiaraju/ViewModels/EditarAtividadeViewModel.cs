@@ -145,7 +145,11 @@ namespace Tiaraju.ViewModels
 
                     //TO DO. SE CONCLUÍDO, MUDAR STATUS ISFINISHED = TRUE.
 
-                    var atualizarAtividade = new Atividade(Projectname, Activityname, finalDate.ToShortDateString(), Priority, listadoBanco.Status, Ownerdepartment.DepartmentAcronym, listadoBanco.EnvolvedDepartments);
+                    int valorUrgencia = Preferences.Get("ValorSliderUrgencia", 0);
+
+                    int valorImportancia = Preferences.Get("ValorSliderUrgencia", 0);
+
+                    var atualizarAtividade = new Atividade(Projectname, Activityname, finalDate.ToShortDateString(), listadoBanco.Status, Ownerdepartment.DepartmentAcronym, listadoBanco.EnvolvedDepartments, valorUrgencia, valorImportancia);
 
                     activityServices.UpdateActivity(atualizarAtividade);
 

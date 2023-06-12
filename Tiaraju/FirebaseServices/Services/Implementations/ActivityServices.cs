@@ -27,11 +27,12 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
                  {
                      ProjectName = atividade.ProjectName,
                      Name = atividade.Name,
-                     FinalDate = atividade.FinalDate,
-                     Priority = atividade.Priority,
+                     FinalDate = atividade.FinalDate,                     
                      Status = atividade.Status,
                      OwnerDepartment = atividade.OwnerDepartment,
-                     EnvolvedDepartments = atividade.EnvolvedDepartments
+                     EnvolvedDepartments = atividade.EnvolvedDepartments,
+                     Urgencia = atividade.Urgencia,
+                     Importancia = atividade.Importancia
 
                  });
         }
@@ -76,12 +77,13 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
                 {
                     ProjectName = item.Object.ProjectName,
                     Name = item.Object.Name,
-                    FinalDate = item.Object.FinalDate,
-                    Priority = item.Object.Priority,
+                    FinalDate = item.Object.FinalDate,                    
                     Status = item.Object.Status,
                     OwnerDepartment = item.Object.OwnerDepartment,
                     EnvolvedDepartments = item.Object.EnvolvedDepartments,
-                    IsFinished = item.Object.IsFinished
+                    IsFinished = item.Object.IsFinished,
+                    Importancia = item.Object.Importancia,
+                    Urgencia = item.Object.Urgencia
                 }).ToList();
         }
 
@@ -106,11 +108,12 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
 
             atualizarAtividade.Object.ProjectName = atividade.ProjectName;
             atualizarAtividade.Object.Name = atividade.Name;
-            atualizarAtividade.Object.Status = atividade.Status;
-            atualizarAtividade.Object.Priority = atividade.Priority;
+            atualizarAtividade.Object.Status = atividade.Status;            
             atualizarAtividade.Object.FinalDate = atividade.FinalDate;
             atualizarAtividade.Object.OwnerDepartment = atividade.OwnerDepartment;
             atualizarAtividade.Object.EnvolvedDepartments = atividade.EnvolvedDepartments;
+            atualizarAtividade.Object.Urgencia = atividade.Urgencia;
+            atualizarAtividade.Object.Importancia = atividade.Importancia;
 
             await firebase
            .Child("Atividades")

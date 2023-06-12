@@ -19,10 +19,13 @@ namespace Tiaraju.ViewModels
         public string quantidadetotal;
 
         [ObservableProperty]
-        public string quantidadenoprazo;
+        private string atividadenoprazo;
+
+        //[ObservableProperty]
+        //private string quantidadenoprazo;        
 
         [ObservableProperty]
-        public string quantidadeematraso;
+        public double quantidadeematraso;
 
         [ObservableProperty]
         public string concluidos;
@@ -51,11 +54,11 @@ namespace Tiaraju.ViewModels
 
             int projetosAtrasados = listaAtividades.Where(a => (DateTime.Parse(a.FinalDate) < DateTime.Today) && a.IsFinished == false).Count();
 
-            Quantidadeematraso = projetosAtrasados.ToString();
+            Quantidadeematraso = (double)projetosAtrasados;
 
-            int projetosEmDia = listaAtividades.Where(a => (DateTime.Parse(a.FinalDate) >= DateTime.Today) && a.IsFinished == false).Count();
+            int EmDia = listaAtividades.Where(a => (DateTime.Parse(a.FinalDate) > DateTime.Today) && a.IsFinished == false).Count();            
 
-            Quantidadenoprazo = projetosEmDia.ToString();
+            Atividadenoprazo = EmDia.ToString();           
 
             int projetosConcluidos = listaAtividades.Where(p => p.IsFinished == true).Count();
 
