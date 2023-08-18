@@ -48,23 +48,33 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\activities.png" />
 	  <None Remove="Resources\Images\analytics.png" />
+	  <None Remove="Resources\Images\bonusnovo.jpg" />
 	  <None Remove="Resources\Images\bonustiarajuimagem.jpg" />
+	  <None Remove="Resources\Images\calendargqnovo.jpg" />
 	  <None Remove="Resources\Images\calendariocq.jpg" />
 	  <None Remove="Resources\Images\cardapio.jpeg" />
+	  <None Remove="Resources\Images\cardapionovo.jpg" />
 	  <None Remove="Resources\Images\department.png" />
 	  <None Remove="Resources\Images\diat.jpeg" />
 	  <None Remove="Resources\Images\diat.png" />
+	  <None Remove="Resources\Images\diatnovo.jpg" />
 	  <None Remove="Resources\Images\gerenciamentoprojeto.png" />
 	  <None Remove="Resources\Images\glpi.jpg" />
+	  <None Remove="Resources\Images\glpinovo.jpg" />
 	  <None Remove="Resources\Images\home.png" />
 	  <None Remove="Resources\Images\housesolid.svg" />
+	  <None Remove="Resources\Images\leftarrow.png" />
 	  <None Remove="Resources\Images\logobrancotiaraju.png" />
 	  <None Remove="Resources\Images\logotiaraju.png" />
 	  <None Remove="Resources\Images\pautafixa.jpg" />
+	  <None Remove="Resources\Images\pautafixanovo.jpg" />
 	  <None Remove="Resources\Images\plus.png" />
+	  <None Remove="Resources\Images\pmonovo.jpg" />
 	  <None Remove="Resources\Images\project.png" />
+	  <None Remove="Resources\Images\rightarrow.png" />
 	  <None Remove="Resources\Images\services.png" />
 	  <None Remove="Resources\Images\setores.png" />
+	  <None Remove="Resources\Images\tempodeempresanovo.jpg" />
 	  <None Remove="Resources\Images\tempoempresaimagem.png" />
 	  <None Remove="Resources\Images\underconstruction.png" />
 	</ItemGroup>
@@ -92,6 +102,15 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\CadastrarUsuarioView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\CalendarioCQAbertos.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\CalendarioCQExcluidos.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\CalendarioCQFinalizados.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ChartsPMOView.xaml">
@@ -127,6 +146,9 @@
 	  <MauiXaml Update="Views\ServicosView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\TabbedCalendarCQ.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\TIView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -136,9 +158,7 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-ios'">
-	  <PackageReference Include="DevExpress.Maui.Editors">
-	    <Version>22.2.6</Version>
-	  </PackageReference>
+	  
 	  <PackageReference Include="FreakyControls">
 	    <Version>0.4.3</Version>
 	  </PackageReference>	  

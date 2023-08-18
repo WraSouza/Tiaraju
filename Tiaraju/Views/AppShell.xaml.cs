@@ -24,5 +24,9 @@ public partial class AppShell : Shell
 
         Routing.RegisterRoute(nameof(ProjectStatisticsView), typeof(ProjectStatisticsView));
 
+        Routing.RegisterRoute(nameof(TabbedCalendarCQ), typeof(TabbedCalendarCQ));
+
+        Routing.RegisterRoute(nameof(CalendarioCQAbertos), typeof(CalendarioCQAbertos));
+
     }
 }

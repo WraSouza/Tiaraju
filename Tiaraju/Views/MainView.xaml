@@ -4,8 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mvvm="clr-namespace:Tiaraju.ViewModels"
-    Title="Início"
-    Shell.BackgroundColor="Green">
+    Shell.NavBarIsVisible="False">
 
     <ContentPage.BindingContext>
         <mvvm:MainViewModel />
@@ -20,7 +19,7 @@
             VerticalOptions="Center" />
 
         <VerticalStackLayout>
-            <HorizontalStackLayout Padding="10" Spacing="5" Margin="0,20,0,0">
+            <HorizontalStackLayout Padding="10" Spacing="5" Margin="5,20,0,0">
                 <Label
                     FontFamily="OpenSansSemibold"
                     FontSize="Medium"
@@ -33,15 +32,115 @@
             </HorizontalStackLayout>
 
 
-            <VerticalStackLayout Padding="10" VerticalOptions="Center">
+            
+            <VerticalStackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
 
-                <Grid
+                
+                <Grid ColumnDefinitions=" *, *"
+                      RowDefinitions="190,190,190"
+                      RowSpacing="10"
+                      ColumnSpacing="10">
+
+                    <Border Grid.Column="0"
+                            Grid.Row="0"
+                            StrokeShape="RoundRectangle 10,10,10,10">
+                        <Grid>
+                            <Image Source="cardapionovo.jpg"
+                                   Aspect="Fill"/>
+                            <VerticalStackLayout VerticalOptions="End" HorizontalOptions="End" Margin="0,0,10,0">
+                                <Label Text="Cardápio"
+                                       TextColor="White"
+                                       FontSize="Medium"
+                                       FontFamily="OpenSansSemibold"/>
+                            </VerticalStackLayout>
+                        </Grid>              
+                       
+                        
+                    </Border>
+
+                    <Border Grid.Column="1"
+                            Grid.Row="0"
+                            StrokeShape="RoundRectangle 10,10,10,10">
+                        <Grid>
+                            <Image Source="bonusnovo.jpg" Aspect="Fill"/>
+                            <VerticalStackLayout VerticalOptions="End" HorizontalOptions="End" Margin="0,0,10,0">
+                                <Label Text="Bônus"
+                                       TextColor="White"
+                                       FontSize="Medium"
+                                       FontFamily="OpenSansSemibold"/>
+                            </VerticalStackLayout>
+                        </Grid>
+
+
+                    </Border>
+
+                    <Border Grid.Column="0"
+                            Grid.Row="1"
+                            StrokeShape="RoundRectangle 10,10,10,10">
+                        <Grid>
+                            <Image Source="diatnovo.jpg" Aspect="Fill"/>
+                            <VerticalStackLayout VerticalOptions="End" HorizontalOptions="End" Margin="0,0,10,0">
+                                <Label Text="Dia T"
+                                       TextColor="White"
+                                       FontSize="Medium"
+                                       FontFamily="OpenSansSemibold"/>
+                            </VerticalStackLayout>
+                        </Grid>
+
+
+                    </Border>
+
+                    <Border Grid.Column="1"
+                            Grid.Row="1"
+                            StrokeShape="RoundRectangle 10,10,10,10">
+                        <Grid>
+                            <Image Source="pautafixanovo.jpg" Aspect="Fill"/>
+                            <VerticalStackLayout VerticalOptions="End" HorizontalOptions="End" Margin="0,0,10,0">
+                                <Label Text="Pauta Fixa"
+                                       TextColor="White"
+                                       FontSize="Medium"
+                                       FontFamily="OpenSansSemibold"/>
+                            </VerticalStackLayout>
+                        </Grid>
+
+
+                    </Border>
+
+                    <Border Grid.Column="0"
+                            Grid.Row="2"
+                            StrokeShape="RoundRectangle 10,10,10,10">
+                        <Grid>
+                            <Image Source="tempodeempresanovo.jpg" Aspect="Fill"/>
+                            <VerticalStackLayout VerticalOptions="End" HorizontalOptions="End" Margin="0,0,10,0">
+                                <Label Text="Tempo de Empresa"
+                                       TextColor="White"
+                                       FontSize="Medium"
+                                       FontFamily="OpenSansSemibold"/>
+                            </VerticalStackLayout>
+                        </Grid>
+
+
+                    </Border>
+
+                </Grid>
+               
+
+                <!--<Grid
                     Margin="0,20,0,0"
                     ColumnDefinitions="*,*"
                     RowDefinitions="80,80,80,80"
                     RowSpacing="10">
 
-                    <Image
+                    <Border>
+                        <Grid>
+                            <Image Source="cardapionovo.jpg"/>
+                        <Grid>
+                            <Label Text="Cardápio"/>
+                        </Grid>
+                        </Grid>
+                    </Border>
+
+                    --><!--<Image
                         Grid.Row="0"
                         Grid.Column="0"
                         Source="cardapio.jpeg" />
@@ -78,9 +177,10 @@
                         FontFamily="OpenSansSemibold"
                         FontSize="Medium"
                         HorizontalTextAlignment="Center"
-                        Text="Dia T" />
-                </Grid>
+                        Text="Dia T" />--><!--
+                </Grid>-->
             </VerticalStackLayout>
+            
         </VerticalStackLayout>
     </Grid>
 

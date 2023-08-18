@@ -4,8 +4,9 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:Tiaraju.Views"
+    Shell.NavBarIsVisible="False"
     Title="Laboratório Tiarajú"
-    Shell.BackgroundColor="Green">
+    >
 
     <TabBar Route="Main">
         <ShellContent

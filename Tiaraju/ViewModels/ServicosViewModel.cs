@@ -19,5 +19,12 @@ namespace Tiaraju.ViewModels
             await Shell.Current.GoToAsync(route);
         }
 
+        [RelayCommand]
+        public async Task AbrirCalendarioCQView()
+        {
+            var route = $"{nameof(Views.CalendarioCQAbertos)}";
+            await Shell.Current.GoToAsync(route);
+        }
+
     }
 }
