@@ -50,7 +50,6 @@
 	  <None Remove="Resources\Images\analytics.png" />
 	  <None Remove="Resources\Images\bonusnovo.jpg" />
 	  <None Remove="Resources\Images\bonustiarajuimagem.jpg" />
-	  <None Remove="Resources\Images\calendargqnovo.jpg" />
 	  <None Remove="Resources\Images\calendariocq.jpg" />
 	  <None Remove="Resources\Images\cardapio.jpeg" />
 	  <None Remove="Resources\Images\cardapionovo.jpg" />
@@ -66,6 +65,7 @@
 	  <None Remove="Resources\Images\leftarrow.png" />
 	  <None Remove="Resources\Images\logobrancotiaraju.png" />
 	  <None Remove="Resources\Images\logotiaraju.png" />
+	  <None Remove="Resources\Images\novocalendariogq.jpg" />
 	  <None Remove="Resources\Images\pautafixa.jpg" />
 	  <None Remove="Resources\Images\pautafixanovo.jpg" />
 	  <None Remove="Resources\Images\plus.png" />
@@ -81,11 +81,11 @@
 
 	<ItemGroup>
 	  <PackageReference Include="AlohaKit" Version="1.0.74" />
-	  <PackageReference Include="CommunityToolkit.Maui" Version="5.2.0" />
-	  <PackageReference Include="CommunityToolkit.MVVM" Version="8.2.0" />
+	  <PackageReference Include="CommunityToolkit.Maui" Version="5.3.0" />
+	  <PackageReference Include="CommunityToolkit.MVVM" Version="8.2.1" />
 	  <PackageReference Include="FirebaseDatabase.net" Version="4.2.0" />
 	  <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
-	  <PackageReference Include="Sentry.Maui" Version="3.33.0" />
+	  <PackageReference Include="Sentry.Maui" Version="3.35.1" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -104,13 +104,16 @@
 	  <MauiXaml Update="Views\CadastrarUsuarioView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\CalendarioCQAbertos.xaml">
+	  <MauiXaml Update="Views\CadastroCalendarioCQView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\CalendarioCQExcluidos.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\CalendarioCQFinalizados.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\CalendariosCQ.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ChartsPMOView.xaml">
@@ -146,9 +149,6 @@
 	  <MauiXaml Update="Views\ServicosView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\TabbedCalendarCQ.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Views\TIView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -157,18 +157,6 @@
 	  </MauiXaml>
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-ios'">
-	  
-	  <PackageReference Include="FreakyControls">
-	    <Version>0.4.3</Version>
-	  </PackageReference>	  
-	</ItemGroup>
-
-	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0-maccatalyst'">
-	  <PackageReference Include="FreakyControls">
-	    <Version>0.4.3</Version>
-	  </PackageReference>
-	</ItemGroup>
 
 	<PropertyGroup Label="MauiAppAccelerator">
 		<wizardVersion>v1.2.3</wizardVersion>

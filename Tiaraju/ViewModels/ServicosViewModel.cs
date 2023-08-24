@@ -22,7 +22,7 @@ namespace Tiaraju.ViewModels
         [RelayCommand]
         public async Task AbrirCalendarioCQView()
         {
-            var route = $"{nameof(Views.CalendarioCQAbertos)}";
+            var route = $"{nameof(Views.CalendariosCQ)}";
             await Shell.Current.GoToAsync(route);
         }
 

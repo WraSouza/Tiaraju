@@ -129,6 +129,13 @@ namespace Tiaraju.ViewModels
             GetAllCalendarios();
         }
 
+        [RelayCommand]
+        async void IrParaCadastroCalendarioCQ()
+        {            
+            var route = $"{nameof(Views.CadastroCalendarioCQView)}";
+            await Shell.Current.GoToAsync(route);
+        }
+
         async void GetAllCalendarios()
         {
             Calendarios.Clear();
@@ -137,9 +144,9 @@ namespace Tiaraju.ViewModels
             var listaCalendario = await calendarioService.GetCurrentMonthCalendar(Month.ToUpper(),int.Parse(Year));
 
 
-            var listaAtividadesAbertas = listaCalendario.Where(a => a.IsFinished == false && a.IsExcluded == false);
+            //var listaAtividadesAbertas = listaCalendario.Where(a => a.IsFinished == false && a.IsExcluded == false);
 
-            foreach (var calendario in listaAtividadesAbertas)
+            foreach (var calendario in listaCalendario)
             {
                 Calendarios.Add(calendario);
             }            

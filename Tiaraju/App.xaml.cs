@@ -7,9 +7,10 @@ public partial class App : Application
 		InitializeComponent();
 
         //MainPage = new MainPage(new MainViewModel());
-        MainPage = new LoginView();
-       
-        
+        //MainPage = new LoginView();
+        MainPage = new CadastroCalendarioCQView();
+
+
     }
 
     protected override Window CreateWindow(IActivationState activationState)

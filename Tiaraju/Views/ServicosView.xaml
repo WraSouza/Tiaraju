@@ -74,7 +74,7 @@
                     Grid.Column="0"
                     StrokeShape="RoundRectangle 10,10,10,10">
                     <Grid>
-                        <Image Aspect="Fill" Source="calendargqnovo.jpg" />
+                        <Image Aspect="Fill" Source="novocalendariogq.jpg" />
                         <VerticalStackLayout
                             Margin="0,0,10,0"
                             HorizontalOptions="End"

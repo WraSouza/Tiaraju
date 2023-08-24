@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Tiaraju.Views.CalendariosCQ"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mvvm="clr-namespace:Tiaraju.ViewModels"
+    Title="CalendariosCQ">
+    <ContentPage.BindingContext>
+        <mvvm:CalendarioCQAbertosViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid>
+
+        <VerticalStackLayout Margin="10,20,0,0">
+
+            <Label
+                FontFamily="OpenSansSemibold"
+                FontSize="20"
+                Text="Calendário CQ"
+                TextColor="#20B2AA" />
+
+
+            <HorizontalStackLayout Margin="0,10,0,0" HorizontalOptions="CenterAndExpand">
+                <Image
+                    Margin="0,0,10,0"
+                    HeightRequest="20"
+                    Source="leftarrow.png"
+                    VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding IrMesAnteriorCommand}" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+
+                <Label
+                    FontFamily="OpenSansSemibold"
+                    FontSize="18"
+                    Text="{Binding Month}" />
+
+                <Image
+                    Margin="10,0,0,0"
+                    HeightRequest="20"
+                    Source="rightarrow.png"
+                    VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding IrProximoMesCommand}" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+            </HorizontalStackLayout>
+
+
+            <HorizontalStackLayout Margin="0,10,0,0" HorizontalOptions="Center">
+                <Image
+                    Margin="0,0,10,0"
+                    HeightRequest="20"
+                    Source="leftarrow.png"
+                    VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding IrAnoAnteriorCommand}" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label
+                    FontSize="15"
+                    HorizontalOptions="Center"
+                    Text="{Binding Year}"
+                    TextColor="#9A9898"
+                    VerticalOptions="Center" />
+
+                <Image
+                    Margin="10,0,0,0"
+                    HeightRequest="20"
+                    Source="rightarrow.png">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding IrProximoAnoCommand}" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </HorizontalStackLayout>
+
+
+            <CollectionView
+                Margin="0,20,0,0"
+                EmptyView="Não Há Atividades Para o Mês e Ano Selecionados"
+                ItemsSource="{Binding Calendarios}">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout Margin="10,20,10,0">
+                            <Border
+                                BackgroundColor="#E8E2E2"
+                                HeightRequest="90"
+                                StrokeShape="RoundRectangle 5,5,5,5">
+                                <Border.Shadow>
+                                    <Shadow
+                                        Brush="Black"
+                                        Opacity="0.6"
+                                        Radius="20"
+                                        Offset="10,10" />
+                                </Border.Shadow>
+
+                                <VerticalStackLayout>
+                                    <Label
+                                        Margin="10,5,0,0"
+                                        FontSize="18"
+                                        Text="{Binding Dia}"
+                                        TextColor="Black" />
+                                    <Label
+                                        Margin="10,5,0,0"
+                                        FontSize="18"
+                                        Text="{Binding Titulo}"
+                                        TextColor="#20B2AA" />
+
+                                    <HorizontalStackLayout Margin="0,5,0,0" VerticalOptions="Center">
+                                        <Label
+                                            Margin="10,0,0,0"
+                                            FontSize="13"
+                                            Text="Status:"
+                                            TextColor="Black" />
+                                        <Label
+                                            Margin="5,0,0,0"
+                                            FontSize="13"
+                                            Text="{Binding Status}"
+                                            TextColor="#949494" />
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+
+                            </Border>
+
+
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+        </VerticalStackLayout>
+
+
+        <Image
+            Margin="0,0,10,20"
+            HeightRequest="30"
+            HorizontalOptions="EndAndExpand"
+            Source="plus.png"
+            VerticalOptions="EndAndExpand">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding IrParaCadastroCalendarioCQCommand}" />
+            </Image.GestureRecognizers>
+        </Image>
+
+
+    </Grid>
+</ContentPage>

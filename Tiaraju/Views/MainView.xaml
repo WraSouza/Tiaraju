@@ -23,11 +23,13 @@
                 <Label
                     FontFamily="OpenSansSemibold"
                     FontSize="Medium"
+                    TextColor="#20B2AA"
                     Text="Seja Bem-Vindo(a)" />
 
                 <Label
                     FontFamily="OpenSansSemibold"
                     FontSize="Medium"
+                    TextColor="#20B2AA"
                     Text="{Binding Nomeusuario}" />
             </HorizontalStackLayout>
 

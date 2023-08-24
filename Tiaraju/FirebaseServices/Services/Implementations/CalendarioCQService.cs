@@ -32,7 +32,8 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
                         FinalizadoPor = item.Object.FinalizadoPor,
                         MotivoExclusao = item.Object.MotivoExclusao,
                         Titulo = item.Object.Titulo,
-                        Ano = item.Object.Ano
+                        Ano = item.Object.Ano,
+                        Status = item.Object.Status
 
                     }).ToList();
             

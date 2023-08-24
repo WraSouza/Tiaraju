@@ -22,11 +22,11 @@ public partial class AppShell : Shell
 
         Routing.RegisterRoute(nameof(ChartsPMOView), typeof(ChartsPMOView));
 
-        Routing.RegisterRoute(nameof(ProjectStatisticsView), typeof(ProjectStatisticsView));
+        Routing.RegisterRoute(nameof(ProjectStatisticsView), typeof(ProjectStatisticsView));       
 
-        Routing.RegisterRoute(nameof(TabbedCalendarCQ), typeof(TabbedCalendarCQ));
+        Routing.RegisterRoute(nameof(CalendariosCQ), typeof(CalendariosCQ));
 
-        Routing.RegisterRoute(nameof(CalendarioCQAbertos), typeof(CalendarioCQAbertos));
+        Routing.RegisterRoute(nameof(CadastroCalendarioCQView), typeof(CadastroCalendarioCQView));
 
     }
 }
