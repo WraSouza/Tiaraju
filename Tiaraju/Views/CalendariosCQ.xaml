@@ -80,6 +80,7 @@
 
             <CollectionView
                 Margin="0,20,0,0"
+                x:Name="collectionView"
                 EmptyView="Não Há Atividades Para o Mês e Ano Selecionados"
                 ItemsSource="{Binding Calendarios}">
 
@@ -93,9 +94,9 @@
                                 <Border.Shadow>
                                     <Shadow
                                         Brush="Black"
-                                        Opacity="0.6"
+                                        Opacity="0.2"
                                         Radius="20"
-                                        Offset="10,10" />
+                                        Offset="5,5" />
                                 </Border.Shadow>
 
                                 <VerticalStackLayout>
@@ -123,6 +124,10 @@
                                             TextColor="#949494" />
                                     </HorizontalStackLayout>
                                 </VerticalStackLayout>
+
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.AbrirCalendarioDetailViewCommand, Source={x:Reference collectionView}}" CommandParameter="{Binding .}"/>
+                                </Border.GestureRecognizers>
 
                             </Border>
 

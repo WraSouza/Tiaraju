@@ -141,16 +141,31 @@ namespace Tiaraju.ViewModels
             Calendarios.Clear();
 
             CalendarioCQService calendarioService = new CalendarioCQService();
-            var listaCalendario = await calendarioService.GetCurrentMonthCalendar(Month.ToUpper(),int.Parse(Year));
+            var listaCalendario = await calendarioService.GetCurrentMonthCalendar(Month.ToUpper(),int.Parse(Year));            
 
-
-            //var listaAtividadesAbertas = listaCalendario.Where(a => a.IsFinished == false && a.IsExcluded == false);
-
-            foreach (var calendario in listaCalendario)
+            foreach (var calendario in listaCalendario.OrderByDescending(x => x.Dia).Reverse())
             {
                 Calendarios.Add(calendario);
             }            
 
+        }
+
+        [RelayCommand]
+        public async void AbrirCalendarioDetailView(Calendario model)
+        {
+            if (model is null)
+            {
+                return;
+            }
+
+            Preferences.Set("DiaCalendario", model.Dia);
+            Preferences.Set("MesCalendario", model.Mes);
+            Preferences.Set("DescricaoCalendario", model.Descricao);
+            Preferences.Set("Titulo", model.Titulo);
+            //Preferences.Set("StatusFinalizado", model.IsFinished);
+            //Preferences.Set("StatusExcluido", model.IsExcluded);
+            var route = $"{nameof(Views.CalendarioCQDetailView)}";
+            await Shell.Current.GoToAsync(route);
         }
 
     }

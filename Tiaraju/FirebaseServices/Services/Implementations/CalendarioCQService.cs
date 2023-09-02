@@ -1,4 +1,5 @@
 ﻿using Firebase.Database;
+using Firebase.Database.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,27 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
             firebase = new FirebaseClient("https://tiaraju-afa0a-default-rtdb.firebaseio.com/");
         }
 
+        public async Task<bool> CadastrarCalendario(Calendario calendario)
+        {
+            await firebase.Child("CalendarioCQ")
+                .PostAsync(new Calendario()
+                {
+                    Mes = calendario.Mes,
+                    Dia = calendario.Dia,
+                    Ano = calendario.Ano,
+                    Titulo = calendario.Titulo,
+                    Descricao = calendario.Descricao,
+                    IsFinished = calendario.IsFinished,
+                    IsExcluded = calendario.IsExcluded,
+                    FinalizadoPor = calendario.FinalizadoPor,
+                    MotivoExclusao = calendario.MotivoExclusao,
+                    DataFinalizacao = calendario.DataFinalizacao,
+                    Status = calendario.Status
+                });
+
+            return true;
+        }
+
         public async Task<List<Calendario>> GetCalendarios()
         {
             
@@ -33,7 +55,8 @@ namespace Tiaraju.FirebaseServices.Services.Implementations
                         MotivoExclusao = item.Object.MotivoExclusao,
                         Titulo = item.Object.Titulo,
                         Ano = item.Object.Ano,
-                        Status = item.Object.Status
+                        Status = item.Object.Status,
+                        DataFinalizacao = item.Object.DataFinalizacao
 
                     }).ToList();
             

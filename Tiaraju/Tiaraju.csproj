@@ -46,6 +46,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\accept.png" />
 	  <None Remove="Resources\Images\activities.png" />
 	  <None Remove="Resources\Images\analytics.png" />
 	  <None Remove="Resources\Images\bonusnovo.jpg" />
@@ -53,10 +54,12 @@
 	  <None Remove="Resources\Images\calendariocq.jpg" />
 	  <None Remove="Resources\Images\cardapio.jpeg" />
 	  <None Remove="Resources\Images\cardapionovo.jpg" />
+	  <None Remove="Resources\Images\delete.png" />
 	  <None Remove="Resources\Images\department.png" />
 	  <None Remove="Resources\Images\diat.jpeg" />
 	  <None Remove="Resources\Images\diat.png" />
 	  <None Remove="Resources\Images\diatnovo.jpg" />
+	  <None Remove="Resources\Images\edit.png" />
 	  <None Remove="Resources\Images\gerenciamentoprojeto.png" />
 	  <None Remove="Resources\Images\glpi.jpg" />
 	  <None Remove="Resources\Images\glpinovo.jpg" />
@@ -105,6 +108,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\CadastroCalendarioCQView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\CalendarioCQDetailView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\CalendarioCQExcluidos.xaml">

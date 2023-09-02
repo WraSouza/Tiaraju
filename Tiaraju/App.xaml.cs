@@ -7,9 +7,7 @@ public partial class App : Application
 		InitializeComponent();
 
         //MainPage = new MainPage(new MainViewModel());
-        //MainPage = new LoginView();
-        MainPage = new CadastroCalendarioCQView();
-
+        MainPage = new LoginView();
 
     }
 
