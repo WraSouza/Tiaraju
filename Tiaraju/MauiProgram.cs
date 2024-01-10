@@ -1,5 +1,7 @@
 ﻿
 
+using UraniumUI;
+
 namespace Tiaraju;
 
 public static class MauiProgram
@@ -9,6 +11,8 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
+            .UseUraniumUI()
+            .UseUraniumUIMaterial()
             .UseMauiCommunityToolkit()
             .UseSentry(options =>
             {

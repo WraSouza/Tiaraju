@@ -10,7 +10,7 @@
         <mvvm:MainViewModel />
     </ContentPage.BindingContext>
 
-    <Grid>
+    <Grid BackgroundColor="#F8F7F7">
         <Image
             HeightRequest="100"
             HorizontalOptions="Center"
@@ -19,170 +19,116 @@
             VerticalOptions="Center" />
 
         <VerticalStackLayout>
-            <HorizontalStackLayout Padding="10" Spacing="5" Margin="5,20,0,0">
+            <HorizontalStackLayout
+                Margin="5,20,0,0"
+                Padding="10"
+                Spacing="5">
                 <Label
                     FontFamily="OpenSansSemibold"
                     FontSize="Medium"
-                    TextColor="#20B2AA"
-                    Text="Seja Bem-Vindo(a)" />
+                    Text="Seja Bem-Vindo(a)"
+                    TextColor="#20B2AA" />
 
                 <Label
                     FontFamily="OpenSansSemibold"
                     FontSize="Medium"
-                    TextColor="#20B2AA"
-                    Text="{Binding Nomeusuario}" />
+                    Text="{Binding Nomeusuario}"
+                    TextColor="#20B2AA" />
             </HorizontalStackLayout>
 
 
-            
-            <VerticalStackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
 
-                
-                <Grid ColumnDefinitions=" *, *"
-                      RowDefinitions="190,190,190"
-                      RowSpacing="10"
-                      ColumnSpacing="10">
+            <VerticalStackLayout
+                Padding="10"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand">
 
-                    <Border Grid.Column="0"
-                            Grid.Row="0"
-                            StrokeShape="RoundRectangle 10,10,10,10">
-                        <Grid>
-                            <Image Source="cardapionovo.jpg"
-                                   Aspect="Fill"/>
-                            <VerticalStackLayout VerticalOptions="End" HorizontalOptions="End" Margin="0,0,10,0">
-                                <Label Text="Cardápio"
-                                       TextColor="White"
-                                       FontSize="Medium"
-                                       FontFamily="OpenSansSemibold"/>
-                            </VerticalStackLayout>
-                        </Grid>              
-                       
-                        
-                    </Border>
 
-                    <Border Grid.Column="1"
-                            Grid.Row="0"
-                            StrokeShape="RoundRectangle 10,10,10,10">
-                        <Grid>
-                            <Image Source="bonusnovo.jpg" Aspect="Fill"/>
-                            <VerticalStackLayout VerticalOptions="End" HorizontalOptions="End" Margin="0,0,10,0">
-                                <Label Text="Bônus"
-                                       TextColor="White"
-                                       FontSize="Medium"
-                                       FontFamily="OpenSansSemibold"/>
-                            </VerticalStackLayout>
-                        </Grid>
+                <Grid
+                    ColumnDefinitions=" 150, 150"
+                    ColumnSpacing="10"
+                    RowDefinitions="120,120,120"
+                    RowSpacing="10">
 
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        StrokeShape="RoundRectangle 10,10,10,10">
+
+                        <VerticalStackLayout Padding="10" VerticalOptions="Center">
+                            <Image Source="food.png" />
+                            <Label
+                                HorizontalTextAlignment="Center"
+                                Text="Cardápio"
+                                TextColor="#20B2AA" />
+                        </VerticalStackLayout>
 
                     </Border>
 
-                    <Border Grid.Column="0"
-                            Grid.Row="1"
-                            StrokeShape="RoundRectangle 10,10,10,10">
-                        <Grid>
-                            <Image Source="diatnovo.jpg" Aspect="Fill"/>
-                            <VerticalStackLayout VerticalOptions="End" HorizontalOptions="End" Margin="0,0,10,0">
-                                <Label Text="Dia T"
-                                       TextColor="White"
-                                       FontSize="Medium"
-                                       FontFamily="OpenSansSemibold"/>
-                            </VerticalStackLayout>
-                        </Grid>
+                    <Border
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        StrokeShape="RoundRectangle 10,10,10,10">
+                        <VerticalStackLayout Padding="10" VerticalOptions="Center">
+                            <Image Source="coin.png" />
+                            <Label
+                                HorizontalTextAlignment="Center"
+                                Text="Bônus"
+                                TextColor="#20B2AA" />
+                        </VerticalStackLayout>
 
 
                     </Border>
 
-                    <Border Grid.Column="1"
-                            Grid.Row="1"
-                            StrokeShape="RoundRectangle 10,10,10,10">
-                        <Grid>
-                            <Image Source="pautafixanovo.jpg" Aspect="Fill"/>
-                            <VerticalStackLayout VerticalOptions="End" HorizontalOptions="End" Margin="0,0,10,0">
-                                <Label Text="Pauta Fixa"
-                                       TextColor="White"
-                                       FontSize="Medium"
-                                       FontFamily="OpenSansSemibold"/>
-                            </VerticalStackLayout>
-                        </Grid>
+                    <Border
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        StrokeShape="RoundRectangle 10,10,10,10">
+                        <VerticalStackLayout Padding="10" VerticalOptions="Center">
+                            <Image Source="food.png" />
+                            <Label
+                                HorizontalTextAlignment="Center"
+                                Text="Cardápio"
+                                TextColor="#20B2AA" />
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                    <Border
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        StrokeShape="RoundRectangle 10,10,10,10">
+                        <VerticalStackLayout Padding="10" VerticalOptions="Center">
+                            <Image Source="food.png" />
+                            <Label
+                                HorizontalTextAlignment="Center"
+                                Text="Cardápio"
+                                TextColor="#20B2AA" />
+                        </VerticalStackLayout>
 
 
                     </Border>
 
-                    <Border Grid.Column="0"
-                            Grid.Row="2"
-                            StrokeShape="RoundRectangle 10,10,10,10">
-                        <Grid>
-                            <Image Source="tempodeempresanovo.jpg" Aspect="Fill"/>
-                            <VerticalStackLayout VerticalOptions="End" HorizontalOptions="End" Margin="0,0,10,0">
-                                <Label Text="Tempo de Empresa"
-                                       TextColor="White"
-                                       FontSize="Medium"
-                                       FontFamily="OpenSansSemibold"/>
-                            </VerticalStackLayout>
-                        </Grid>
-
+                    <Border
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        StrokeShape="RoundRectangle 10,10,10,10">
+                        <VerticalStackLayout Padding="10" VerticalOptions="Center">
+                            <Image Source="food.png" />
+                            <Label
+                                HorizontalTextAlignment="Center"
+                                Text="Cardápio"
+                                TextColor="#20B2AA" />
+                        </VerticalStackLayout>
 
                     </Border>
 
                 </Grid>
-               
 
-                <!--<Grid
-                    Margin="0,20,0,0"
-                    ColumnDefinitions="*,*"
-                    RowDefinitions="80,80,80,80"
-                    RowSpacing="10">
 
-                    <Border>
-                        <Grid>
-                            <Image Source="cardapionovo.jpg"/>
-                        <Grid>
-                            <Label Text="Cardápio"/>
-                        </Grid>
-                        </Grid>
-                    </Border>
 
-                    --><!--<Image
-                        Grid.Row="0"
-                        Grid.Column="0"
-                        Source="cardapio.jpeg" />
-
-                    <Image
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        Source="bonustiarajuimagem.jpg" />
-
-                    <Label
-                        Grid.Row="1"
-                        Grid.Column="0"
-                        FontFamily="OpenSansSemibold"
-                        FontSize="Medium"
-                        HorizontalTextAlignment="Center"
-                        Text="Cardápio" />
-
-                    <Label
-                        Grid.Row="1"
-                        Grid.Column="1"
-                        FontFamily="OpenSansSemibold"
-                        FontSize="Medium"
-                        HorizontalTextAlignment="Center"
-                        Text="Bônus" />
-
-                    <Image
-                        Grid.Row="2"
-                        Grid.Column="0"
-                        Source="diat.png" />
-
-                    <Label
-                        Grid.Row="3"
-                        Grid.Column="0"
-                        FontFamily="OpenSansSemibold"
-                        FontSize="Medium"
-                        HorizontalTextAlignment="Center"
-                        Text="Dia T" />--><!--
-                </Grid>-->
             </VerticalStackLayout>
-            
+
         </VerticalStackLayout>
     </Grid>
 
