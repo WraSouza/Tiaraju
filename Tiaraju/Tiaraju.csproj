@@ -46,6 +46,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Fonts\Montserrat-Bold.ttf" />
+	  <None Remove="Resources\Fonts\Montserrat-Light.ttf" />
+	  <None Remove="Resources\Fonts\Montserrat-Medium.ttf" />
+	  <None Remove="Resources\Fonts\Montserrat-Regular.ttf" />
+	  <None Remove="Resources\Fonts\Montserrat-SemiBold.ttf" />
 	  <None Remove="Resources\Images\accept.png" />
 	  <None Remove="Resources\Images\activities.png" />
 	  <None Remove="Resources\Images\analytics.png" />
@@ -66,6 +71,7 @@
 	  <None Remove="Resources\Images\glpi.jpg" />
 	  <None Remove="Resources\Images\glpinovo.jpg" />
 	  <None Remove="Resources\Images\home.png" />
+	  <None Remove="Resources\Images\homeicon.png" />
 	  <None Remove="Resources\Images\housesolid.svg" />
 	  <None Remove="Resources\Images\leftarrow.png" />
 	  <None Remove="Resources\Images\logobrancotiaraju.png" />
@@ -79,6 +85,7 @@
 	  <None Remove="Resources\Images\rightarrow.png" />
 	  <None Remove="Resources\Images\services.png" />
 	  <None Remove="Resources\Images\setores.png" />
+	  <None Remove="Resources\Images\structure.png" />
 	  <None Remove="Resources\Images\tempodeempresanovo.jpg" />
 	  <None Remove="Resources\Images\tempoempresaimagem.png" />
 	  <None Remove="Resources\Images\underconstruction.png" />

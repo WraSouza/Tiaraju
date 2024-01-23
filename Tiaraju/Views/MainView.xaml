@@ -4,13 +4,14 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mvvm="clr-namespace:Tiaraju.ViewModels"
-    Shell.NavBarIsVisible="False">
+    Title="Tiarajú"
+    Shell.NavBarIsVisible="True">
 
     <ContentPage.BindingContext>
         <mvvm:MainViewModel />
     </ContentPage.BindingContext>
 
-    <Grid BackgroundColor="#F8F7F7">
+    <Grid BackgroundColor="White">
         <Image
             HeightRequest="100"
             HorizontalOptions="Center"
@@ -24,13 +25,13 @@
                 Padding="10"
                 Spacing="5">
                 <Label
-                    FontFamily="OpenSansSemibold"
+                    FontFamily="MontserratSemiBold"
                     FontSize="Medium"
                     Text="Seja Bem-Vindo(a)"
                     TextColor="#20B2AA" />
 
                 <Label
-                    FontFamily="OpenSansSemibold"
+                    FontFamily="MontserratSemiBold"
                     FontSize="Medium"
                     Text="{Binding Nomeusuario}"
                     TextColor="#20B2AA" />
@@ -39,18 +40,70 @@
 
 
             <VerticalStackLayout
+                Margin="0,20,0,0"
                 Padding="10"
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="CenterAndExpand">
 
-
                 <Grid
                     ColumnDefinitions=" 150, 150"
-                    ColumnSpacing="10"
-                    RowDefinitions="120,120,120"
+                    ColumnSpacing="40"
+                    RowDefinitions="120,120,120,120"
                     RowSpacing="10">
 
-                    <Border
+                    <Image
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Source="cardapio.png" />
+
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        FontFamily="MontserratRegular"
+                        FontSize="Medium"
+                        HorizontalOptions="Center"
+                        Text="Cardápio" />
+
+                    <Image
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Source="pautafixa.png" />
+
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        FontFamily="MontserratRegular"
+                        FontSize="Medium"
+                        HorizontalOptions="Center"
+                        Text="Pauta Fixa" />
+
+                    <Image
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Source="glpi.png" />
+
+                    <Label
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        FontFamily="MontserratRegular"
+                        FontSize="Medium"
+                        HorizontalOptions="Center"
+                        Text="GLPI" />
+
+                    <Image
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Source="bonustiarajuimagem.png" />
+
+                    <Label
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        FontFamily="MontserratRegular"
+                        FontSize="Medium"
+                        HorizontalOptions="Center"
+                        Text="Bônus" />
+
+                    <!--<Border
                         Grid.Row="0"
                         Grid.Column="0"
                         StrokeShape="RoundRectangle 10,10,10,10">
@@ -121,7 +174,7 @@
                                 TextColor="#20B2AA" />
                         </VerticalStackLayout>
 
-                    </Border>
+                    </Border>-->
 
                 </Grid>
 
