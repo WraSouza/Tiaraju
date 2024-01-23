@@ -1,5 +1,7 @@
 ﻿
 
+using UraniumUI;
+
 namespace Tiaraju;
 
 public static class MauiProgram
@@ -9,6 +11,8 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
+            .UseUraniumUI()
+            .UseUraniumUIMaterial()
             .UseMauiCommunityToolkit()
             .UseSentry(options =>
             {
@@ -32,7 +36,12 @@ public static class MauiProgram
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});           
+                fonts.AddFont("Montserrat-Bold.ttf", "MontserratBold");
+                fonts.AddFont("Montserrat-Light.ttf", "MontserratLight");
+                fonts.AddFont("Montserrat-Medium.ttf", "MontserratMedium");
+                fonts.AddFont("Montserrat-Regular.ttf", "MontserratRegular");
+                fonts.AddFont("Montserrat-SemiBold.ttf", "MontserratSemiBold");
+            });           
 
 
         builder.Services.AddSingleton<MainViewModel>();

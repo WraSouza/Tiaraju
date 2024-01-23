@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
+		<TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
 		<OutputType>Exe</OutputType>
 		<RootNamespace>Tiaraju</RootNamespace>
 		<UseMaui>true</UseMaui>
@@ -46,6 +46,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Fonts\Montserrat-Bold.ttf" />
+	  <None Remove="Resources\Fonts\Montserrat-Light.ttf" />
+	  <None Remove="Resources\Fonts\Montserrat-Medium.ttf" />
+	  <None Remove="Resources\Fonts\Montserrat-Regular.ttf" />
+	  <None Remove="Resources\Fonts\Montserrat-SemiBold.ttf" />
 	  <None Remove="Resources\Images\accept.png" />
 	  <None Remove="Resources\Images\activities.png" />
 	  <None Remove="Resources\Images\analytics.png" />
@@ -54,16 +59,19 @@
 	  <None Remove="Resources\Images\calendariocq.jpg" />
 	  <None Remove="Resources\Images\cardapio.jpeg" />
 	  <None Remove="Resources\Images\cardapionovo.jpg" />
+	  <None Remove="Resources\Images\coin.png" />
 	  <None Remove="Resources\Images\delete.png" />
 	  <None Remove="Resources\Images\department.png" />
 	  <None Remove="Resources\Images\diat.jpeg" />
 	  <None Remove="Resources\Images\diat.png" />
 	  <None Remove="Resources\Images\diatnovo.jpg" />
 	  <None Remove="Resources\Images\edit.png" />
+	  <None Remove="Resources\Images\food.png" />
 	  <None Remove="Resources\Images\gerenciamentoprojeto.png" />
 	  <None Remove="Resources\Images\glpi.jpg" />
 	  <None Remove="Resources\Images\glpinovo.jpg" />
 	  <None Remove="Resources\Images\home.png" />
+	  <None Remove="Resources\Images\homeicon.png" />
 	  <None Remove="Resources\Images\housesolid.svg" />
 	  <None Remove="Resources\Images\leftarrow.png" />
 	  <None Remove="Resources\Images\logobrancotiaraju.png" />
@@ -77,6 +85,7 @@
 	  <None Remove="Resources\Images\rightarrow.png" />
 	  <None Remove="Resources\Images\services.png" />
 	  <None Remove="Resources\Images\setores.png" />
+	  <None Remove="Resources\Images\structure.png" />
 	  <None Remove="Resources\Images\tempodeempresanovo.jpg" />
 	  <None Remove="Resources\Images\tempoempresaimagem.png" />
 	  <None Remove="Resources\Images\underconstruction.png" />
@@ -84,11 +93,14 @@
 
 	<ItemGroup>
 	  <PackageReference Include="AlohaKit" Version="1.0.74" />
-	  <PackageReference Include="CommunityToolkit.Maui" Version="5.3.0" />
-	  <PackageReference Include="CommunityToolkit.MVVM" Version="8.2.1" />
+	  <PackageReference Include="CommunityToolkit.Maui" Version="7.0.1" />
+	  <PackageReference Include="CommunityToolkit.MVVM" Version="8.2.2" />
 	  <PackageReference Include="FirebaseDatabase.net" Version="4.2.0" />
 	  <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
-	  <PackageReference Include="Sentry.Maui" Version="3.35.1" />
+	  <PackageReference Include="Sentry.Maui" Version="3.41.3" />
+	  <PackageReference Include="UraniumUI" Version="2.7.3" />
+	  <PackageReference Include="UraniumUI.Icons.MaterialIcons" Version="2.7.3" />
+	  <PackageReference Include="UraniumUI.Material" Version="2.7.3" />
 	</ItemGroup>
 
 	<ItemGroup>

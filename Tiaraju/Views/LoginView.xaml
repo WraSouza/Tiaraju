@@ -4,13 +4,14 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mvvm="clr-namespace:Tiaraju.ViewModels"
+    xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
     Title="LoginView">
     <ContentPage.BindingContext>
         <mvvm:LoginViewModel />
     </ContentPage.BindingContext>
 
 
-    <Grid BackgroundColor="#20B2AA" RowDefinitions="*,*">
+    <Grid BackgroundColor="#0E7B35" RowDefinitions="*,*">
 
         <Image
             Grid.Row="0"
@@ -23,44 +24,49 @@
             BackgroundColor="White"
             StrokeShape="RoundRectangle 100,0,0,0">
 
-            <VerticalStackLayout Padding="10" Spacing="10">
+            <VerticalStackLayout Padding="10" Spacing="10" Margin="0,30,0,0">
                 <Label
                     FontSize="35"
                     HorizontalTextAlignment="Center"
                     Text="Login"
                     TextColor="Black" />
 
-                <Label
+                <!--<Label
                     FontFamily="OpenSansSemibold"
                     FontSize="20"
                     Text="Usuário"
-                    TextColor="Black" />
+                    TextColor="Black" />-->
+
+                <material:TextField Title="Usuário" Text="{Binding Name}" />
+
+                <material:TextField Title="Senha" IsPassword="True" Text="{Binding Password}"/>
 
 
-                <Entry
+                <!--<Entry
                     ClearButtonVisibility="WhileEditing"
                     FontSize="Medium"
                     Text="{Binding Name}"
                     TextColor="Black"
-                    TextTransform="Lowercase" />
+                    TextTransform="Lowercase" />-->
 
 
-                <Label
+                <!--<Label
                     FontFamily="OpenSansSemibold"
                     FontSize="20"
                     Text="Senha"
-                    TextColor="Black" />
+                    TextColor="Black" />-->
 
-                <Entry
+                <!--<Entry
                     ClearButtonVisibility="WhileEditing"
                     CursorPosition="50"
                     FontSize="Medium"
                     IsPassword="True"
                     Text="{Binding Password}"
-                    TextColor="Black" />
+                    TextColor="Black" />-->
                 <Grid>
                     <Button
-                        Margin="0,35,0,0"
+                        Margin="0,50,0,0"
+                        HeightRequest="50"
                         BackgroundColor="OrangeRed"
                         Command="{Binding LoginCommand}"
                         FontFamily="OpenSansSemibold"
@@ -77,7 +83,7 @@
                     </Button>
 
                     <ActivityIndicator
-                        Margin="0,35,0,0"
+                        Margin="0,50,0,0"
                         HorizontalOptions="Center"
                         IsRunning="{Binding LoginCommand.IsRunning}"
                         IsVisible="{Binding LoginCommand.IsRunning}"
