@@ -1,12 +1,90 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Tiaraju.Views.DepartmentsView"
-             Title="Setores">
-    <VerticalStackLayout VerticalOptions="Center">
-        <Image Source="underconstruction.png"
-               HeightRequest="50"
-               VerticalOptions="CenterAndExpand" 
-            HorizontalOptions="Center"/>        
-    </VerticalStackLayout>
+<ContentPage
+    x:Class="Tiaraju.Views.DepartmentsView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Setores">
+
+    <Grid BackgroundColor="White">
+        <Image
+            HeightRequest="100"
+            HorizontalOptions="Center"
+            Opacity="0.1"
+            Source="logotiaraju.png"
+            VerticalOptions="Center" />
+
+        <VerticalStackLayout VerticalOptions="Center">
+            
+            <VerticalStackLayout
+                Margin="0,70,0,0"
+                Padding="10"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand">
+
+                <Grid
+                    ColumnDefinitions=" 150, 150"
+                    ColumnSpacing="40"
+                    RowDefinitions="100,80,100,120"
+                    RowSpacing="10">
+
+                    <Image
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        HeightRequest="80"
+                        Source="ti_logo.png" />
+
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        FontFamily="MontserratRegular"
+                        FontSize="Medium"
+                        HorizontalOptions="Center"
+                        Text="TI" />
+
+                    <Image
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Source="gerenciamentoprojeto.png" />
+
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        FontFamily="MontserratRegular"
+                        FontSize="Medium"
+                        HorizontalOptions="Center"
+                        Text="PMO" />
+
+                    <Image
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Source="rh_logo.png"/>
+
+
+                    <Label
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        FontFamily="MontserratRegular"
+                        FontSize="Medium"
+                        HorizontalOptions="Center"
+                        Text="RH" />
+
+                    <Image
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Source="cq_logo.png" />
+
+                    <Label
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        FontFamily="MontserratRegular"
+                        FontSize="Medium"
+                        HorizontalOptions="Center"
+                        Text="CQ" />
+
+                </Grid>
+
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>

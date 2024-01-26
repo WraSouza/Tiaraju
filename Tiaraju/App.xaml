@@ -14,7 +14,7 @@
                 <material:StyleResource BasedOn="{x:Reference appStyles}" ColorsOverride="{x:Reference appColors}" />
             </ResourceDictionary.MergedDictionaries>
 
-        </ResourceDictionary>       
+        </ResourceDictionary>
 
     </Application.Resources>
 </Application>

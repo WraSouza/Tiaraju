@@ -8,51 +8,10 @@
     FlyoutBackgroundColor="Green"
     Shell.BackgroundColor="#0E7B35"
     Shell.ForegroundColor="White"
-    Shell.TabBarTitleColor="White">
+    Shell.TabBarForegroundColor="Green"
+    Shell.TabBarTitleColor="Green">
 
 
-
-    <!--<FlyoutItem Icon="homeicon.png"
-                Title="Início">
-
-        <Tab>
-            <ShellContent ContentTemplate="{DataTemplate views:MainView}"/>
-        </Tab>
-
-    </FlyoutItem>
-
-    <FlyoutItem Icon="structure.png"
-                Title="Setores">
-
-        <Tab>
-            <ShellContent ContentTemplate="{DataTemplate views:MainView}"/>
-        </Tab>
-    </FlyoutItem>-->
-
-    <!--<TabBar Route="Main">
-        <ShellContent
-            Title="Início"
-            ContentTemplate="{DataTemplate views:MainView}"
-            Icon="home.png" />
-
-        <ShellContent
-            Title="Setores"
-            ContentTemplate="{DataTemplate views:DepartmentsView}"
-            Icon="department.png" />
-
-        <ShellContent
-            Title="Serviços"
-            ContentTemplate="{DataTemplate views:ServicosView}"
-            Icon="services.png" />
-
-        <Tab Title="Projetos" Icon="project.png">
-            <ShellContent Title="Todos" ContentTemplate="{DataTemplate views:GerenciamentoProjetosView}" />
-
-            <ShellContent Title="Por Setores" ContentTemplate="{DataTemplate views:PMOSetorView}" />
-        </Tab>
-
-
-    </TabBar>-->
     <TabBar>
         <Tab Title="Início" Icon="home.png">
             <ShellContent ContentTemplate="{DataTemplate views:MainView}" />
