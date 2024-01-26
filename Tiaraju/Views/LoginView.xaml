@@ -62,57 +62,7 @@
                     VerticalOptions="Center"
                     Color="White" />
 
-                </Grid>
-
-
-                <!--<Entry
-                    ClearButtonVisibility="WhileEditing"
-                    FontSize="Medium"
-                    Text="{Binding Name}"
-                    TextColor="Black"
-                    TextTransform="Lowercase" />-->
-
-
-                <!--<Label
-                    FontFamily="OpenSansSemibold"
-                    FontSize="20"
-                    Text="Senha"
-                    TextColor="Black" />-->
-
-                <!--<Entry
-                    ClearButtonVisibility="WhileEditing"
-                    CursorPosition="50"
-                    FontSize="Medium"
-                    IsPassword="True"
-                    Text="{Binding Password}"
-                    TextColor="Black" />-->
-                <!--<Grid>
-                    <Button
-                        Margin="0,50,0,0"
-                        BackgroundColor="OrangeRed"
-                        Command="{Binding LoginCommand}"
-                        FontFamily="MontserratSemiBold"
-                        FontSize="Medium"
-                        HeightRequest="50"
-                        Text="Login">
-                        <Button.Triggers>
-                            <DataTrigger
-                                Binding="{Binding LoginCommand.IsRunning}"
-                                TargetType="Button"
-                                Value="True">
-                                <Setter Property="Text" Value="" />
-                            </DataTrigger>
-                        </Button.Triggers>
-                    </Button>
-
-                    <ActivityIndicator
-                        Margin="0,50,0,0"
-                        HorizontalOptions="Center"
-                        IsRunning="{Binding LoginCommand.IsRunning}"
-                        IsVisible="{Binding LoginCommand.IsRunning}"
-                        VerticalOptions="Center"
-                        Color="White" />
-                </Grid>-->
+                </Grid>               
 
 
             </VerticalStackLayout>

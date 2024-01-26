@@ -95,15 +95,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="AcrylicView.Maui" Version="2.1.1" />
 	  <PackageReference Include="AlohaKit" Version="1.0.74" />
 	  <PackageReference Include="CommunityToolkit.Maui" Version="7.0.1" />
 	  <PackageReference Include="CommunityToolkit.MVVM" Version="8.2.2" />
 	  <PackageReference Include="FirebaseDatabase.net" Version="4.2.0" />
 	  <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
-	  <PackageReference Include="Sentry.Maui" Version="3.41.3" />
-	  <PackageReference Include="UraniumUI" Version="2.7.3" />
-	  <PackageReference Include="UraniumUI.Icons.MaterialIcons" Version="2.7.3" />
-	  <PackageReference Include="UraniumUI.Material" Version="2.7.3" />
+	  <PackageReference Include="Sentry.Maui" Version="3.41.4" />
+	  <PackageReference Include="UraniumUI" Version="2.7.4" />
+	  <PackageReference Include="UraniumUI.Icons.MaterialIcons" Version="2.7.4" />
+	  <PackageReference Include="UraniumUI.Material" Version="2.7.4" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -194,5 +195,15 @@
 		<AppInstallerUri>C:\Users\wladimir.souza\Documents\Instalador Tiaraju</AppInstallerUri>
 		<HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
 	</PropertyGroup>
+
+
+	<ItemGroup>
+	  <PackageReference Update="Microsoft.Maui.Controls" Version="8.0.6" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <PackageReference Update="Microsoft.Maui.Controls.Compatibility" Version="8.0.6" />
+	</ItemGroup>
 
 </Project>
