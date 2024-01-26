@@ -28,19 +28,18 @@
                     FontFamily="MontserratSemiBold"
                     FontSize="Medium"
                     Text="Seja Bem-Vindo(a)"
-                    TextColor="#20B2AA" />
+                    TextColor="Green" />
 
                 <Label
                     FontFamily="MontserratSemiBold"
                     FontSize="Medium"
                     Text="{Binding Nomeusuario}"
-                    TextColor="#20B2AA" />
+                    TextColor="Green" />
             </HorizontalStackLayout>
 
 
-
             <VerticalStackLayout
-                Margin="0,20,0,0"
+                Margin="0,80,0,0"
                 Padding="10"
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="CenterAndExpand">
@@ -48,7 +47,7 @@
                 <Grid
                     ColumnDefinitions=" 150, 150"
                     ColumnSpacing="40"
-                    RowDefinitions="120,120,120,120"
+                    RowDefinitions="80,120,80,120"
                     RowSpacing="10">
 
                     <Image
@@ -80,7 +79,11 @@
                     <Image
                         Grid.Row="2"
                         Grid.Column="0"
-                        Source="glpi.png" />
+                        Source="glpi.png" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding AbrirGLPICommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
 
                     <Label
                         Grid.Row="4"

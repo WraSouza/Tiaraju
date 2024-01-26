@@ -23,4 +23,11 @@ public partial class MainViewModel : ObservableObject
         Nomeusuario = lista.Name;
     }
 
+    [RelayCommand]
+    public async Task AbrirGLPI()
+    {
+        var route = $"{nameof(Views.GLPIView)}";
+        await Shell.Current.GoToAsync(route);
+    }
+
 }

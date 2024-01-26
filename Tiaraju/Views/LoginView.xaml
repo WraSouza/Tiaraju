@@ -3,8 +3,8 @@
     x:Class="Tiaraju.Views.LoginView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:mvvm="clr-namespace:Tiaraju.ViewModels"
     xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+    xmlns:mvvm="clr-namespace:Tiaraju.ViewModels"
     Title="LoginView">
     <ContentPage.BindingContext>
         <mvvm:LoginViewModel />
@@ -24,22 +24,45 @@
             BackgroundColor="White"
             StrokeShape="RoundRectangle 100,0,0,0">
 
-            <VerticalStackLayout Padding="10" Spacing="10" Margin="0,30,0,0">
+            <VerticalStackLayout
+                Margin="0,30,0,0"
+                Padding="10"
+                Spacing="10">
                 <Label
                     FontSize="35"
                     HorizontalTextAlignment="Center"
                     Text="Login"
                     TextColor="Black" />
 
-                <!--<Label
-                    FontFamily="OpenSansSemibold"
-                    FontSize="20"
-                    Text="Usuário"
-                    TextColor="Black" />-->
 
-                <material:TextField Title="Usuário" Text="{Binding Name}" />
+                <material:TextField Title="Usuário" Text="{Binding Name}" FontFamily="MontserratSemiBold" />
 
-                <material:TextField Title="Senha" IsPassword="True" Text="{Binding Password}"/>
+                <material:TextField
+                    Title="Senha"
+                    IsPassword="True"
+                    Text="{Binding Password}" />
+
+                <Grid Margin="0,10,0,0">
+
+                <Button
+                    BackgroundColor="OrangeRed"
+                    Command="{Binding LoginCommand}"
+                    FontFamily="MontserratSemiBold"
+                    HeightRequest="50"
+                    Margin="20,50,20,0"
+                    StyleClass="ElevatedButton"
+                    Text="Login"
+                    TextColor="White" />
+
+                <ActivityIndicator
+                    Margin="0,50,0,0"
+                    HorizontalOptions="Center"
+                    IsRunning="{Binding LoginCommand.IsRunning}"
+                    IsVisible="{Binding LoginCommand.IsRunning}"
+                    VerticalOptions="Center"
+                    Color="White" />
+
+                </Grid>
 
 
                 <!--<Entry
@@ -63,14 +86,14 @@
                     IsPassword="True"
                     Text="{Binding Password}"
                     TextColor="Black" />-->
-                <Grid>
+                <!--<Grid>
                     <Button
                         Margin="0,50,0,0"
-                        HeightRequest="50"
                         BackgroundColor="OrangeRed"
                         Command="{Binding LoginCommand}"
-                        FontFamily="OpenSansSemibold"
+                        FontFamily="MontserratSemiBold"
                         FontSize="Medium"
+                        HeightRequest="50"
                         Text="Login">
                         <Button.Triggers>
                             <DataTrigger
@@ -89,7 +112,7 @@
                         IsVisible="{Binding LoginCommand.IsRunning}"
                         VerticalOptions="Center"
                         Color="White" />
-                </Grid>
+                </Grid>-->
 
 
             </VerticalStackLayout>

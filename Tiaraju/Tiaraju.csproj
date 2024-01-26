@@ -60,6 +60,7 @@
 	  <None Remove="Resources\Images\cardapio.jpeg" />
 	  <None Remove="Resources\Images\cardapionovo.jpg" />
 	  <None Remove="Resources\Images\coin.png" />
+	  <None Remove="Resources\Images\cq_logo.png" />
 	  <None Remove="Resources\Images\delete.png" />
 	  <None Remove="Resources\Images\department.png" />
 	  <None Remove="Resources\Images\diat.jpeg" />
@@ -82,12 +83,14 @@
 	  <None Remove="Resources\Images\plus.png" />
 	  <None Remove="Resources\Images\pmonovo.jpg" />
 	  <None Remove="Resources\Images\project.png" />
+	  <None Remove="Resources\Images\rh_logo.png" />
 	  <None Remove="Resources\Images\rightarrow.png" />
 	  <None Remove="Resources\Images\services.png" />
 	  <None Remove="Resources\Images\setores.png" />
 	  <None Remove="Resources\Images\structure.png" />
 	  <None Remove="Resources\Images\tempodeempresanovo.jpg" />
 	  <None Remove="Resources\Images\tempoempresaimagem.png" />
+	  <None Remove="Resources\Images\ti_logo.png" />
 	  <None Remove="Resources\Images\underconstruction.png" />
 	</ItemGroup>
 
