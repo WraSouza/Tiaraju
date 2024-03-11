@@ -56,9 +56,11 @@
 	  <None Remove="Resources\Images\analytics.png" />
 	  <None Remove="Resources\Images\bonusnovo.jpg" />
 	  <None Remove="Resources\Images\bonustiarajuimagem.jpg" />
+	  <None Remove="Resources\Images\calendar.png" />
 	  <None Remove="Resources\Images\calendariocq.jpg" />
 	  <None Remove="Resources\Images\cardapio.jpeg" />
 	  <None Remove="Resources\Images\cardapionovo.jpg" />
+	  <None Remove="Resources\Images\checked.png" />
 	  <None Remove="Resources\Images\coin.png" />
 	  <None Remove="Resources\Images\cq_logo.png" />
 	  <None Remove="Resources\Images\delete.png" />
@@ -101,6 +103,7 @@
 	  <PackageReference Include="CommunityToolkit.MVVM" Version="8.2.2" />
 	  <PackageReference Include="FirebaseDatabase.net" Version="4.2.0" />
 	  <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
+	  <PackageReference Include="Plugin.Maui.Calendar" Version="1.1.1" />
 	  <PackageReference Include="Sentry.Maui" Version="3.41.4" />
 	  <PackageReference Include="UraniumUI" Version="2.7.4" />
 	  <PackageReference Include="UraniumUI.Icons.MaterialIcons" Version="2.7.4" />

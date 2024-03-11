@@ -79,9 +79,9 @@
                     <Image
                         Grid.Row="2"
                         Grid.Column="0"
-                        Source="glpi.png" >
+                        Source="glpi.png">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding AbrirGLPICommand}"/>
+                            <TapGestureRecognizer Command="{Binding AbrirGLPICommand}" />
                         </Image.GestureRecognizers>
                     </Image>
 
