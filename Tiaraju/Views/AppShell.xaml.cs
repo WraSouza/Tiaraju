@@ -30,5 +30,7 @@ public partial class AppShell : Shell
 
         Routing.RegisterRoute(nameof(CalendarioCQDetailView), typeof(CalendarioCQDetailView));
 
+        Routing.RegisterRoute(nameof(CQMainView), typeof(CQMainView));
+
     }
 }

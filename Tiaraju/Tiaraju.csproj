@@ -69,6 +69,7 @@
 	  <None Remove="Resources\Images\diat.png" />
 	  <None Remove="Resources\Images\diatnovo.jpg" />
 	  <None Remove="Resources\Images\edit.png" />
+	  <None Remove="Resources\Images\excluded.png" />
 	  <None Remove="Resources\Images\food.png" />
 	  <None Remove="Resources\Images\gerenciamentoprojeto.png" />
 	  <None Remove="Resources\Images\glpi.jpg" />
@@ -97,7 +98,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="AcrylicView.Maui" Version="2.1.1" />
 	  <PackageReference Include="AlohaKit" Version="1.0.74" />
 	  <PackageReference Include="CommunityToolkit.Maui" Version="7.0.1" />
 	  <PackageReference Include="CommunityToolkit.MVVM" Version="8.2.2" />
@@ -129,7 +129,7 @@
 	  <MauiXaml Update="Views\CadastroCalendarioCQView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\CalendarioCQDetailView.xaml">
+	  <MauiXaml Update="Views\CQ\CalendarioCQDetailView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\CalendarioCQExcluidos.xaml">
@@ -142,6 +142,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ChartsPMOView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\CQ\CQMainView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\DepartmentsView.xaml">
@@ -201,12 +204,15 @@
 
 
 	<ItemGroup>
-	  <PackageReference Update="Microsoft.Maui.Controls" Version="8.0.6" />
+	  <PackageReference Update="Microsoft.Maui.Controls" Version="8.0.7" />
 	</ItemGroup>
 
 
 	<ItemGroup>
-	  <PackageReference Update="Microsoft.Maui.Controls.Compatibility" Version="8.0.6" />
+	  <PackageReference Update="Microsoft.Maui.Controls.Compatibility" Version="8.0.7" />
 	</ItemGroup>
+
+
+	
 
 </Project>
