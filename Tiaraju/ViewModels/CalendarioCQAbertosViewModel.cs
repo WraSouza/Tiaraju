@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Tiaraju.FirebaseServices;
+using Plugin.Maui.Calendar.Models;
 using Tiaraju.FirebaseServices.Services.Implementations;
 using Tiaraju.Models;
 
@@ -14,6 +15,10 @@ namespace Tiaraju.ViewModels
         List<string> meses = new List<string>() { "Janeiro", "Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro" };
 
         public ObservableCollection<Calendario> Calendarios { get; set; } = new ObservableCollection<Calendario>();
+
+        public ObservableCollection<CalendarioGroupGQ> NovosCalendarios { get; private set; } = new ObservableCollection<CalendarioGroupGQ>();
+
+        public EventCollection Events { get; set; }
 
         [ObservableProperty]
         public string month;
@@ -86,6 +91,8 @@ namespace Tiaraju.ViewModels
         [RelayCommand]
         void IrProximoMes()
         {
+            NovosCalendarios.Clear();
+
             int indexofmonth = meses.IndexOf(Month);
 
             if (indexofmonth == 11)
@@ -99,6 +106,7 @@ namespace Tiaraju.ViewModels
         [RelayCommand]
         void IrMesAnterior()
         {
+            NovosCalendarios.Clear();
             int indexofmonth = meses.IndexOf(Month);
 
             if (indexofmonth == 0)
@@ -112,6 +120,7 @@ namespace Tiaraju.ViewModels
         [RelayCommand]
         void IrProximoAno()
         {
+            NovosCalendarios.Clear();
             int anoDesejado = int.Parse(Year) + 1;
 
             Year = anoDesejado.ToString();
@@ -122,6 +131,7 @@ namespace Tiaraju.ViewModels
         [RelayCommand]
         void IrAnoAnterior()
         {
+            NovosCalendarios.Clear();
             int anoDesejado = int.Parse(Year) - 1;
 
             Year = anoDesejado.ToString();
@@ -140,13 +150,27 @@ namespace Tiaraju.ViewModels
         {
             Calendarios.Clear();
 
-            CalendarioCQService calendarioService = new CalendarioCQService();
-            var listaCalendario = await calendarioService.GetCurrentMonthCalendar(Month.ToUpper(),int.Parse(Year));            
+            CalendarioCQService calendarioService = new CalendarioCQService();           
+            var listaCalendario = await calendarioService.GetCurrentMonthCalendar(Month.ToUpper(),int.Parse(Year));
+
+            foreach (var calendario in listaCalendario.OrderByDescending(x => x.Dia).Where(x => x.IsFinished == false && x.IsExcluded == false).Reverse())
+            {
+                Calendarios.Add(calendario);
+            }
 
             foreach (var calendario in listaCalendario.OrderByDescending(x => x.Dia).Reverse())
             {
-                Calendarios.Add(calendario);
-            }            
+                if(Calendarios.Count > 0)
+                {
+                    NovosCalendarios.Add(new CalendarioGroupGQ(calendario.Dia.ToString(), Calendarios));
+
+                    return;
+                }
+                
+            }
+                  
+            
+            //Events.Add(DateTime.Now, Calendarios);
 
         }
 

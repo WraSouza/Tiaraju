@@ -35,7 +35,10 @@
                     TextColor="Black" />
 
 
-                <material:TextField Title="Usuário" Text="{Binding Name}" FontFamily="MontserratSemiBold" />
+                <material:TextField
+                    Title="Usuário"
+                    FontFamily="MontserratSemiBold"
+                    Text="{Binding Name}" />
 
                 <material:TextField
                     Title="Senha"
@@ -44,66 +47,15 @@
 
                 <Grid Margin="0,10,0,0">
 
-                <Button
-                    BackgroundColor="OrangeRed"
-                    Command="{Binding LoginCommand}"
-                    FontFamily="MontserratSemiBold"
-                    HeightRequest="50"
-                    Margin="20,50,20,0"
-                    StyleClass="ElevatedButton"
-                    Text="Login"
-                    TextColor="White" />
-
-                <ActivityIndicator
-                    Margin="0,50,0,0"
-                    HorizontalOptions="Center"
-                    IsRunning="{Binding LoginCommand.IsRunning}"
-                    IsVisible="{Binding LoginCommand.IsRunning}"
-                    VerticalOptions="Center"
-                    Color="White" />
-
-                </Grid>
-
-
-                <!--<Entry
-                    ClearButtonVisibility="WhileEditing"
-                    FontSize="Medium"
-                    Text="{Binding Name}"
-                    TextColor="Black"
-                    TextTransform="Lowercase" />-->
-
-
-                <!--<Label
-                    FontFamily="OpenSansSemibold"
-                    FontSize="20"
-                    Text="Senha"
-                    TextColor="Black" />-->
-
-                <!--<Entry
-                    ClearButtonVisibility="WhileEditing"
-                    CursorPosition="50"
-                    FontSize="Medium"
-                    IsPassword="True"
-                    Text="{Binding Password}"
-                    TextColor="Black" />-->
-                <!--<Grid>
                     <Button
-                        Margin="0,50,0,0"
+                        Margin="20,50,20,0"
                         BackgroundColor="OrangeRed"
                         Command="{Binding LoginCommand}"
                         FontFamily="MontserratSemiBold"
-                        FontSize="Medium"
                         HeightRequest="50"
-                        Text="Login">
-                        <Button.Triggers>
-                            <DataTrigger
-                                Binding="{Binding LoginCommand.IsRunning}"
-                                TargetType="Button"
-                                Value="True">
-                                <Setter Property="Text" Value="" />
-                            </DataTrigger>
-                        </Button.Triggers>
-                    </Button>
+                        StyleClass="ElevatedButton"
+                        Text="Login"
+                        TextColor="White" />
 
                     <ActivityIndicator
                         Margin="0,50,0,0"
@@ -112,7 +64,8 @@
                         IsVisible="{Binding LoginCommand.IsRunning}"
                         VerticalOptions="Center"
                         Color="White" />
-                </Grid>-->
+
+                </Grid>
 
 
             </VerticalStackLayout>

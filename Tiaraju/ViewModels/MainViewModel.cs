@@ -30,4 +30,11 @@ public partial class MainViewModel : ObservableObject
         await Shell.Current.GoToAsync(route);
     }
 
+    [RelayCommand]
+    public async Task AbrirCalendarioCQ()
+    {
+        var route = $"{nameof(Views.CQMainView)}";
+        await Shell.Current.GoToAsync(route);
+    }
+
 }
