@@ -67,6 +67,7 @@
 	  <None Remove="Resources\Images\department.png" />
 	  <None Remove="Resources\Images\edit.png" />
 	  <None Remove="Resources\Images\excluded.png" />
+	  <None Remove="Resources\Images\extintor.png" />
 	  <None Remove="Resources\Images\food.png" />
 	  <None Remove="Resources\Images\gerenciamentoprojeto.png" />
 	  <None Remove="Resources\Images\glpi.jpg" />
@@ -94,6 +95,7 @@
 	  <None Remove="Resources\Images\tempoempresaimagem.png" />
 	  <None Remove="Resources\Images\ti_logo.png" />
 	  <None Remove="Resources\Images\underconstruction.png" />
+	  <None Remove="Resources\Images\videoconference.png" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -177,6 +179,12 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ServicosView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ST\ExtintoresView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ST\STMainView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\TIView.xaml">

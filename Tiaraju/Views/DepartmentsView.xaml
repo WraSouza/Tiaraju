@@ -94,7 +94,7 @@
                         Grid.Column="0"
                         Source="segurancatrabalho.png">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding AbrirCalendarioCQCommand}" />
+                            <TapGestureRecognizer Command="{Binding AbrirSTViewCommand}" />
                         </Image.GestureRecognizers>
                     </Image>
 
