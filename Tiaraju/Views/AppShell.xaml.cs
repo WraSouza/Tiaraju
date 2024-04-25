@@ -32,5 +32,7 @@ public partial class AppShell : Shell
 
         Routing.RegisterRoute(nameof(CQMainView), typeof(CQMainView));
 
+        Routing.RegisterRoute(nameof(MAN.ManutencaoPrincipalView), typeof(MAN.ManutencaoPrincipalView));
+
     }
 }

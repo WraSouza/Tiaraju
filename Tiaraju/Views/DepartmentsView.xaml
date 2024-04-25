@@ -7,7 +7,7 @@
     Title="Setores">
 
     <ContentPage.BindingContext>
-        <mvvm:MainViewModel/>
+        <mvvm:DepartmentViewMode />
     </ContentPage.BindingContext>
 
     <Grid BackgroundColor="White">
@@ -19,7 +19,7 @@
             VerticalOptions="Center" />
 
         <VerticalStackLayout VerticalOptions="Center">
-            
+
             <VerticalStackLayout
                 Margin="0,70,0,0"
                 Padding="10"
@@ -29,13 +29,12 @@
                 <Grid
                     ColumnDefinitions=" 150, 150"
                     ColumnSpacing="40"
-                    RowDefinitions="100,80,100,120"
+                    RowDefinitions="70,50,70,0,70,50,70"
                     RowSpacing="10">
 
                     <Image
                         Grid.Row="0"
                         Grid.Column="0"
-                        HeightRequest="80"
                         Source="ti_logo.png" />
 
                     <Label
@@ -62,7 +61,7 @@
                     <Image
                         Grid.Row="2"
                         Grid.Column="0"
-                        Source="rh_logo.png"/>
+                        Source="rh_logo.png" />
 
 
                     <Label
@@ -76,9 +75,9 @@
                     <Image
                         Grid.Row="2"
                         Grid.Column="1"
-                        Source="cq_logo.png" >
+                        Source="cq_logo.png">
                         <Image.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding AbrirCalendarioCQCommand}"/>
+                            <TapGestureRecognizer Command="{Binding AbrirCalendarioCQCommand}" />
                         </Image.GestureRecognizers>
                     </Image>
 
@@ -89,6 +88,40 @@
                         FontSize="Medium"
                         HorizontalOptions="Center"
                         Text="CQ" />
+
+                    <Image
+                        Grid.Row="5"
+                        Grid.Column="0"
+                        Source="segurancatrabalho.png">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding AbrirCalendarioCQCommand}" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Label
+                        Grid.Row="6"
+                        Grid.Column="0"
+                        FontFamily="MontserratRegular"
+                        FontSize="Medium"
+                        HorizontalOptions="Center"
+                        Text="ST" />
+
+                    <Image
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        Source="manutencao.png">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding AbrirManutencaoViewCommand}" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Label
+                        Grid.Row="6"
+                        Grid.Column="1"
+                        FontFamily="MontserratRegular"
+                        FontSize="Medium"
+                        HorizontalOptions="Center"
+                        Text="MAN" />
 
                 </Grid>
 

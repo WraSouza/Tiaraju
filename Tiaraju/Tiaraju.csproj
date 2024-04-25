@@ -65,9 +65,6 @@
 	  <None Remove="Resources\Images\cq_logo.png" />
 	  <None Remove="Resources\Images\delete.png" />
 	  <None Remove="Resources\Images\department.png" />
-	  <None Remove="Resources\Images\diat.jpeg" />
-	  <None Remove="Resources\Images\diat.png" />
-	  <None Remove="Resources\Images\diatnovo.jpg" />
 	  <None Remove="Resources\Images\edit.png" />
 	  <None Remove="Resources\Images\excluded.png" />
 	  <None Remove="Resources\Images\food.png" />
@@ -80,6 +77,7 @@
 	  <None Remove="Resources\Images\leftarrow.png" />
 	  <None Remove="Resources\Images\logobrancotiaraju.png" />
 	  <None Remove="Resources\Images\logotiaraju.png" />
+	  <None Remove="Resources\Images\manutencao.png" />
 	  <None Remove="Resources\Images\novocalendariogq.jpg" />
 	  <None Remove="Resources\Images\pautafixa.jpg" />
 	  <None Remove="Resources\Images\pautafixanovo.jpg" />
@@ -88,6 +86,7 @@
 	  <None Remove="Resources\Images\project.png" />
 	  <None Remove="Resources\Images\rh_logo.png" />
 	  <None Remove="Resources\Images\rightarrow.png" />
+	  <None Remove="Resources\Images\segurancatrabalho.png" />
 	  <None Remove="Resources\Images\services.png" />
 	  <None Remove="Resources\Images\setores.png" />
 	  <None Remove="Resources\Images\structure.png" />
@@ -163,6 +162,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\MainView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\MAN\ManutencaoPrincipalView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\PMOSetorView.xaml">
