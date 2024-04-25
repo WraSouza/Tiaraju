@@ -21,5 +21,12 @@ namespace Tiaraju.ViewModels
             var route = $"{nameof(Views.MAN.ManutencaoPrincipalView)}";
             await Shell.Current.GoToAsync(route);
         }
+
+        [RelayCommand]
+        public async Task AbrirSTView()
+        {
+            var route = $"{nameof(Views.ST.STMainView)}";
+            await Shell.Current.GoToAsync(route);
+        }
     }
 }

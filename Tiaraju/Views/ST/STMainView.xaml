@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Tiaraju.Views.ST.STMainView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mvvm="clr-namespace:Tiaraju.ViewModels.STViewModels"
+    Title="Segurança do Trabalho">
+
+    <ContentPage.BindingContext>
+        <mvvm:STMainViewModel/>
+    </ContentPage.BindingContext>
+
+    <Grid BackgroundColor="White">
+        <Image
+            HeightRequest="100"
+            HorizontalOptions="Center"
+            Opacity="0.1"
+            Source="logotiaraju.png"
+            VerticalOptions="Center" />
+
+        <StackLayout Margin="0,50,0,0">
+            <Grid ColumnDefinitions="*,*" RowDefinitions="50,80">
+                <Image
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Source="videoconference.png" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    FontFamily="MontserratSemibold"
+                    FontSize="Medium"
+                    HorizontalTextAlignment="Center"
+                    Text="Reunião" />
+
+                <!--  Extintor  -->
+                <Image
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Source="extintor.png">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding AbrirExtintoresViewCommand}" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    FontFamily="MontserratSemibold"
+                    FontSize="Medium"
+                    HorizontalTextAlignment="Center"
+                    Text="Extintores" />
+            </Grid>
+        </StackLayout>
+    </Grid>
+</ContentPage>

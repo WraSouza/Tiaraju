@@ -34,5 +34,9 @@ public partial class AppShell : Shell
 
         Routing.RegisterRoute(nameof(MAN.ManutencaoPrincipalView), typeof(MAN.ManutencaoPrincipalView));
 
+        Routing.RegisterRoute(nameof(ST.STMainView), typeof(ST.STMainView));
+
+        Routing.RegisterRoute(nameof(ST.ExtintoresView), typeof(ST.ExtintoresView));
+
     }
 }
